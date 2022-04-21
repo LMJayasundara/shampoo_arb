@@ -61,8 +61,8 @@ const postTransactionDetails = (
     method: "POST",
     form: {
         machineUniqueId: machineID,
-        NozzleId: '1',
-        productId: '1',
+        NozzleId: params.nozzleId,
+        productId: params.productId,
         volume: params.productVolume,
         netPrice: params.netPrice,
         token: token,

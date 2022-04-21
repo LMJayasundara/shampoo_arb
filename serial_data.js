@@ -7,8 +7,8 @@ const download = require("download");
 const serialport = require("serialport");
 const cors = require("cors");
 const http = require("http");
-// var wifi = require("node-wifi");
-var Wifi = require('rpi-wifi-connection');
+var wifi = require("node-wifi");
+// var Wifi = require('rpi-wifi-connection');
 const async = require("asyncawait/async");
 const await = require("asyncawait/await");
 const { checkNetworkStatus } = require('check-network-status');
@@ -33,6 +33,7 @@ var dateTime = null;
 var machine_id = "";
 var token = "";
 var barcodeValue = "";
+var id_batch = "";
 
 eval(fs.readFileSync("printer.js") + "");
 app.use(cors());
@@ -79,12 +80,12 @@ var server = http.createServer(app).listen(app.get("port"), function () {
   console.log("Express server listening on port " + app.get("port"));
 });
 
-// wifi.init({
-//   iface: null, // network interface, choose a random wifi interface if set to null
-// });
+wifi.init({
+  iface: null, // network interface, choose a random wifi interface if set to null
+});
 
 
-var wifi = new Wifi();
+// var wifi = new Wifi();
 
 //socket stuff
 var io = require("socket.io").listen(server);
@@ -125,30 +126,30 @@ io.sockets.on("connection", function (socket) {
   });
 
   socket.on("IS_WIFI_ON", function (data) {
-    // checkNetworkStatus({
-    //   timeout: 3000,
-    //   url: 'https://google.com'
-    // }).then(value => {
-    //   socket.emit("IS_WIFI_ON", {value, data})
-    // });
-    wifi.getState().then((connected) => {
-      if(connected) {
-        console.log("CONNECTION");
-        console.log(connected);
-        var object = {value: true, data: data};
-        socket.emit("IS_WIFI_ON", object);
-      } else {
-        console.log("NOT CONNECTION");
-        var object = {value: false, data: data};
-        socket.emit("IS_WIFI_ON", object);
-      }
-     
-    })
-    .catch((error) => {
-      console.log(error);
-      var object = {value: false, data: data};
-      socket.emit("IS_WIFI_ON", object);
+    checkNetworkStatus({
+      timeout: 3000,
+      url: 'https://google.com'
+    }).then(value => {
+      socket.emit("IS_WIFI_ON", {value, data})
     });
+    // wifi.getState().then((connected) => {
+    //   if(connected) {
+    //     console.log("CONNECTION");
+    //     console.log(connected);
+    //     var object = {value: true, data: data};
+    //     socket.emit("IS_WIFI_ON", object);
+    //   } else {
+    //     console.log("NOT CONNECTION");
+    //     var object = {value: false, data: data};
+    //     socket.emit("IS_WIFI_ON", object);
+    //   }
+     
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    //   var object = {value: false, data: data};
+    //   socket.emit("IS_WIFI_ON", object);
+    // });
   });
 
   function setMachineIDandToken() {
@@ -250,6 +251,7 @@ io.sockets.on("connection", function (socket) {
     barcodeValue = barcodeID;
     callKegApi(machine_id, barcodeID, token, function(response){
       console.log(response)
+      id_batch = response.product.id_batch;
       if(response.isSuccess) {
         var obj = getProductDetailsFromResponse("fromKeg", response);
 	      io.sockets.emit("SYNC_KEG_DETAILS", obj);
@@ -260,7 +262,9 @@ io.sockets.on("connection", function (socket) {
   });
 
   socket.on("SAVE_KEG_DETAILS", function (nozzelID) {
-	  callSaveKegDetailsApi(machine_id, nozzelID, barcodeValue, token, function(response){
+    console.log(id_batch, barcodeValue);
+	  // callSaveKegDetailsApi(machine_id, nozzelID, barcodeValue, token, function(response){
+    callSaveKegDetailsApi(machine_id, nozzelID, id_batch, token, function(response){
       io.sockets.emit("SAVE_KEG_DETAILS", response);
     });
   });
@@ -280,26 +284,26 @@ io.sockets.on("connection", function (socket) {
     var ssid = data.split(" ")[0];
     var pass = data.split(" ")[1];
     console.log("connecting.....");
-    // wifi.connect({ ssid: ssid, password: pass }, function (err) {
-    //   if (err) {
-    //     console.log(err);
-    //   } else {
-    //     console.log("Connected");
-    //     isSuccess = true;
-    //   }
-    //   console.log("okkkkkkkk" + isSuccess);
-    //   socket.emit("WIFI_CONNECT", isSuccess);
-    // });
-
-    wifi.connect({ssid:ssid, psk:pass}).then(() => {
-      isSuccess = true
+    wifi.connect({ ssid: ssid, password: pass }, function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Connected");
+        isSuccess = true;
+      }
       console.log("okkkkkkkk" + isSuccess);
       socket.emit("WIFI_CONNECT", isSuccess);
-      })
-      .catch((error) => {
-        console.log(error);
-        socket.emit("WIFI_CONNECT", false);
-      });
+    });
+
+    // wifi.connect({ssid:ssid, psk:pass}).then(() => {
+    //   isSuccess = true
+    //   console.log("okkkkkkkk" + isSuccess);
+    //   socket.emit("WIFI_CONNECT", isSuccess);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     socket.emit("WIFI_CONNECT", false);
+    //   });
       console.log("data received" + data);
     });
 

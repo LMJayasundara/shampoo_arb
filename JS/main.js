@@ -754,7 +754,7 @@ $(document).ready(function () {
       $("#btnDebugSaveAPI").on("click", function (evt) {
         setTimeout(function () {
           showLoading();
-          socket.emit("SAVE_KEG_DETAILS", kegResponse.nozzleNumber);
+          socket.emit("SAVE_KEG_DETAILS", kegResponse.fileName);
         }, 100);
       });
 
