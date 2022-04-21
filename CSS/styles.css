@@ -113,7 +113,7 @@
   left: 50%;
   width: 100%;
   text-align: center;
-  color: white;
+  color: black;
   font-size: 50px;
   font-family: "Trebuchet MS";
   transform: translate(-50%, -50%);
@@ -123,7 +123,7 @@
   position: absolute;
   top: 65%;
   left: 50%;
-  color: white;
+  color: black;
   font-size: 50px;
   font-family: "Trebuchet MS";
   transform: translate(-50%, -50%);
@@ -163,7 +163,7 @@
   text-align: center;
   align-items: center;
   font-size: 40px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
   font-weight: 600;
 }
@@ -173,7 +173,7 @@
   width: 100%;
   text-align: center;
   align-items: center;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
   font-size: 30px;
   top: 20px;
@@ -187,7 +187,7 @@
   text-align: center;
   align-items: center;
   font-size: 40px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
 }
 
@@ -214,7 +214,7 @@
 
 .cip-txt {
   font-size: 40px;
-  color: white;
+  color: black;
   position: absolute;
   top: 72%;
   left: 2%;
@@ -223,7 +223,7 @@
 
 .cip-txt-no {
   font-size: 150px;
-  color: white;
+  color: black;
   position: absolute;
   top: 5%;
   left: 50%;
@@ -245,7 +245,7 @@
   width: auto;
   position: absolute;
   font-size: 50px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
   font-weight: 600;
 }
@@ -256,7 +256,7 @@
   width: 70%;
   left: 15%;
   font-size: 28px;
-  color: white;
+  color: black;
   background: red;
   border-radius: 10px;
   font-family: "Trebuchet MS";
@@ -286,7 +286,7 @@
   font-size: 70px;
   font-weight: bold;
   font-family: Verdana;
-  background-color: white;
+  background-color: black;
   border-radius: 15px;
 }
 
@@ -308,7 +308,7 @@
 .grid-item {
   background-color: rgba(17, 100, 180);
   border: 1px solid white;
-  color: white;
+  color: black;
   padding: 20px;
   font-size: 50px;
   font-family: Verdana;
@@ -346,7 +346,7 @@
   align-self: center;
   font-family: "Trebuchet MS";
   font-size: 50px;
-  color: white;
+  color: black;
   top: 8%;
 }
 
@@ -371,7 +371,7 @@
 .col-debug {
   padding-right: 0px;
   font-size: 25px;
-  color: white;
+  color: black;
   font-family: "Segoe UI";
 }
 
@@ -436,7 +436,7 @@
   position: absolute;
   top: 47%;
   width: 100%;
-  color: white;
+  color: black;
   font-size: 60px;
   font-weight: bold;
   font-family: "Trebuchet MS";
@@ -492,7 +492,7 @@
 }
 
 .text-Rs {
-  color: white;
+  color: black;
   left: 35%;
   transform: translate(-50%, -50%);
   font-size: 60px;
@@ -512,7 +512,7 @@
   left: 50%;
   top: 50%;
   font-weight: bold;
-  color: white;
+  color: black;
   text-align: center;
   font-family: "Trebuchet MS";
 }
@@ -522,7 +522,7 @@
   font-size: 35px;
   width: 100%;
   top: 67%;
-  color: white;
+  color: black;
   text-align: center;
   font-family: "Trebuchet MS";
 }
@@ -553,7 +553,7 @@
   height: 100%;
   top: 25%;
   font-size: 30px;
-  color: white;
+  color: black;
   text-align: center;
   font-family: "Trebuchet MS";
   font-weight: 600;
@@ -565,7 +565,7 @@
   height: 100%;
   /* top: 25%; */
   top: 27%;
-  color: white;
+  color: black;
   text-align: center;
   font-family: "Trebuchet MS";
   font-weight: 600;
@@ -590,7 +590,7 @@
   width: 100%;
   height: 100%;
   font-size: 30px;
-  color: white;
+  color: black;
   text-align: center;
   font-family: "Trebuchet MS";
 }
@@ -620,7 +620,7 @@
   text-align: start;
   margin-left: 100px;
   font-size: 45px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
 }
 
@@ -629,7 +629,7 @@
   text-align: start;
   left: 37%;
   font-size: 35px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
   position: relative;
   top: 7%;
@@ -685,7 +685,7 @@
 .receipt-title {
   position: absolute;
   left: 0;
-  color: white;
+  color: black;
   font-size: 44px;
   text-align: center;
   top: 32%;
@@ -697,7 +697,7 @@
 .receipt-info {
   position: absolute;
   left: 0;
-  color: white;
+  color: black;
   font-size: 44px;
   text-align: center;
   top: 41%;
@@ -719,7 +719,7 @@
   left: 18%;
   font-size: 55px;
   font-weight: bold;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
 }
 
@@ -729,7 +729,7 @@
   left: 58%;
   font-size: 55px;
   font-weight: bold;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
 }
 
@@ -747,7 +747,7 @@
   left: 8%;
   text-align: center;
   font-size: 56px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
 }
 
@@ -758,7 +758,7 @@
   text-align: center;
   width: 40%;
   font-size: 57px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
 }
 
@@ -777,7 +777,7 @@
   height: 100%;
   top: 25%;
   font-size: 35px;
-  color: white;
+  color: black;
   text-align: center;
   font-family: "Trebuchet MS";
 }
@@ -794,7 +794,7 @@
   left: 10%;
   top: 10%;
   font-size: 60px;
-  color: white;
+  color: black;
   text-align: center;
   font-weight: bold;
   font-family: "Trebuchet MS";
@@ -805,7 +805,7 @@
   left: 0;
   top: 10%;
   font-size: 60px;
-  color: white;
+  color: black;
   text-align: center;
   font-weight: bold;
   font-family: "Trebuchet MS";
@@ -842,7 +842,7 @@
   width: 100%;
   height: 100%;
   font-size: 30px;
-  color: white;
+  color: black;
   text-align: center;
   font-family: "Trebuchet MS";
 }
@@ -887,7 +887,7 @@
   top: 20%;
   left: 15%;
   font-size: 25px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
 }
 
@@ -948,7 +948,7 @@
   top: 100%;
   left: 0;
   right: 0;
-  color: white;
+  color: black;
   font-size: 25px;
   z-index: 99;
   border: 2px solid;
@@ -1015,14 +1015,14 @@
   position: absolute;
   left: 90%;
   font-size: 30px;
-  color: white;
+  color: black;
   top: 27%;
 }
 
 .in-value {
   position: absolute;
   font-size: 45px;
-  color: white;
+  color: black;
   width: 250px;
   text-align: end;
   left: 55%;
@@ -1033,7 +1033,7 @@
 .in-value-refill {
   position: absolute;
   font-size: 45px;
-  color: white;
+  color: black;
   width: 250px;
   text-align: end;
   left: 55%;
@@ -1056,7 +1056,7 @@
   text-align: end;
   background-color: transparent;
   font-size: 45px;
-  color: white;
+  color: black;
 }
 
 .easy-numpad-frame {
@@ -1108,7 +1108,7 @@
   width: 90%;
   height: 90%;
   font-size: 45px;
-  color: white;
+  color: black;
   text-align: start;
   padding-left: 7px;
   pointer-events:none;
@@ -1122,7 +1122,7 @@
   text-align: start;
   background-color: transparent;
   font-size: 45px;
-  color: white;
+  color: black;
 }
 
 .refill-value-layer {
@@ -1266,7 +1266,7 @@
 .rs-lable {
   position: absolute;
   font-size: 30px;
-  color: white;
+  color: black;
   top: 27%;
   left: 45%;
 }
@@ -1312,7 +1312,7 @@
 .txt-debug {
   text-align: center;
   font-size: 30px;
-  color: white;
+  color: black;
   font-weight: 500;
   margin-top: 5px;
   font-family: "Trebuchet MS";
@@ -1354,7 +1354,7 @@
   font-size: 35px;
   font-weight: bold;
   position: relative;
-  color: white;
+  color: black;
   top: 15%;
 }
 
@@ -1370,7 +1370,7 @@
   text-align: center;
   font-size: 50px;
   font-family: avenir;
-  color: white;
+  color: black;
 }
 
 .anim-container {
@@ -1407,7 +1407,7 @@
   align-items: center;
   top: 23%;
   position: relative;
-  color: white;
+  color: black;
   font-family: avenir;
 }
 
@@ -1437,7 +1437,7 @@
   top: -5%;
   text-align: center;
   font-size: 30px;
-  color: white;
+  color: black;
 }
 
 .nozzels {
@@ -1469,7 +1469,7 @@
   left: 35%;
   position: absolute;
   font-size: 25px;
-  color: white;
+  color: black;
   font-weight: bold;
   font-family: "Trebuchet MS";
   border-radius: 20px;
@@ -1483,7 +1483,7 @@
   left: 35%;
   position: absolute;
   font-size: 25px;
-  color: white;
+  color: black;
   font-weight: bold;
   font-family: "Trebuchet MS";
   border-radius: 20px;
@@ -1646,7 +1646,7 @@
   width: 100%;
   font-size: 40px;
   font-weight: bold;
-  color: white;
+  color: black;
 }
 
 .produt-detail-two {
@@ -1655,7 +1655,7 @@
   top: 50%;
   width: 100%;
   font-size: 30px;
-  color: white;
+  color: black;
 }
 
 .sub-div {
@@ -1742,7 +1742,7 @@
   height: 33%;
   margin-top: 5px;
   font-size: 35px;
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
@@ -1754,7 +1754,7 @@
   height: 450px;
   font-size: 50px;
   text-align: center;
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
@@ -1765,7 +1765,7 @@
   top: 30%;
   margin-left: 10%;
   border: 2px solid;
-  border-color: white;
+  border-color: black;
   border-radius: 20px;
   padding: 50px 10px;
 }
@@ -1819,7 +1819,7 @@
   width: 100%;
   height: 45px;
   font-size: 30px;
-  color: white;
+  color: black;
 }
 .wifi-disconnected {
   width: 20%;
@@ -1842,7 +1842,7 @@
   width: 100%;
   text-align: start;
   font-size: 45px;
-  color: white;
+  color: black;
   padding: 0;
   margin-left: 5px;
   background: transparent;
@@ -1855,7 +1855,7 @@
   height: 70px;
   text-align: end;
   font-size: 45px;
-  color: white;
+  color: black;
   padding: 0;
   margin-right: 5px;
   background: transparent;
@@ -1879,7 +1879,7 @@
   top: 59%;
   left: 18%;
   font-size: 20px;
-  color: white;
+  color: black;
 }
 
 .txt-product-8 {
@@ -1887,7 +1887,7 @@
   top: 50%;
   left: 18%;
   font-size: 25px;
-  color: white;
+  color: black;
 }
 
 .txt-product-6 {
@@ -1895,7 +1895,7 @@
   top: 76%;
   font-size: 35px;
   width: 90%;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
   font-weight: 600;
   line-height: 2ex;
@@ -1960,7 +1960,7 @@
 
 .author-info {
   background: rgba(0, 0, 0, 0.75);
-  color: white;
+  color: black;
   padding: 0.75rem;
   text-align: center;
   position: absolute;
@@ -1971,7 +1971,7 @@
 }
 
 .author-info a {
-  color: white;
+  color: black;
 }
 
 .slider > a {
@@ -2012,7 +2012,7 @@
   text-align: center;
   align-items: center;
   font-size: 40px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
 }
 
@@ -2040,7 +2040,7 @@
   width: 100%;
   height: 100%;
   font-size: 27px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
   border-radius: 10px;
 }
@@ -2059,7 +2059,7 @@
   left: 35%;
   top: 72%;
   font-size: 20px;
-  color: white;
+  color: black;
   font-family: "Trebuchet MS";
   border-radius: 10px;
 }
