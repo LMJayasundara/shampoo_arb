@@ -1,0 +1,1 @@
+chromium --new-incognito --disable-web-security --kiosk 

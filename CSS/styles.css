@@ -1,0 +1,2065 @@
+@font-face {
+  font-family: "Trebuchet MS"; /*a name to be used later*/
+  src: local("fonts/Avenir.otf");
+}
+
+
+@keyframes transitionOUT {
+  from {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  to {
+    opacity: 0.5;
+    transform: translateX(-300px);
+  }
+}
+
+@keyframes transitionIN {
+  from {
+    opacity: 0.6;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.body {
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  /* cursor: none; */
+}
+
+.container1 {
+  width: 100vw;
+  height: 100vh;
+  padding-left: 0px;
+  border-radius: 0px !important;
+  background-color: #1b8edb;
+  /* cursor: none; */
+}
+
+.containerOutOfPaper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  padding-left: 0px;
+
+  top: 0%;
+  left: 0%;
+  background-color: #1b8edb;
+}
+
+.waiting {
+  position: absolute;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.dialog {
+  width: 80%;
+  height: 80%;
+  opacity: 0.7;
+  position: absolute;
+  z-index: 9;
+}
+
+#fetching-data {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.debug-ico {
+  position: absolute;
+  width: 115px;
+  height: 50px;
+  text-align: end;
+  padding: 20px;
+  top: 2%;
+  left: 80%;
+  box-sizing: unset;
+  background-color: transparent;
+}
+
+.scan-bottle {
+  position: absolute;
+  top: 40px;
+  left: 12%;
+  text-align: left;
+  width: 160px;
+  height: auto;
+}
+
+.setting {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  font-family: "Trebuchet MS";
+  transform: translate(-50%, -50%);
+}
+
+#loading {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  color: white;
+  font-size: 50px;
+  font-family: "Trebuchet MS";
+  transform: translate(-50%, -50%);
+}
+
+#wait {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.stack-top {
+  z-index: 9;
+}
+
+.next-button {
+  position: absolute;
+  text-align: center;
+  width: 768px;
+  height: 1336px;
+  color: transparent;
+}
+
+.bgImage1 {
+  background-image: url(../images/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.select-text {
+  position: absolute;
+  top: 7%;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  font-size: 40px;
+  color: white;
+  font-family: "Trebuchet MS";
+  font-weight: 600;
+}
+
+.password-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  color: white;
+  font-family: "Trebuchet MS";
+  font-size: 30px;
+  top: 20px;
+}
+
+.select-text-cip {
+  position: absolute;
+  top: 4%;
+  width: 50%;
+  left: 25%;
+  text-align: center;
+  align-items: center;
+  font-size: 40px;
+  color: white;
+  font-family: "Trebuchet MS";
+}
+
+.cip_row {
+  width: 100%;
+  height: 300px;
+  margin: 0px;
+  padding-top: 20px;
+}
+
+.cip-nozzel-select {
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/bg-cip-button-non-select.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.cip_col {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.cip-txt {
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 72%;
+  left: 2%;
+  width: 100%;
+}
+
+.cip-txt-no {
+  font-size: 150px;
+  color: white;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  font-family: "Trebuchet MS";
+}
+
+.cip-imgs {
+  position: absolute;
+  top: -5%;
+  width: auto;
+  height: 200px;
+  left: 15%;
+}
+
+.main-title-txt {
+  top: 5%;
+  left: 30%;
+  text-align: left;
+  width: auto;
+  position: absolute;
+  font-size: 50px;
+  color: white;
+  font-family: "Trebuchet MS";
+  font-weight: 600;
+}
+
+.nozzel-error {
+  position: absolute;
+  top: 47%;
+  width: 70%;
+  left: 15%;
+  font-size: 28px;
+  color: white;
+  background: red;
+  border-radius: 10px;
+  font-family: "Trebuchet MS";
+  text-align: center;
+}
+
+.button-back {
+  position: absolute;
+  background-image: url(../images/back.png);
+  background-size: cover;
+  top: 50px;
+  left: 30px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}
+
+.numberField {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  width: 80%;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: black;
+  font-size: 70px;
+  font-weight: bold;
+  font-family: Verdana;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.numberPad {
+  position: absolute;
+  top: 55%;
+  left: 47%;
+  width: 70%;
+  height: 35%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 25% 25% 25% 25%;
+  padding: 5px;
+}
+
+.grid-item {
+  background-color: rgba(17, 100, 180);
+  border: 1px solid white;
+  color: white;
+  padding: 20px;
+  font-size: 50px;
+  font-family: Verdana;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.btnBackOutPaper {
+  position: absolute;
+  background-image: url(../images/back.png);
+  background-size: cover;
+  top: 50px;
+  left: 30px;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}
+
+.volumes {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  width: 90%;
+  height: 50%;
+  font-family: "Trebuchet MS";
+}
+
+.volume {
+  position: relative;
+  margin-top: 35px;
+}
+
+#volume-liters {
+  position: absolute;
+  align-self: center;
+  font-family: "Trebuchet MS";
+  font-size: 50px;
+  color: white;
+  top: 8%;
+}
+
+.volume-prices {
+  position: absolute;
+  top: 59%;
+  width: 79%;
+  height: 35%;
+  left: 15%;
+  padding: 3px;
+}
+
+.debug-price-layers {
+  position: relative;
+  height: 80px;
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 0px;
+  right: 20px;
+}
+
+.col-debug {
+  padding-right: 0px;
+  font-size: 25px;
+  color: white;
+  font-family: "Segoe UI";
+}
+
+.p-class {
+  position: relative;
+  top: 7px;
+  display: inline;
+}
+
+.col-bg {
+  position: absolute;
+  left: 13%;
+  width: 87%;
+  height: 90%;
+}
+
+#style-2::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+#style-2::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+#style-2::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #2235db;
+}
+
+#img-selected-product {
+  border-radius: 50px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 80%;
+  height: 350px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.productLogoConfirm {
+  position: absolute;
+  top: 23%;
+  left: 16%;
+  width: 210px;
+  height: 200px;
+}
+
+.productBottleConfirm {
+  position: absolute;
+  top: 20%;
+  left: 64%;
+  width: 120px;
+  height: 250px;
+}
+
+#volume-text {
+  position: absolute;
+  top: 47%;
+  width: 100%;
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+  font-family: "Trebuchet MS";
+  text-align: center;
+}
+
+.volume-price {
+  position: absolute;
+  top: 58%;
+}
+
+.cip-process {
+  position: absolute;
+  top: 20%;
+  left: 43%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 100px;
+}
+
+.no-product {
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  left: 5%;
+}
+
+.no-product8 {
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  left: 5%;
+}
+
+.no-product6 {
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  left: 5%;
+}
+
+.img-class {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.loading-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+}
+
+.text-Rs {
+  color: white;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  font-weight: bold;
+  font-family: "Trebuchet MS";
+}
+
+.img-rs {
+  left: 62%;
+  transform: translate(-50%, -50%);
+}
+
+.text-value {
+  position: absolute;
+  font-size: 55px;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  font-family: "Trebuchet MS";
+}
+
+.expire-text {
+  position: absolute;
+  font-size: 35px;
+  width: 100%;
+  top: 67%;
+  color: white;
+  text-align: center;
+  font-family: "Trebuchet MS";
+}
+
+.accept-layer {
+  position: absolute;
+  top: 76%;
+}
+
+.language-layer {
+  position: absolute;
+  top: 50%;
+}
+
+.img-decline {
+  position: absolute;
+  left: 18%;
+}
+
+.img-accept {
+  position: absolute;
+  left: 55%;
+}
+
+.text-decline {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 25%;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  font-family: "Trebuchet MS";
+  font-weight: 600;
+}
+
+.text-accept {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* top: 25%; */
+  top: 27%;
+  color: white;
+  text-align: center;
+  font-family: "Trebuchet MS";
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.connect-text {
+  width: 100%;
+  height: 100%;
+  top: 18%;
+  text-align: center;
+  font-family: "Trebuchet MS";
+  font-weight: bold;
+  font-size: 40px;
+  font-weight: bold;
+  position: relative;
+  color: #FFFFFF;
+}
+
+.alert-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  font-family: "Trebuchet MS";
+}
+
+.vol-price {
+  height: auto;
+  margin-top: 17px;
+}
+
+.print-receipt-dialog {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 82%;
+  height: 70%;
+}
+
+.info-layer {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  height: 30%;
+}
+
+.info-text {
+  width: 58%;
+  text-align: start;
+  margin-left: 100px;
+  font-size: 45px;
+  color: white;
+  font-family: "Trebuchet MS";
+}
+
+.info-text-receipt {
+  width: 60%;
+  text-align: start;
+  left: 37%;
+  font-size: 35px;
+  color: white;
+  font-family: "Trebuchet MS";
+  position: relative;
+  top: 7%;
+}
+
+.info-img {
+  position: absolute;
+  top: 0%;
+  width: 22%;
+  height: 52%;
+  left: 67%;
+  margin-right: 50px;
+}
+
+.info-img-receipt {
+  position: absolute;
+  top: 10%;
+  width: 140px;
+  height: auto;
+  left: 12%;
+  margin-right: 50px;
+}
+
+.select-nobe-layer {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  height: 30%;
+}
+
+#imgSelectNobe {
+  position: relative;
+  left: 15%;
+  width: 70%;
+  height: 90%;
+}
+
+.img-bill {
+  position: absolute;
+  left: 37%;
+  top: 15%;
+  width: 180px;
+  height: 200px;
+}
+
+.print-receipt-layer {
+  position: absolute;
+  top: 66%;
+  width: 100%;
+  height: 30%;
+}
+
+.receipt-title {
+  position: absolute;
+  left: 0;
+  color: white;
+  font-size: 44px;
+  text-align: center;
+  top: 32%;
+  width: 100%;
+  height: 50px;
+  font-family: "Trebuchet MS";
+}
+
+.receipt-info {
+  position: absolute;
+  left: 0;
+  color: white;
+  font-size: 44px;
+  text-align: center;
+  top: 41%;
+  width: 100%;
+  height: 150px;
+  font-family: "Trebuchet MS";
+}
+
+.value-title-layer {
+  position: absolute;
+  top: 55%;
+  width: 100%;
+  height: 80px;
+}
+
+.total-text {
+  position: absolute;
+  top: 0%;
+  left: 18%;
+  font-size: 55px;
+  font-weight: bold;
+  color: white;
+  font-family: "Trebuchet MS";
+}
+
+.quantity-text {
+  position: absolute;
+  top: 0%;
+  left: 58%;
+  font-size: 55px;
+  font-weight: bold;
+  color: white;
+  font-family: "Trebuchet MS";
+}
+
+.value-layer {
+  position: absolute;
+  top: 63%;
+  width: 100%;
+  height: 100px;
+}
+
+.total-value {
+  position: absolute;
+  top: 0%;
+  width: 40%;
+  left: 8%;
+  text-align: center;
+  font-size: 56px;
+  color: white;
+  font-family: "Trebuchet MS";
+}
+
+.quantity-value {
+  position: absolute;
+  top: 0%;
+  left: 52%;
+  text-align: center;
+  width: 40%;
+  font-size: 57px;
+  color: white;
+  font-family: "Trebuchet MS";
+}
+
+.button-next {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 100px;
+}
+
+.text-next {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 25%;
+  font-size: 35px;
+  color: white;
+  text-align: center;
+  font-family: "Trebuchet MS";
+}
+
+.filling-layer {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  height: 100px;
+}
+
+.filling-text {
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Trebuchet MS";
+}
+
+.processing-text {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Trebuchet MS";
+  width: 220px;
+  height: 100px;
+  text-align: end;
+}
+
+.streach-img {
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+}
+
+.streach-img-no-border {
+  width: 100%;
+  height: 100%;
+}
+
+.box-shadow {
+  box-shadow: rgb(0 0 0 / 25%) 0px 10px 20px, rgb(0 0 0 / 22%) 3px 10px 5px;
+}
+
+.img-background {
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 3px 10px #193047;
+  border-radius: 4px;
+}
+
+.password-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  font-family: "Trebuchet MS";
+}
+
+.btn-stop {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dropDown-layer {
+  position: absolute;
+  text-align: center;
+  top: 15%;
+  width: 100%;
+  height: 100px;
+  left: 50%;
+  right: 150px;
+  transform: translate(-50%, -50%);
+}
+
+.dropdown-Select {
+  position: absolute;
+  font-size: 35px;
+  width: 40%;
+  height: 70px;
+  color: black;
+  font-weight: 500;
+  font-family: "Trebuchet MS";
+}
+
+.dropdown-Select option {
+  font-size: 25px;
+  color: black;
+  font-weight: 500;
+  font-family: "Trebuchet MS";
+}
+
+.txt-select {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  font-size: 25px;
+  color: white;
+  font-family: "Trebuchet MS";
+}
+
+.custom-select {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  height: 70px;
+  font-family: Arial;
+  background: transparent;
+  text-align: center;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  height: 30px;
+  font-size: 35px;
+  text-align: start;
+  background-color: transparent;
+  border-color: transparent transparent transparent transparent;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  border-color: transparent transparent #fff transparent;
+  cursor: pointer;
+  height: 100%;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  color: white;
+  font-size: 25px;
+  z-index: 99;
+  border: 2px solid;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.alert-layer {
+  position: absolute;
+  background-color: red;
+  top: 5%;
+  width: 70%;
+  height: 50px;
+  left: 50%;
+  border-radius: 15px;
+  transform: translate(-50%, -50%);
+}
+
+.alert-nozzle-select {
+  position: absolute;
+  top: 8%;
+  width: 70%;
+  height: 50px;
+  left: 15%;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  border-radius: 15px;
+  font-family: "Trebuchet MS";
+}
+
+.current-value-layer {
+  position: absolute;
+  top: 22%;
+  width: 100%;
+  height: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.txt-volume {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+}
+
+.bg {
+  position: absolute;
+  width: 40%;
+  height: 70px;
+  left: 50%;
+  top: 11%;
+}
+
+.right-text {
+  position: absolute;
+  left: 90%;
+  font-size: 30px;
+  color: white;
+  top: 27%;
+}
+
+.in-value {
+  position: absolute;
+  font-size: 45px;
+  color: white;
+  width: 250px;
+  text-align: end;
+  left: 55%;
+  top: 12%;
+  pointer-events:none;
+}
+
+.in-value-refill {
+  position: absolute;
+  font-size: 45px;
+  color: white;
+  width: 250px;
+  text-align: end;
+  left: 55%;
+  top: 12%;
+  background-color: transparent;
+  left: 50%;
+  padding-right: 7px;
+  width: 300px;
+  pointer-events:none;
+}
+
+.ui-keyboard-buttonC span {
+  font-size: 1.8em !important;
+}
+
+.keyboardNum {
+  width: 320px;
+  margin-left: 2px;
+  height: 70px;
+  text-align: end;
+  background-color: transparent;
+  font-size: 45px;
+  color: white;
+}
+
+.easy-numpad-frame {
+  background-color: rgba(100, 100, 100, 0.8) !important;
+}
+
+.easy-numpad-output {
+  min-height: 80px !important;
+  font-size: 50px !important;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.easy-numpad-number-container > table {
+  width: calc(100% +50px);
+  position: relative;
+  left: -3px;
+  margin-top: 10px;
+}
+
+.easy-numpad-number-container > table a {
+  font-size: 45px;
+  font-weight: bold;
+  padding: 30px 30px !important;
+  background-color: rgba(28, 152, 232) !important;
+  border: 1px solid;
+  border-radius: 15px;
+}
+
+.easy-numpad-container {
+  max-width: 530px !important;
+  max-height: 630px !important;
+  z-index: 100;
+  border-radius: 20px;
+}
+
+.easy-numpad-number-container .cancel {
+  background-color: #f74542 !important;
+}
+
+.easy-numpad-number-container .done {
+  background-color: #35bb3b !important;
+}
+
+.in-value2 {
+  position: relative;
+  background-color: transparent;
+  left: 10%;
+  width: 90%;
+  height: 90%;
+  font-size: 45px;
+  color: white;
+  text-align: start;
+  padding-left: 7px;
+  pointer-events:none;
+}
+
+.in-value-prices {
+  width: 315px;
+  margin-left: -7px;
+  padding-left: 10px;
+  height: 70px;
+  text-align: start;
+  background-color: transparent;
+  font-size: 45px;
+  color: white;
+}
+
+.refill-value-layer {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  height: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.last-refill-layer {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  height: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.manufacture-layer {
+  position: absolute;
+  top: 38%;
+  width: 100%;
+  height: 100px;
+  left: 50%;
+  box-sizing: unset;
+  transform: translate(-50%, -50%);
+}
+
+.expire-layer {
+  position: absolute;
+  top: 46%;
+  width: 100%;
+  height: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.batch-no-layer {
+  position: absolute;
+  top: 54%;
+  width: 100%;
+  height: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.price80-layer {
+  position: absolute;
+  top: 62%;
+  width: 100%;
+  height: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.price180-layer {
+  position: absolute;
+  top: 70%;
+  width: 100%;
+  height: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.discount-layer {
+  position: absolute;
+  top: 78%;
+  width: 100%;
+  height: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.date {
+  position: absolute;
+  left: 45%;
+  top: 12%;
+  height: 50px;
+  width: 40%;
+  font-size: 20px;
+  text-align: end;
+}
+
+.manufacture-date-container {
+  position: absolute;
+  left: 50%;
+  top: 12%;
+  height: 50px;
+  width: 40%;
+  box-sizing: unset;
+  pointer-events:none;
+}
+
+.keg-details{
+  top: 1%;
+  font-size: 35px;
+  font-weight: 700;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  color: lawngreen;
+}
+.debug-view-api {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  font-size: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sd {
+  height: 50px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 35px;
+  text-align: end;
+  box-sizing: unset;
+}
+
+.open-button {
+  position: absolute;
+  top: 5px;
+  right: 1px;
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  background: #fff;
+  pointer-events: none;
+  box-sizing: unset;
+}
+
+.open-button button {
+  border: none;
+  background: transparent;
+}
+
+.rs-lable {
+  position: absolute;
+  font-size: 30px;
+  color: white;
+  top: 27%;
+  left: 45%;
+}
+
+.button-close {
+  position: absolute;
+  top: 30px;
+  left: 90%;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+}
+
+.btn-dubug-save {
+  position: absolute;
+  left: 37%;
+  top: 80%;
+  width: 210px;
+  height: 80px;
+}
+
+.btn-update-keg {
+  position: absolute;
+  left: 17%;
+  top: 20%;
+  width: 70%;
+  height: 17%;
+  background-color: #26cc26;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.btn-update-ui {
+  position: absolute;
+  left: 17%;
+  top: 45%;
+  width: 70%;
+  height: 120px;
+  background-color: orange;
+  border-radius: 20px;
+}
+
+.txt-debug {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-weight: 500;
+  margin-top: 5px;
+  font-family: "Trebuchet MS";
+}
+
+.btn-view-details {
+  position: absolute;
+  left: 17%;
+  top: 40%;
+  width: 70%;
+  height: 17%;
+  background-color: #205BDF;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.btn-sync-all{
+  position: absolute;
+  left: 17%;
+  top: 60%;
+  width: 70%;
+  height: 17%;
+  background-color: #DFA420;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.btn-cip {
+  position: absolute;
+  left: 6%;
+  top: 90%;
+  width: 200px;
+  height: 80px;
+  background-color: green;
+  border-radius: 20px;
+}
+
+.btn-sync {
+  font-size: 35px;
+  font-weight: bold;
+  position: relative;
+  color: white;
+  top: 15%;
+}
+
+.img-close {
+  margin-top: 30%;
+  margin-right: 20%;
+}
+
+.cip-fill-text {
+  position: absolute;
+  top: 65%;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  font-family: avenir;
+  color: white;
+}
+
+.anim-container {
+  background-image: url(../images/cleaning.gif);
+  position: absolute;
+  top: 23%;
+  left: 19%;
+  width: 48%;
+  height: 45%;
+  background-size: cover;
+}
+
+.button-container {
+  width: 70%;
+  height: 100px;
+  position: absolute;
+  top: 73%;
+  left: 15%;
+  margin: 0px;
+}
+
+.cip-clean-btn {
+  height: 100%;
+  margin-left: 17px;
+  margin-right: 17px;
+  padding: 0px;
+  background-color: rgba(28, 152, 232);
+  border-radius: 20px;
+}
+
+.cip-clean-text {
+  font-size: 30px;
+  text-align: center;
+  align-items: center;
+  top: 23%;
+  position: relative;
+  color: white;
+  font-family: avenir;
+}
+
+.image-container {
+  position: absolute;
+  width: 90%;
+  height: 77%;
+  left: 5%;
+  top: 10%;
+  padding: 10px;
+}
+
+.image-container-cip {
+  position: absolute;
+  width: 90%;
+  height: 80%;
+  left: 5%;
+  top: 10%;
+  padding: 10px;
+}
+
+.slide-no {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  left: 15%;
+  top: -5%;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
+.nozzels {
+  width: 80%;
+  height: auto;
+  top: 10%;
+  left: 10%;
+  position: absolute;
+  text-align: center;
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 150px 150px;
+  padding: 5px;
+}
+
+.gif-nozzel {
+  width: 80%;
+  height: auto;
+  position: relative;
+  top: 52%;
+  left: 10%;
+}
+
+.btn-start {
+  width: 35%;
+  height: 80px;
+  top: 84%;
+  left: 35%;
+  position: absolute;
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  font-family: "Trebuchet MS";
+  border-radius: 20px;
+  background-image: url(../images/bg-option.png);
+}
+
+.btn-begin {
+  width: 35%;
+  height: 80px;
+  top: 74%;
+  left: 35%;
+  position: absolute;
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  font-family: "Trebuchet MS";
+  border-radius: 20px;
+  background-image: url(../images/bg-option.png);
+}
+
+.button-left {
+  position: absolute;
+  background-image: url(../images/back.png);
+  background-size: cover;
+  background-color: #0000003d;
+  top: 45%;
+  left: -4%;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}
+
+.button-right {
+  position: absolute;
+  background-image: url(../images/right.png);
+  background-size: cover;
+  background-color: #0000003d;
+  top: 45%;
+  left: 92%;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}
+
+.mySlides {
+  display: none;
+}
+
+.effect8 {
+  position: relative;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect8:before,
+.effect8:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  -moz-border-radius: 100px / 10px;
+  border-radius: 100px / 10px;
+}
+.effect8:after {
+  right: 10px;
+  left: auto;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg);
+}
+
+.product-container {
+  position: absolute;
+  top: 14%;
+  left: 5%;
+  width: 90%;
+  height: 78%;
+  font-family: "Trebuchet MS";
+}
+
+.product4Logo {
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  width: 162px;
+  height: 154px;
+}
+
+.product4Bottle {
+  position: absolute;
+  top: 13%;
+  left: 80%;
+  width: 68px;
+  height: 143px;
+}
+
+.product8Logo {
+  position: absolute;
+  top: 4%;
+  left: 12%;
+  width: 110px;
+  height: 100px;
+}
+
+.product8Bottle {
+  position: absolute;
+  top: 16%;
+  left: 60%;
+  width: 72px;
+  height: 150px;
+}
+
+.product6Logo {
+  position: absolute;
+  top: 5%;
+  left: 45%;
+  width: 150px;
+  height: 138px;
+}
+
+.product6Bottle {
+  position: absolute;
+  top: 5%;
+  left: 12%;
+  width: 100px;
+  height: 200px;
+}
+
+.product12Logo {
+  position: absolute;
+  top: 15%;
+  left: 14%;
+  width: 90px;
+  height: 80px;
+}
+
+.product12Bottle {
+  position: absolute;
+  top: 16%;
+  left: 57%;
+  width: 72px;
+  height: 150px;
+}
+
+.product-screen-logo {
+  position: absolute;
+  top: 5%;
+  left: 15%;
+  width: 226px;
+  height: 220px;
+}
+
+.product-screen-bottle {
+  position: absolute;
+  top: 10%;
+  left: 63%;
+  width: 153px;
+  height: 320px;
+}
+
+.produt-detail-one {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.produt-detail-two {
+  display: none;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  font-size: 30px;
+  color: white;
+}
+
+.sub-div {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 47%;
+}
+
+.sub-div-col {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.product-row {
+  height: 180px;
+  margin-top: 30px;
+}
+
+.product-row6 {
+  height: 310px;
+  margin-top: 25px;
+}
+
+.product-col {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.product-col-vol {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.volume-row {
+  height: 180px;
+  margin-top: 35px;
+}
+
+.volume-col {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.product-line-1 {
+  position: absolute;
+  top: 11%;
+  left: 8%;
+  width: 40%;
+  height: 80%;
+}
+
+.product-line-2 {
+  position: absolute;
+  top: 11%;
+  left: 52%;
+  width: 40%;
+  height: 80%;
+}
+
+.product-sunlight {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.product {
+  position: relative;
+  width: 100%;
+  height: 33%;
+  margin-top: 5px;
+  font-size: 35px;
+  color: white;
+  font-weight: bold;
+}
+
+.volume-title {
+  position: absolute;
+  top: 11%;
+  left: 8%;
+  width: 85%;
+  height: 450px;
+  font-size: 50px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.network-layer {
+  position: absolute;
+  width: 80%;
+  height: auto;
+  top: 30%;
+  margin-left: 10%;
+  border: 2px solid;
+  border-color: white;
+  border-radius: 20px;
+  padding: 50px 10px;
+}
+
+.txt-disconnect {
+  width: 50%;
+  left: 25% !important;
+  width: 50%;
+  left: 26%;
+  font-size: 50px;
+  top: 22%;
+  font-weight: 100;
+  color: lightcyan;
+}
+
+.text-row {
+  height: 100px;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.network-col {
+  text-align: center;
+  display: block;
+}
+
+.btn-connect {
+  width: 50%;
+  background-color: rgba(17, 100, 180);
+  border-radius: 50px;
+}
+
+.btn-sync-keg {
+  width: 60%;
+  background-color: rgba(17, 100, 180);
+  border-radius: 50px;
+}
+
+.wifi-connected {
+  width: 18%;
+  left: 40%;
+  height: 09%;
+  position: absolute;
+  top: 13%;
+}
+
+.div-or {
+  text-align: center;
+  width: 100%;
+  height: 45px;
+  font-size: 30px;
+  color: white;
+}
+.wifi-disconnected {
+  width: 20%;
+  left: 40%;
+  height: 12%;
+  position: absolute;
+  top: 11%;
+}
+
+.edit-text {
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+  color: black;
+  font-family: "Trebuchet MS";
+  border-radius: 14px;
+}
+
+.edit-text-prices {
+  width: 100%;
+  text-align: start;
+  font-size: 45px;
+  color: white;
+  padding: 0;
+  margin-left: 5px;
+  background: transparent;
+  font-family: "Trebuchet MS";
+  border: none;
+}
+
+.edit-text-refill {
+  width: 100%;
+  height: 70px;
+  text-align: end;
+  font-size: 45px;
+  color: white;
+  padding: 0;
+  margin-right: 5px;
+  background: transparent;
+  font-family: "Trebuchet MS";
+  border: none;
+}
+
+.btn-request-data {
+  position: absolute;
+  width: 50%;
+  height: 80px;
+  top: 50%;
+  left: 25%;
+  background-color: navy;
+  border-radius: 20px;
+  display: none;
+}
+
+.txt-product-12 {
+  position: absolute;
+  top: 59%;
+  left: 18%;
+  font-size: 20px;
+  color: white;
+}
+
+.txt-product-8 {
+  position: absolute;
+  top: 50%;
+  left: 18%;
+  font-size: 25px;
+  color: white;
+}
+
+.txt-product-6 {
+  position: absolute;
+  top: 76%;
+  font-size: 35px;
+  width: 90%;
+  color: white;
+  font-family: "Trebuchet MS";
+  font-weight: 600;
+  line-height: 2ex;
+  text-align: center;
+}
+
+.txt-debug-volumes {
+  position: relative;
+  background-color: transparent;
+  left: 10%;
+  width: 90%;
+  height: 90%;
+}
+
+.slider {
+  position: absolute;
+  width: 97%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 20px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: rgba(43, 41, 173, 0.973);
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100%;
+  height: 915px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 10px;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+
+.author-info {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.author-info a {
+  color: white;
+}
+
+.slider > a {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: white;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 0 0.5rem 0;
+  position: relative;
+}
+
+.slider > a:active {
+  top: 1px;
+}
+
+.slider > a:focus {
+  background: #000;
+}
+
+.alert-container {
+  position: absolute;
+  width: 90%;
+  height: 22%;
+  left: 5%;
+  top: 35%;
+  border-radius: 20px;
+  background: #2e4053;
+}
+
+.alert-auto-text {
+  position: absolute;
+  top: 7%;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  font-size: 40px;
+  color: white;
+  font-family: "Trebuchet MS";
+}
+
+.alert-product-name {
+  position: absolute;
+  top: 29%;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  font-size: 40px;
+  color: aliceblue;
+  font-family: "Trebuchet MS";
+}
+
+.alert-buttons {
+  position: absolute;
+  width: 98%;
+  height: 70px;
+  margin: 0;
+  left: 1%;
+  top: 62%;
+}
+
+.btn-alert-accept {
+  width: 100%;
+  height: 100%;
+  font-size: 27px;
+  color: white;
+  font-family: "Trebuchet MS";
+  border-radius: 10px;
+}
+
+.wait-gif {
+  position: absolute;
+  width: 100px;
+  left: 42%;
+  top: 30%;
+}
+
+.btn-alert-done {
+  position: absolute;
+  width: 30%;
+  height: 60px;
+  left: 35%;
+  top: 72%;
+  font-size: 20px;
+  color: white;
+  font-family: "Trebuchet MS";
+  border-radius: 10px;
+}

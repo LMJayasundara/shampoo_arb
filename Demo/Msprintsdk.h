@@ -1,0 +1,78 @@
+//使用g++编译必须使用.h文件
+int SetDevname(int iDevtype,const char* cDevname,int iDevValue);
+int SetPrintermodel(int iPrintermodel);
+//int SetBaudrate(int iBaudrate);  
+int SetInit();
+int SetClean();
+int SetClose(); 
+int SetCharspace(int iCharspace); 
+int SetLinespace(int iLinespace); 
+int SetAlignment(int iAlignment); 
+int SetFont(int iFont);
+int SetBold(int iBold); 
+int SetLeftmargin(int iLeftspace); 
+//int SetCutterMode(int iMode); 
+int SetRotate(int iRotate);
+int SetDirection(int iDirection);
+int SetUline(int iUline);
+int SetWhitemodel(int iWhite);
+int SetCommmandmode(int iMode);
+int SetCommandmode(int iMode);
+int SetSpacechinese(int iChsleftspace,int iChsrightspace);
+int SetSpacechar(int iSpace);
+int SetMarkoffsetcut(int iOffset);
+int SetMarkoffsetprint(int iOffset);
+int SetSizetext(int iHeight,int iWidth);
+int SetSizechinese(int iHeight,int iWidth,int iUnderline,int iChinesetype);
+int SetSizechar(int iHeight,int iWidth,int iUnderline,int iAsciitype);
+int SetItalic(int iItalic);
+int SetNvbmp(int iNums,const char* strPath);
+ 
+int PrintFeedline(int iLine);
+int PrintString(const char* strData,int iImme);
+int PrintCutpaper(int iMode); 
+int PrintQrcode(const char* strData,int iLmargin,int iMside,int iRound);
+int PrintTransmit(const char* bCmd,int iLength);
+int PrintDiskbmpfile(const char* strPath); 
+int PrintPdf417(int iDotwidth,int iDotheight,int iDatarows,int iDatacolumns,const char* strData);
+int Print1Dbar(int iWidth,int iHeight,int iHrisize,int iHriseat,int iCodetype,const char* strData);
+int PrintSelfcheck();
+int PrintMarkposition();
+int PrintMarkpositioncut();
+int PrintMarkpositionprint();
+int PrintMarkcutpaper(int iMode);
+int PrintNvbmp(int iNvindex,int iMode);
+
+int GetStatus(); 
+int GetStatusspecial();
+int GetTransmit(const char* bCmd,int iLength,char* bRecv,int iRelen);
+int GetProductinformation(int iFstype,char *bFiddata,int iFidlen);
+int GetSDKinformation(char *bInfodata);
+int PrintChargeRow();
+int PrintChangeRow();
+int PrintRemainQR();
+int PrintFeedDot(int Lnumber);
+int PrintNextHT();
+int SetUnderline(int underline);
+int SetCodepage(int country,int CPnumber);
+int SetReadZKmode(int mode);
+int SetHTseat(const char* bHTseat,int iLength );
+//int GetCutterMode(int* const mode);  
+int SetAlignmentLeftRight(int iAlignment);
+
+int GetPrintIDorName(char* strIDorNAME);
+int SetPrintIDorName(const char* strIDorNAME);
+int SetRotation_Leftspace(int iLeftspace);
+int PrintRotation_Changeline();
+int PrintRotation_Sendcode(int leftspace,int iWidth,int iHeight,int iCodetype,const char* strData);
+int PrintRotation_Sendtext(const unsigned char* strData,int iImme) ;
+int PrintRotation_Data();
+int SetRotation_Intomode();
+
+//Page mode
+int SetPagemode(int iMode,int Xrange,int Yrange);
+int SetPagestartposition(int Xdot,int Ydot);
+int SetPagedirection(int iDirection);
+int PrintPagedata();
+int SetUsbportauto();
+int SetDevVIDPID(int iVID,int iPID);

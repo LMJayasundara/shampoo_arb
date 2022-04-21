@@ -1,0 +1,39 @@
+https://www.digitalocean.com/community/tutorials/how-to-use-pm2-to-setup-a-node-js-production-environment-on-an-ubuntu-vps
+1)sudo npm install pm2 -g
+2)sudo pm2 start xxx.py --log ./logfile.log --time
+3)sudo pm2 save
+4)sudo pm2 startup
+5)sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
+(use sudo for permission files)
+
+customize splash screen
+https://www.tomshardware.com/how-to/custom-raspberry-pi-splash-screen
+
+Boot GUI disable (Do not do this)
+https://www.digikey.com/en/maker/blogs/2018/how-to-boot-to-command-line-and-ssh-on-raspberry-pi
+
+libudev-dev
+
+
+add printer using cups (install a printer in debian) search this (use installation guid on printer)
+
+ompile msprintdemo file with exact locations
+add msprintdemo file to /usr/bin ......   for raspberry pi /bin/
+compile with full path
+sudo gcc -o /bin/msprintdemo msprintdemo.c /home/pi/Documents/shampoo/Demo/lib//libmsprintsdk.so  -lstdc++  -lpthread -ldl -ludev
+
+pip3 install libudev-dev
+
+socket io for raspberry pi
+pip install python-engineio==3.14.2 python-socketio==4.6.0
+
+rotate raspbery pi display
+sudo nano /boot/config.txt
+display_rotate=0
+display_rotate=1
+display_rotate=2
+display_rotate=3
+
+hide and show cursor
+sudo nano /etc/lightdm/lightdm.conf
+xserverCommand=X -nocursor

@@ -1,0 +1,1 @@
+chromium-browser --kiosk --incognito /home/pi/Documents/shampoo/loading.html --start-fullscreen --disable-pinch

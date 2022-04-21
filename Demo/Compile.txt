@@ -1,0 +1,13 @@
+--gcc compile
+gcc -o msprintdemo msprintdemo.c /home/pi/Documents/shampoo/Demo/lib//libmsprintsdk.so  -lstdc++  -lpthread -ldl -ludev
+sudo gcc -o /bin/msprintdemo msprintdemo.c /home/pi/Documents/shampoo/Demo/lib//libmsprintsdk.so  -lstdc++  -lpthread -ldl -ludev
+
+compile with full path
+
+--g++ compile
+g++ -o msprintdemo msprintdemo.c /lib/libmsprintsdk.so  -lstdc++  -lpthread -ldl -ludev
+need include .h file
+extern "C" 
+{
+#include "Msprintsdk.h"
+}
