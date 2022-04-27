@@ -188,22 +188,25 @@ io.sockets.on("connection", function (socket) {
  function getProductDetailsFromResponse(callingFrom, productDetails) {
   var product_volumes = null;
   var product = null;
+  var kegVol = null;
    if(callingFrom == "fromKeg") {
     product_volumes = getProductVolumes(productDetails.productVolumes);
     product = productDetails.product;
+    kegVol = product.volume;
    } else {
     product_volumes = getProductVolumes(productDetails.listOfProductVolume);
     product = productDetails;
+    kegVol = product.available_volume;
    }
-   console.log("AAAAAAAAAAAAAAAAAAAAAAA   "+ product.id_product);
+   console.log("AAAAAAAAAAAAAAAAAAAAAAA   "+ kegVol);
     var fileData =
           product.id_product +
           "," +
           product.product_name +
           "," +
-          product.volume +
+          kegVol +
           "," +
-          '2020-10-19' +
+          product.last_refill_date +
           "," +
           product.manufacture_date +
           "," +

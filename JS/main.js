@@ -295,7 +295,12 @@ var vol6product6Detail3;
 var btnDeclineImage;
 var btnConfirmImage;
 var btnNextImage;
+var btnEngImage;
+var btnBenImage;
 var btnStopImage;
+var btnBckImage;
+var btnBckImage1;
+var btnBckImage2;
 
 const STATE_IDLE = "00";
 const STATE_PORDUCT_SELECTION = "01";
@@ -345,6 +350,7 @@ var idVolumePrice1L;
 
 var divSelectedVolume;
 var divSelectedVolumePrice;
+var prodName;
 var divSelectedProductLogo;
 var divSelectedProductBottle;
 var divImgWarning1;
@@ -495,7 +501,7 @@ $(document).ready(function () {
           selectedVolume = "0";
           hideAll();
           $("div#tapToStart-container").show();
-          // $("div#barcode-data-container").show();
+          // $("div#filling-container").show();
           // $("div#barcode-data-container").show();
           // $("div#barcode-data-view-container").show();
           socket.emit("PRINTER_STATUS", 0);
@@ -686,7 +692,7 @@ $(document).ready(function () {
       });
 
       $("#btnStop").on("click", function (evt) {
-        btnStopImage.src = "images/bg-decline.png";
+        btnStopImage.src = "images/bg-option.png";
         setTimeout(function () {
           console.log("btn stop clicked");
           ipc_state = BUTTON_STOP;
@@ -875,7 +881,8 @@ $(document).ready(function () {
           console.log("clicked");
           startTimer(60);
           hideAll();
-          $("div#language-container").show();
+          // $("div#language-container").show();
+          $("div#selectProduct-container").show();
           socket.emit("TAP", 1);
         }, 100);
       });
@@ -1079,20 +1086,23 @@ function selectProduct(id) {
       selectedProductName = productName;
       selectedBatchCode = batchNo;
       console.log("AAAAAAAA         " + selectedBatchCode);
-      imgProductScreenLogo.src =
-        "images/product_images/logo" + productId + ".png";
-      imgProductScreenBottle.src =
-        "images/product_images/bottle" + productId + ".png";
-      var maximumDiscount = getMaximumDiscount(productDiscounts.split("/"));
-      if (maximumDiscount != 0) {
-        $("#productScreenLogoDiv").css({ top: "5%" });
-        idProductVolumeSave.style.display = "block";
-        idProductVolumeSave.innerHTML =
-          "Save upto" + "<br/>" + "Rs. " + maximumDiscount;
-      } else {
-        $("#productScreenLogoDiv").css({ top: "25%" });
-        idProductVolumeSave.style.display = "none";
-      }
+      // imgProductScreenLogo.src =
+      //   "images/product_images/logo" + productId + ".png";
+      // imgProductScreenBottle.src =
+      //   "images/product_images/bottle" + productId + ".png";
+      // var maximumDiscount = getMaximumDiscount(productDiscounts.split("/"));
+      // if (maximumDiscount != 0) {
+      //   $("#productScreenLogoDiv").css({ top: "5%" });
+      //   idProductVolumeSave.style.display = "block";
+      //   idProductVolumeSave.innerHTML =
+      //     "Save upto" + "<br/>" + "Rs. " + maximumDiscount;
+      // } else {
+      //   $("#productScreenLogoDiv").css({ top: "25%" });
+      //   idProductVolumeSave.style.display = "none";
+      // }
+
+      idProductVolumeSave.innerHTML = productName;
+      productScreenLogo.innerHTML = "Corn oil is a light oil great for cooking. It controls cholesterol level."
 
       volumeList = productVolumes.split("/");
       actualVolumeCount = volumeList.length;
@@ -1272,14 +1282,21 @@ function show6Volumes() {
 
 function setVolumeData(productVolumes, productPrices, productDiscounts) {
   if (productVolumes[0] != undefined) {
-    vol2product1Detail1.innerHTML = productVolumes[0] + " ml";
-    vol2product1Detail2.innerHTML = "Rs. " + productPrices[0];
 
-    vol3product1Detail1.innerHTML = productVolumes[0] + " ml";
-    vol3product1Detail2.innerHTML = "Rs." + productPrices[0];
+    vol2product1Detail2.innerHTML = productPrices[0] + " SAR";
+    vol3product1Detail2.innerHTML = productPrices[0] + " SAR";
+    vol6product1Detail2.innerHTML = productPrices[0] + " SAR";
 
-    vol6product1Detail1.innerHTML = productVolumes[0] + " ml";
-    vol6product1Detail2.innerHTML = "Rs." + productPrices[0];
+    if (productVolumes[0] >= 1000){
+      vol2product1Detail1.innerHTML = productVolumes[0]/1000 + " L";
+      vol3product1Detail1.innerHTML = productVolumes[0]/1000 + " L";
+      vol6product1Detail1.innerHTML = productVolumes[0]/1000 + " L";
+    }
+    else{
+      vol2product1Detail1.innerHTML = productVolumes[0] + " ml";
+      vol3product1Detail1.innerHTML = productVolumes[0] + " ml";
+      vol6product1Detail1.innerHTML = productVolumes[0] + " ml";
+    }
 
     if (productDiscounts[0] == "0") {
       vol2product1Detail3.style.display = "none";
@@ -1289,22 +1306,29 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
       vol2product1Detail3.style.display = "block";
       vol3product1Detail3.style.display = "block";
       vol6product1Detail3.style.display = "block";
-      vol2product1Detail3.innerHTML = "Save Rs. " + productDiscounts[0];
-      vol3product1Detail3.innerHTML = "Save Rs. " + productDiscounts[0];
-      vol6product1Detail3.innerHTML = "Save Rs." + productDiscounts[0];
+      vol2product1Detail3.innerHTML = "Save<br>"+ productDiscounts[0] + " SAR";
+      vol3product1Detail3.innerHTML = "Save<br>"+ productDiscounts[0] + " SAR";
+      vol6product1Detail3.innerHTML = "Save<br>"+ productDiscounts[0] + " SAR";
     }
   }
 
   if (productVolumes[1] != undefined) {
-    vol2product2Detail1.innerHTML = productVolumes[1] + " ml";
-    vol2product2Detail2.innerHTML = "Rs." + productPrices[1];
 
-    vol3product2Detail1.innerHTML = productVolumes[1] + " ml";
-    vol3product2Detail2.innerHTML = "Rs." + productPrices[1];
+    vol2product2Detail2.innerHTML = productPrices[1] + " SAR";
+    vol3product2Detail2.innerHTML = productPrices[1] + " SAR";
+    vol6product2Detail2.innerHTML = productPrices[1] + " SAR";
 
-    vol6product2Detail1.innerHTML = productVolumes[1] + " ml";
-    vol6product2Detail2.innerHTML = "Rs." + productPrices[1];
-
+    if(productVolumes[1] >= 1000){
+      vol2product2Detail1.innerHTML = productVolumes[1]/1000 + " L";
+      vol3product2Detail1.innerHTML = productVolumes[1]/1000 + " L";
+      vol6product2Detail1.innerHTML = productVolumes[1]/1000 + " L";
+    }
+    else{
+      vol2product2Detail1.innerHTML = productVolumes[1] + " ml";
+      vol3product2Detail1.innerHTML = productVolumes[1] + " ml";
+      vol6product2Detail1.innerHTML = productVolumes[1] + " ml";
+    }
+    
     if (productDiscounts[1] == "0") {
       vol2product2Detail3.style.display = "none";
       vol3product2Detail3.style.display = "none";
@@ -1313,18 +1337,25 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
       vol2product2Detail3.style.display = "block";
       vol3product2Detail3.style.display = "block";
       vol6product2Detail3.style.display = "block";
-      vol2product2Detail3.innerHTML = "Save Rs. " + productDiscounts[1];
-      vol3product2Detail3.innerHTML = "Save Rs. " + productDiscounts[1];
-      vol6product2Detail3.innerHTML = "Save Rs." + productDiscounts[1];
+      vol2product2Detail3.innerHTML = "Save<br>"+ productDiscounts[1] + " SAR";
+      vol3product2Detail3.innerHTML = "Save<br>"+ productDiscounts[1] + " SAR";
+      vol6product2Detail3.innerHTML = "Save<br>"+ productDiscounts[1] + " SAR";
     }
   }
 
   if (productVolumes[2] != undefined) {
-    vol3product3Detail1.innerHTML = productVolumes[2] + " ml";
-    vol3product3Detail2.innerHTML = "Rs." + productPrices[2];
 
-    vol6product3Detail1.innerHTML = productVolumes[2] + " ml";
-    vol6product3Detail2.innerHTML = "Rs." + productPrices[2];
+    vol3product3Detail2.innerHTML = productPrices[2] + " SAR";
+    vol6product3Detail2.innerHTML = productPrices[2] + " SAR";
+
+    if (productVolumes[2] >= 1000){
+      vol3product3Detail1.innerHTML = productVolumes[2]/1000 + " L";
+      vol6product3Detail1.innerHTML = productVolumes[2]/1000 + " L";
+    }
+    else{
+      vol3product3Detail1.innerHTML = productVolumes[2] + " ml";
+      vol6product3Detail1.innerHTML = productVolumes[2] + " ml";
+    }
 
     if (productDiscounts[2] == "0") {
       vol3product3Detail3.style.display = "none";
@@ -1332,8 +1363,8 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
     } else {
       vol3product3Detail3.style.display = "block";
       vol6product3Detail3.style.display = "block";
-      vol3product3Detail3.innerHTML = "Save Rs. " + productDiscounts[2];
-      vol6product3Detail3.innerHTML = "Save Rs." + productDiscounts[2];
+      vol3product3Detail3.innerHTML = "Save<br>"+ productDiscounts[2] + " SAR";
+      vol6product3Detail3.innerHTML = "Save<br>"+ productDiscounts[2] + " SAR";
     }
   }
 
@@ -1380,8 +1411,8 @@ function selectVolume(id) {
   var volumeBackground = getVolumeBackgroundID(id);
   volumeBackground.src = "images/bg-selected.png";
   setTimeout(function () {
-    divSelectedProductLogo.src =
-      "images/product_images/logo" + productId + ".png";
+    // divSelectedProductLogo.src =
+    //   "images/product_images/logo" + productId + ".png";
     divSelectedProductBottle.src =
       "images/product_images/bottle" + productId + ".png";
     switch (id) {
@@ -1425,7 +1456,7 @@ function selectVolume(id) {
     setDataInPrintNotificationUI();
     startTimer(60);
     hideAll();
-    volumeBackground.src = "images/bg-option.png";
+    volumeBackground.src = "images/prod-bar.png";
     $("div#printNotification-container").show();
   }, 100);
 }
@@ -1466,10 +1497,17 @@ function getVolumeBackgroundID(id) {
 }
 
 function setDataInPrintNotificationUI() {
-  divSelectedVolumePrice.innerHTML = selectedProductPrice;
+  prodName.innerHTML = selectedProductName;
+  divSelectedVolumePrice.innerHTML = selectedProductPrice + " SAR";
   divConfirmedPrice.innerHTML = "Rs. " + selectedProductPrice;
   divConfirmedVolume.innerHTML = selectedVolume + " ml";
-  divSelectedVolume.innerHTML = selectedVolume + " ml";
+  if(selectedVolume >= 1000){
+    divSelectedVolume.innerHTML = selectedVolume/1000 + " L";
+  }
+  else{
+    divSelectedVolume.innerHTML = selectedVolume + " ml";
+  }
+  
 }
 
 function onClickTxtBarcode() {
@@ -1486,18 +1524,27 @@ function goBack(id) {
     selectedVolume = "0";
     if (id == "btnBackSelectProduct") {
       ipc_state = STATE_IDLE;
-      $("div#language-container").show();
+      // $("div#language-container").show();
+      $("div#tapToStart-container").show();
     }if (id == "btnBacklanguage") {
       ipc_state = STATE_IDLE;
       $("div#tapToStart-container").show();
     } else if (id == "btnBackOutPaper") {
       ipc_state = STATE_IDLE;
       $("div#tapToStart-container").show();
-    } else if (id == "btnBackSelectVolume") {
+    } 
+    else if (id == "btnBackSelectVolume1") {
       isProductSelected = false;
       ipc_state = STATE_PORDUCT_SELECTION;
       $("div#selectProduct-container").show();
-    } else if (id == "btnBackPrintNotification") {
+    }
+    else if (id == "btnBackSelectVolume2") {
+      isProductSelected = false;
+      ipc_state = STATE_PORDUCT_SELECTION;
+      $("div#selectProduct-container").show();
+    }
+    
+    else if (id == "btnBackPrintNotification") {
       $("div#selectVolume-container").show();
     } else if (id == "btnBackSettings") {
       ipc_state = STATE_SERVICE;
@@ -1539,10 +1586,27 @@ function goBack(id) {
 function confirmation(id) {
   console.log(id);
   if (id == "btnDecline") {
-    btnDeclineImage.src = "images/bg-decline.png";
-  } else if (id == "btnConfirm") {
-    btnConfirmImage.src = "images/bg-confirm.png";
-  } else {
+    btnDeclineImage.src = "images/bg-selected.png";
+  } 
+  else if (id == "btnConfirm") {
+    btnConfirmImage.src = "images/bg-selected.png";
+  }
+  else if(id == "btnEnglish"){
+    btnEngImage.src = "images/bg-selected.png";
+  }
+  else if(id == "btnBengali"){
+    btnBenImage.src = "images/bg-selected.png";
+  }
+  else if(id == "btnBckImage"){
+    btnBckImage.src = "images/bg-selected.png";
+  }
+  else if(id == "btnBckImage1"){
+    btnBckImage1.src = "images/bg-selected.png";
+  }
+  else if(id == "btnBckImage2"){
+    btnBckImage2.src = "images/bg-selected.png";
+  }
+  else {
     btnNextImage.src = "images/bg-selected.png";
   }
   setTimeout(function () {
@@ -1612,37 +1676,42 @@ function confirmation(id) {
       switch (parseInt(selected_nozzel_number.toString(), 10)) {
         case 1:
           console.log("1");
-          divRefilGuideImg.src = "images/nobe1.gif";
+          divRefilGuideImg.src = "images/begin-refill-wood.png";
           break;
         case 2:
           console.log("2");
-          divRefilGuideImg.src = "images/nobe2.gif";
+          divRefilGuideImg.src = "images/begin-refill-wood.png";
           break;
         case 3:
           console.log("3");
-          divRefilGuideImg.src = "images/nobe3.gif";
+          divRefilGuideImg.src = "images/begin-refill-wood.png";
           break;
         case 4:
           console.log("4");
-          divRefilGuideImg.src = "images/nobe4.gif";
+          divRefilGuideImg.src = "images/begin-refill-wood.png";
           break;
         case 5:
           console.log("5");
-          divRefilGuideImg.src = "images/nobe5.gif";
+          divRefilGuideImg.src = "images/begin-refill-wood.png";
           break;
         case 6:
           console.log("6");
-          divRefilGuideImg.src = "images/nobe6.gif";
+          divRefilGuideImg.src = "images/begin-refill-wood.png";
           break;
       }
       startTimer(120);
       hideAll();
       $("div#refillGuide-container").show();
     }
-    btnDeclineImage.src = "images/bg-button.png";
+    btnDeclineImage.src = "images/bg-button-red.png";
     btnConfirmImage.src = "images/bg-button.png";
-    btnNextImage.src = "images/bg-option.png";
-    btnStopImage.src = "images/bg-button.png";
+    btnNextImage.src = "images/bg-button.png";
+    btnBenImage.src = "images/bg-button.png";
+    btnEngImage.src = "images/bg-button.png";
+    btnStopImage.src = "images/bg-button-red.png";
+    btnBckImage.src = "images/bg-button-red.png";
+    btnBckImage1.src = "images/bg-button-red.png";
+    btnBckImage2.src = "images/bg-button-red.png";
   }, 100);
 }
 
@@ -1903,13 +1972,14 @@ function initData(fileDataList) {
 
   divSelectedVolume = document.getElementById("volume-text");
   divSelectedVolumePrice = document.getElementById("txt-volume-price");
-  divSelectedProductLogo = document.getElementById("productLogoConfirm");
+  prodName = document.getElementById("prodName");
+  // divSelectedProductLogo = document.getElementById("productLogoConfirm");
   divSelectedProductBottle = document.getElementById("productBottleConfirm");
   divConfirmedPrice = document.getElementById("confirmedPrice");
   divConfirmedVolume = document.getElementById("confirmedVolume");
   divRefilGuideImg = document.getElementById("imgSelectNobe");
 
-  imgProductScreenLogo = document.getElementById("productScreenLogo");
+  // imgProductScreenLogo = document.getElementById("productScreenLogo");
   imgProductScreenBottle = document.getElementById("productScreenBottle");
   idProductVolumeSave = document.getElementById("idProductVolumeSave");
   idVolumePrice500 = document.getElementById("idVolumePrice500");
@@ -2019,7 +2089,12 @@ function initData(fileDataList) {
   btnDeclineImage = document.getElementById("btnDeclineImage");
   btnConfirmImage = document.getElementById("btnConfirmImage");
   btnNextImage = document.getElementById("btnNextImage");
+  btnBenImage = document.getElementById("btnBenImage");
+  btnEngImage = document.getElementById("btnEngImage");
   btnStopImage = document.getElementById("btnStopImage");
+  btnBckImage = document.getElementById("btnBckImage");
+  btnBckImage1 = document.getElementById("btnBckImage1");
+  btnBckImage2 = document.getElementById("btnBckImage2");
   productList = fileDataList;
   productCount = productList.length;
   // productCount = 2;
@@ -2185,8 +2260,7 @@ function setProductDetails() {
     console.log(productList[0]);
     no4product1Detail1.innerHTML = productList[0].productName;
     no4product1Detail2.innerHTML =
-      "Save upto <br/> Rs." +
-      getMaximumDiscount(productList[0].productDiscounts.split("/"));
+      "Save upto " + getMaximumDiscount(productList[0].productDiscounts.split("/")) + " SAR";
 
     //no8imgProduct1Image1.src = "images/sunlight.png"
     no6product1Detail1.innerHTML = productList[0].productName;
@@ -2234,8 +2308,7 @@ function setProductDetails() {
     //no4imgProduct2Image1.src = "images/vim.png"
     no4product2Detail1.innerHTML = productList[1].productName;
     no4product2Detail2.innerHTML =
-      "Save upto<br/>Rs." +
-      getMaximumDiscount(productList[1].productDiscounts.split("/"));
+      "Save upto " +getMaximumDiscount(productList[1].productDiscounts.split("/")) +" SAR";
 
     no6product2Detail1.innerHTML = productList[1].productName;
 

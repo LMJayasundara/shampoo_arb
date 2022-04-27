@@ -42,11 +42,23 @@
     </div>
 
     <div id="tapToStart-container" class="container1" style="display: none">
-      <img id="imgBtnTapToStart" src="images/tap-start.png" alt="Snow" class="img-class container1" />
+      <img src="images/tap-start.png" alt="Snow" class="img-class container1" /> <!--id="imgBtnTapToStart" -->
       <div id="btnDebug" class="debug-ico" alt="Snow"></div>
+
+      <div class="language-layer" style="width: 100%; height: 100px">
+        <div id="btnEnglish" class="img-decline" onclick="confirmation(btnEnglish.id)">
+          <img id="btnEngImage" src="images/bg-button.png" alt="Snow" class="streach-img box-shadow" />
+          <div class="text-decline" style="color: white;">ENGLISH</div>
+        </div>
+
+        <div id="btnBengali" class="img-accept" onclick="confirmation(btnBengali.id)">
+          <img id="btnBenImage" src="images/bg-button.png" alt="Snow" class="streach-img box-shadow" />
+          <div class="text-accept" style="color: white;">عربي</div>
+        </div>
+      </div>
     </div>
 
-    <div id="language-container" class="container1" style="display: none">
+    <!-- <div id="language-container" class="container1" style="display: none">
       <img src="images/background_logo.png" alt="Snow" class="img-class container1" />
       <div id="btnBacklanguage" onclick="goBack(btnBacklanguage.id)" class="button-back" style="display: block"></div>
       <div class="language-layer" style="width: 100%; height: 100px">
@@ -60,7 +72,7 @@
           <div class="text-accept">BENGALI</div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div id="settings-container" class="container1 noselect" style="display: none">
       <img src="images/background_logo.png" alt="Snow" class="img-class" />
@@ -876,46 +888,63 @@
                                                         </div>
 
                                                         <div id="selectProduct-container" class="container1 noselect"
-                                                          style="display: none">
+                                                          style="display: none;">
                                                           <img src="images/background_logo.png" alt="Snow"
                                                             class="streach-img-no-border" />
-                                                          <div id="btnBackSelectProduct"
+
+
+                                                          <!-- <div id="btnBackSelectProduct"
                                                             onclick="goBack(btnBackSelectProduct.id)"
-                                                            class="button-back" style="display: block"></div>
-                                                          <div class="main-title-txt">Select product</div>
+                                                            class="button-back" style="display: block"></div> -->
+
+                                                          <!-- <div id="btnBackSelectProduct" class="button-next" style="z-index: 1000; width: 280px;"
+                                                            onclick="goBack(btnBackSelectProduct.id)"> confirmation(btnNext.id)
+                                                            <img id="btnBckImage" src="images/bg-button-red.png" alt="Snow"
+                                                              class="streach-img box-shadow" />
+                                                            <div class="text-next">BACK</div>
+                                                          </div> -->
+
+                                                          <div class="product4Logo">
+                                                            <img src="images/product_images/logo.png" alt="Snow" />
+                                                          </div>
+
+
+                                                          <div class="main-title-txt BambinoNewHeavy">SELECT THE PRODUCT</div>
                                                           <!-- <div class="scan-bottle">
                 <img src="images/bottle.gif" alt="Snow" style="width:100% ;height: auto; ">
             </div> -->
                                                           <div class="product-container container align-items-center">
                                                             <div id="noOfProducts4" class="sub-div"
-                                                              style="display: none; width: 95%">
+                                                              style="display: none; width: 98%; height: 90%;">
                                                               <div id="btnProduct4Row1"
-                                                                class="row justify-content-center product-row">
+                                                                class="row justify-content-center product-row2">
+
                                                                 <div id="btnProduct1" class="col product-col"
                                                                   onclick="selectProduct(this.id);"
                                                                   style="display: block; text-align: center">
                                                                   <img id="no4imgProduct1Image1"
-                                                                    src="images/bg-option.png" class="streach-img"
+                                                                    src="images/wood-bg.png" class="streach-img"
                                                                     alt="Snow" />
-                                                                  <div class="product4Logo">
-                                                                    <img id="product4Logo1"
-                                                                      src="images/product_images/logo1.png" onerror="this.onerror=null; 
-                                    this.src='images/default_logo.png'" class="streach-img" alt="Snow" />
-                                                                  </div>
+                                                                  
                                                                   <div class="product4Bottle">
                                                                     <img id="product4Bottle1"
                                                                       src="images/product_images/bottle1.png" onerror="this.onerror=null; 
-                                    this.src='images/default_bottle.png'" class="streach-img" alt="Snow" />
+                                                                      this.src='images/default_bottle.png'" class="streach-img" alt="Snow" />
                                                                   </div>
                                                                   <div id="no4product1Detail1"
-                                                                    class="produt-detail-one">
+                                                                    class="produt-detail-one BambinoNewSemiBold">
                                                                     Product 1
                                                                   </div>
                                                                   <div id="no4product1Detail2"
-                                                                    class="produt-detail-two">
-                                                                    Save upto<br />Rs. 40
+                                                                    class="produt-detail-two BambinoNewSemiBold">
+                                                                    Save upto 1 SAR
+                                                                  </div>                                                                  
+
+                                                                  <div class="produt-detail-three">
+                                                                    <img src="images/add-img.png" style="height: 60px;">
                                                                   </div>
                                                                 </div>
+
                                                                 <div id="btnProduct1No" class="col product-col"
                                                                   style="display: none">
                                                                   <img src="images/bg-option.png" class="streach-img"
@@ -933,31 +962,36 @@
                                                                     alt="Snow" />
                                                                 </div>
                                                               </div>
+
+
                                                               <div id="btnProduct4Row2"
-                                                                class="row justify-content-center product-row">
+                                                                class="row justify-content-center product-row2">
                                                                 <div id="btnProduct2" class="col product-col"
                                                                   onclick="selectProduct(this.id)"
                                                                   style="display: block; text-align: center">
                                                                   <img id="no4imgProduct2Image1"
-                                                                    src="images/bg-option.png" class="streach-img"
+                                                                    src="images/wood-bg.png" class="streach-img"
                                                                     alt="Snow" />
-                                                                  <div class="product4Logo">
+                                                                  <!-- <div class="product4Logo">
                                                                     <img id="product4Logo2"
                                                                       src="images/product_images/logo2.png" onerror="this.onerror=null; 
                                 this.src='images/default_logo.png'" class="streach-img" alt="Snow" />
-                                                                  </div>
+                                                                  </div> -->
                                                                   <div class="product4Bottle">
                                                                     <img id="product4Bottle2"
                                                                       src="images/product_images/bottle2.png" onerror="this.onerror=null; 
                                 this.src='images/default_bottle.png'" class="streach-img" alt="Snow" />
                                                                   </div>
                                                                   <div id="no4product2Detail1"
-                                                                    class="produt-detail-one">
+                                                                    class="produt-detail-one BambinoNewSemiBold">
                                                                     Product 2
                                                                   </div>
                                                                   <div id="no4product2Detail2"
-                                                                    class="produt-detail-two">
-                                                                    Save upto<br />Rs. 50
+                                                                    class="produt-detail-two BambinoNewSemiBold">
+                                                                    Save upto Rs. 50
+                                                                  </div>
+                                                                  <div class="produt-detail-three">
+                                                                    <img src="images/add-img.png" style="height: 60px;">
                                                                   </div>
                                                                 </div>
                                                                 <div id="btnProduct2No" class="col product-col"
@@ -977,6 +1011,10 @@
                                                                     alt="Snow" />
                                                                 </div>
                                                               </div>
+
+
+
+
                                                               <div id="btnProduct4Row3"
                                                                 class="row justify-content-center product-row"
                                                                 style="display: block; text-align: center">
@@ -1066,6 +1104,14 @@
                                                                   <img src="images/not-available.png" class="no-product"
                                                                     alt="Snow" />
                                                                 </div>
+                                                              </div>
+
+
+                                                              <div id="btnBackSelectProduct" class="button-back-img" style="z-index: 1000; width: 280px;"
+                                                                onclick="goBack(btnBackSelectProduct.id); confirmation(btnBckImage.id)">
+                                                                <img id="btnBckImage" src="images/bg-option.png" alt="Snow"
+                                                                  class="streach-img box-shadow" />
+                                                                <div class="text-next BambinoNewSemiBold">Back</div>
                                                               </div>
                                                             </div>
 
@@ -2071,117 +2117,151 @@
 
                                                         <div id="selectVolume-container" class="container1 noselect"
                                                           style="display: none">
-                                                          <div id="btnBackSelectVolume"
-                                                            onclick="goBack(btnBackSelectVolume.id)"
-                                                            class="button-back"></div>
+
+                                                          <div class="product4Logo">
+                                                            <img src="images/product_images/logo.png" alt="Snow" />
+                                                          </div>
+
+
+                                                          <div class="main-title-txt BambinoNewHeavy">SELECT THE VOLUME</div>
+
+                                                          
                                                           <img id="imgBtn" src="images/background_logo.png" alt="Snow"
                                                             class="streach-img-no-border" />
-                                                          <div class="select-text"
+                                                          <!-- <div class="select-text"
                                                             style="top: 4%; font-size: 40px; width: auto; left: 20%">
                                                             Select the volume required
-                                                          </div>
-                                                          <div class="volume-title">
-                                                            <div id="productScreenLogoDiv" class="product-screen-logo">
+                                                          </div> -->
+
+                                                          <div class="volume-title" style="display: block;">
+                                                            <img id="no4imgProduct1Image1" src="images/wood-bg.png" class="streach-img" alt="Snow">
+                                                            <!-- <div id="productScreenLogoDiv" class="product-screen-logo">
                                                               <img id="productScreenLogo"
                                                                 src="images/product_images/logo1.png"
                                                                 class="streach-img" alt="Snow" />
-                                                            </div>
-                                                            <div class="product-screen-bottle">
+                                                            </div> -->
+                                                            <div class="product4Bottle">
                                                               <img id="productScreenBottle"
                                                                 src="images/product_images/bottle1.png"
                                                                 class="streach-img" alt="Snow" />
                                                             </div>
-                                                            <div id="idProductVolumeSave"
+                                                            <div id="idProductVolumeSave" class="produt-detail-one BambinoNewSemiBold">Prod 1</div>
+                                                            <div id="productScreenLogo" class="produt-detail-two BambinoNewSemiBold" style="
+                                                            line-height: 30px;
+                                                            font-size: 25px;
+                                                            ">description</div>
+                                                            <!-- <div id="idProductVolumeSave"
                                                               style="position: absolute; top: 50%; left: 14%; font-family: avenir">
                                                               Save<br />Rs. 40
-                                                            </div>
+                                                            </div> -->
                                                           </div>
+
+                                                          <!-- <div id="btnProduct4Row1" class="row justify-content-center product-row2" style="display: block;">
+                                                            <div id="btnProduct1" class="col product-col" onclick="selectProduct(this.id);" style="display: block; text-align: center">
+                                                              <img id="no4imgProduct1Image1" src="images/wood-bg.png" class="streach-img" alt="Snow">
+                                                              
+                                                              <div class="product4Bottle">
+                                                                <img id="product4Bottle1" src="images/product_images/bottle1.png" onerror="this.onerror=null; 
+                                                                  this.src='images/default_bottle.png'" class="streach-img" alt="Snow">
+                                                              </div>
+                                                              <div id="no4product1Detail1" class="produt-detail-one BambinoNewSemiBold">AFIA Corn Oil</div>
+                                                              <div id="no4product1Detail2" class="produt-detail-two BambinoNewSemiBold">Save upto 3 SAR</div>
+                                                              <div class="produt-detail-three">
+                                                                <img src="images/add-img.png" style="height: 60px;">
+                                                              </div>
+                                                            </div>
+                                                          </div> -->
+
+
+
                                                           <div class="volumes container align-items-center">
-                                                            <div id="noOfVolumes2" class="sub-div-col"
-                                                              style="display: block; width: 85%">
+                                                            <div id="noOfVolumes2" class="sub-div-col2"
+                                                              style="display: block; width: 100%">
                                                               <div id="vol2Row1" onclick="selectVolume(1)"
                                                                 class="row-6 justify-content-center volume-row"
-                                                                style="height: 220px">
+                                                                style="height: 120px">
                                                                 <div class="col product-col-vol" style="display: block">
-                                                                  <img id="vol2Row1Image1" src="images/bg-option.png"
-                                                                    class="streach-img" alt="Snow" />
-                                                                  <div class="align-items-center"
-                                                                    style="position: absolute; top: 0; width: 95%; height: 100%">
-                                                                    <div style="
-                      position: absolute;
-                      width: 100%;
-                      top: 48%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      margin: 0;
-                    ">
-                                                                      <div id="vol2product1Detail1"
-                                                                        style="height: 70px; font-size: 55px; color: white">
-                                                                        Vol 1
-                                                                      </div>
-                                                                      <div id="vol2product1Detail2"
-                                                                        style="height: 68px; font-size: 50px; color: white">
-                                                                        Rs. 150.00
-                                                                      </div>
-                                                                      <div id="vol2product1Detail3"
-                                                                        style="font-size: 30px; color: white">
-                                                                        Save Rs. 20.00
+                                                                  <img id="vol2Row1Image1" src="images/prod-bar.png"
+                                                                    class="streach-img-sel-prod" alt="Snow"/>
+
+                                                                    <div class="container" style="position: absolute; font-size: 40px; top: 30px;">
+                                                                      <div class="row">
+                                                                        <div id="vol2product1Detail1" class="col-3" style=" color: white;">
+                                                                          1
+                                                                        </div>
+                                                                        <div id="vol2product1Detail2" class="col-3" style="color: #00804a;">
+                                                                          2
+                                                                        </div>
+                                                                        <div class="col-6">
+                                                                          <div class="row">
+                                                                            <div id="vol2product1Detail3" class="col-10 BambinoNewHeavy" style="line-height: 45px; top: -10px; color: #00804a; font-weight: 600;">
+                                                                              3
+                                                                            </div>
+                                                                            
+                                                                          </div>
+                                                                        </div>
+                                                                        <img src="images/add-img.png" style="height: 60px; position: absolute; left: 85%;">
                                                                       </div>
                                                                     </div>
-                                                                  </div>
+
                                                                 </div>
                                                               </div>
                                                               <div id="vol2Row2" onclick="selectVolume(2)"
                                                                 class="row-6 justify-content-center volume-row"
-                                                                style="height: 220px">
+                                                                style="height: 120px">
                                                                 <div class="col product-col-vol" style="display: block">
-                                                                  <img id="vol2Row2Image1" src="images/bg-option.png"
-                                                                    class="streach-img" alt="Snow" />
-                                                                  <div class="align-items-center"
-                                                                    style="position: absolute; top: 0; width: 95%; height: 100%">
-                                                                    <div style="
-                      position: absolute;
-                      width: 100%;
-                      top: 48%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      margin: 0;
-                    ">
-                                                                      <div id="vol2product2Detail1"
-                                                                        style="height: 70px; font-size: 55px; color: white">
-                                                                        Vol 1
+                                                                  <img id="vol2Row2Image1" src="images/prod-bar.png"
+                                                                    class="streach-img-sel-prod" alt="Snow"/>
+
+                                                                  <div class="container" style="position: absolute; font-size: 40px; top: 30px;">
+                                                                    <div class="row">
+                                                                      <div id="vol2product2Detail1" class="col-3" style=" color: white;">
+                                                                        1
                                                                       </div>
-                                                                      <div id="vol2product2Detail2"
-                                                                        style="height: 68px; font-size: 50px; color: white">
-                                                                        Rs. 150.00
+                                                                      <div id="vol2product2Detail2" class="col-3" style="color: #00804a;">
+                                                                        2
                                                                       </div>
-                                                                      <div id="vol2product2Detail3"
-                                                                        style="font-size: 30px; color: white">
-                                                                        Save Rs. 20.00
+                                                                      <div class="col-6">
+                                                                        <div class="row">
+                                                                          <div id="vol2product2Detail3" class="col-10 BambinoNewHeavy" style="line-height: 45px; top: -10px; color: #00804a; font-weight: 600;">
+                                                                            3
+                                                                          </div>
+                                                                          
+                                                                        </div>
                                                                       </div>
+                                                                      <img src="images/add-img.png" style="height: 60px; position: absolute; left: 85%;">
                                                                     </div>
                                                                   </div>
+
                                                                 </div>
                                                               </div>
+
+                                                              <div id="btnBackSelectVolume1" class="button-next-bottom" style="z-index: 1000; width: 280px;"
+                                                                  onclick="goBack(btnBackSelectVolume1.id); confirmation(btnBckImage1.id)">
+                                                                  <img id="btnBckImage1" src="images/bg-option.png" alt="Snow"
+                                                                    class="streach-img box-shadow" />
+                                                                  <div class="text-next BambinoNewSemiBold">Back</div>
+                                                              </div>
+
                                                             </div>
 
                                                             <div id="noOfVolumes3" class="sub-div-col"
-                                                              style="display: none; width: 85%">
+                                                              style="display: none; width: 100%; height: 80%;">
                                                               <div id="vol3Row1" onclick="selectVolume(1)"
-                                                                class="row-4 justify-content-center volume-row">
+                                                                class="row-4 justify-content-center volume-row" style="height: 120px">
                                                                 <div class="col product-col-vol" style="display: block">
-                                                                  <img id="vol3Row1Image1" src="images/bg-option.png"
-                                                                    class="streach-img" alt="Snow" />
-                                                                  <div class="align-items-center"
+                                                                  <img id="vol3Row1Image1" src="images/prod-bar.png"
+                                                                    class="streach-img-sel-prod" alt="Snow" />
+                                                                  <!-- <div class="align-items-center"
                                                                     style="position: absolute; top: 0; width: 95%; height: 100%">
                                                                     <div style="
-                      position: absolute;
-                      width: 100%;
-                      top: 48%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      margin: 0;
-                    ">
+                                                                        position: absolute;
+                                                                        width: 100%;
+                                                                        top: 48%;
+                                                                        left: 50%;
+                                                                        transform: translate(-50%, -50%);
+                                                                        margin: 0;
+                                                                      ">
                                                                       <div id="vol3product1Detail1"
                                                                         style="height: 65px; font-size: 55px; color: white">
                                                                         Vol 1
@@ -2195,24 +2275,44 @@
                                                                         Save Rs. 20.00
                                                                       </div>
                                                                     </div>
+                                                                  </div> -->
+
+                                                                  <div class="container" style="position: absolute; font-size: 40px; top: 30px;">
+                                                                    <div class="row">
+                                                                      <div id="vol3product1Detail1" class="col-3" style=" color: white;">
+                                                                        1
+                                                                      </div>
+                                                                      <div id="vol3product1Detail2" class="col-3" style=" color: #00804a;">
+                                                                        2
+                                                                      </div>
+                                                                      <div class="col-6">
+                                                                        <div class="row">
+                                                                          <div class="col-10 BambinoNewHeavy" id="vol3product1Detail3" style="line-height: 45px; top: -10px; color: #00804a; font-weight: 600;">
+                                                                            3
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                      <img src="images/add-img.png" style="height: 60px; position: absolute; left: 85%;">
+                                                                    </div>
                                                                   </div>
+
                                                                 </div>
                                                               </div>
                                                               <div id="vol3Row2" onclick="selectVolume(2)"
-                                                                class="row-4 justify-content-center volume-row">
+                                                                class="row-4 justify-content-center volume-row" style="height: 120px">
                                                                 <div class="col product-col-vol" style="display: block">
-                                                                  <img id="vol3Row2Image1" src="images/bg-option.png"
-                                                                    class="streach-img" alt="Snow" />
-                                                                  <div class="align-items-center"
+                                                                  <img id="vol3Row2Image1" src="images/prod-bar.png"
+                                                                    class="streach-img-sel-prod" alt="Snow" />
+                                                                  <!-- <div class="align-items-center"
                                                                     style="position: absolute; top: 0; width: 95%; height: 100%">
                                                                     <div style="
-                      position: absolute;
-                      width: 100%;
-                      top: 48%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      margin: 0;
-                    ">
+                                                                        position: absolute;
+                                                                        width: 100%;
+                                                                        top: 48%;
+                                                                        left: 50%;
+                                                                        transform: translate(-50%, -50%);
+                                                                        margin: 0;
+                                                                      ">
                                                                       <div id="vol3product2Detail1"
                                                                         style="height: 65px; font-size: 55px; color: white">
                                                                         Vol 2
@@ -2226,24 +2326,44 @@
                                                                         Save Rs. 20.00
                                                                       </div>
                                                                     </div>
+                                                                  </div> -->
+
+                                                                  <div class="container" style="position: absolute; font-size: 40px; top: 30px;">
+                                                                    <div class="row">
+                                                                      <div id="vol3product2Detail1" class="col-3" style=" color: white;">
+                                                                        1
+                                                                      </div>
+                                                                      <div id="vol3product2Detail2" class="col-3" style="color: #00804a;">
+                                                                        2
+                                                                      </div>
+                                                                      <div class="col-6">
+                                                                        <div class="row">
+                                                                          <div id="vol3product2Detail3" class="col-10 BambinoNewHeavy" style="line-height: 45px; top: -10px; color: #00804a; font-weight: 600;">
+                                                                            3
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                      <img src="images/add-img.png" style="height: 60px; position: absolute; left: 85%;">
+                                                                    </div>
                                                                   </div>
+
                                                                 </div>
                                                               </div>
                                                               <div class="row-4 justify-content-center volume-row">
                                                                 <div id="vol3Row3" onclick="selectVolume(3)"
-                                                                  class="col product-col-vol" style="display: block">
-                                                                  <img id="vol3Row3Image1" src="images/bg-option.png"
-                                                                    class="streach-img" alt="Snow" />
-                                                                  <div class="align-items-center"
+                                                                  class="col product-col-vol" style="display: block; height: 120px">
+                                                                  <img id="vol3Row3Image1" src="images/prod-bar.png"
+                                                                    class="streach-img-sel-prod" alt="Snow" />
+                                                                  <!-- <div class="align-items-center"
                                                                     style="position: absolute; top: 0; width: 95%; height: 100%">
                                                                     <div style="
-                      position: absolute;
-                      width: 100%;
-                      top: 48%;
-                      left: 50%;
-                      transform: translate(-50%, -50%);
-                      margin: 0;
-                    ">
+                                                                          position: absolute;
+                                                                          width: 100%;
+                                                                          top: 48%;
+                                                                          left: 50%;
+                                                                          transform: translate(-50%, -50%);
+                                                                          margin: 0;
+                                                                        ">
                                                                       <div id="vol3product3Detail1"
                                                                         style="height: 65px; font-size: 55px; color: white">
                                                                         Vol 4
@@ -2257,8 +2377,35 @@
                                                                         Save Rs. 20.00
                                                                       </div>
                                                                     </div>
+                                                                  </div> -->
+
+                                                                  <div class="container" style="position: absolute; font-size: 40px; top: 30px;">
+                                                                    <div class="row">
+                                                                      <div id="vol3product3Detail1" class="col-3" style=" color: white;">
+                                                                        1
+                                                                      </div>
+                                                                      <div id="vol3product3Detail2" class="col-3" style=" color: #00804a;">
+                                                                        2
+                                                                      </div>
+                                                                      <div class="col-6">
+                                                                        <div class="row">
+                                                                          <div id="vol3product3Detail3" class="col-10 BambinoNewHeavy" style="line-height: 45px; top: -10px; color: #00804a; font-weight: 600;">
+                                                                            3
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                      <img src="images/add-img.png" style="height: 60px; position: absolute; left: 85%;">
+                                                                    </div>
                                                                   </div>
+
                                                                 </div>
+                                                              </div>
+
+                                                              <div id="btnBackSelectVolume2" class="button-next-bottom" style="z-index: 1000; width: 280px;"
+                                                                  onclick="goBack(btnBackSelectVolume2.id); confirmation(btnBckImage2.id)">
+                                                                  <img id="btnBckImage2" src="images/bg-option.png" alt="Snow"
+                                                                    class="streach-img box-shadow" />
+                                                                  <div class="text-next BambinoNewSemiBold">Back</div>
                                                               </div>
                                                             </div>
 
@@ -2349,29 +2496,29 @@
                                                                     src="images/bg-option.png" class="streach-img"
                                                                     alt="Snow" />
                                                                   <div class="align-items-center"
-                                                                    style="position: absolute; top: 0; width: 95%; height: 100%">
+                                                                    style="position: absolute; top: 0; width: 95%; height: 100%;">
                                                                     <div style="
-                      position: absolute;
-                      width: 100%;
-                      top: 48%;
-                      left: 52%;
-                      transform: translate(-50%, -50%);
-                      margin: 0;
-                    ">
+                                                                          position: absolute;
+                                                                          width: 100%;
+                                                                          top: 48%;
+                                                                          left: 52%;
+                                                                          transform: translate(-50%, -50%);
+                                                                          margin: 0;
+                                                                        ">
                                                                       <div id="vol6product3Detail1" style="
-                        width: 95%;
-                        height: 60px;
-                        font-size: 50px;
-                        color: white;
-                      ">
+                                                                          width: 95%;
+                                                                          height: 60px;
+                                                                          font-size: 50px;
+                                                                          color: white;
+                                                                        ">
                                                                         Vol 3
                                                                       </div>
                                                                       <div id="vol6product3Detail2" style="
-                        width: 95%;
-                        height: 55px;
-                        font-size: 40px;
-                        color: white;
-                      ">
+                                                                          width: 95%;
+                                                                          height: 55px;
+                                                                          font-size: 40px;
+                                                                          color: white;
+                                                                        ">
                                                                         Rs. 150.00
                                                                       </div>
                                                                       <div id="vol6product3Detail3"
@@ -2460,6 +2607,7 @@
                                                                     </div>
                                                                   </div>
                                                                 </div>
+
                                                                 <div id="vol6Row3Col2" onclick="selectVolume(6)"
                                                                   class="col-6 product-col-vol" style="display: block">
                                                                   <img id="vol6Row3Col2Image1"
@@ -2507,99 +2655,172 @@
                                                           class="container1 noselect" style="display: none">
                                                           <img src="images/background_logo.png" alt="Snow"
                                                             class="streach-img-no-border" />
-                                                          <div class="select-text">You have selected</div>
-                                                          <img id="img-selected-product" src="images/bg-option.png"
-                                                            alt="Snow">
-                                                          <div class="productLogoConfirm">
+                                                          <!-- <div class="select-text">You have selected</div> -->
+
+                                                          <div class="product4Logo">
+                                                            <img src="images/product_images/logo.png" alt="Snow" />
+                                                          </div>
+                                                          <div class="main-title-txt BambinoNewHeavy">YOUR SELECTION</div>
+
+                                                          <div class="volume-title" style="display: block;">
+                                                            <img id="no4imgProduct1Image1" src="images/wood-bg.png" class="streach-img" alt="Snow">
+                                                            <div class="product4Bottle">
+                                                              <img id="productBottleConfirm"
+                                                                src="images/product_images/bottle1.png"
+                                                                class="streach-img" alt="Snow" />
+                                                            </div>
+
+                                                            <div class="text-Rs volume-price BambinoNewSemiBold" id="prodName" style="
+                                                            top: 30%;
+                                                            width: 100%;
+                                                            color: #00804a;
+                                                            font-size: 40px;
+                                                            font-weight: bold;
+                                                            ">Rs.</div>
+                                                            <div class="text-Rs BambinoNewSemiBold" id="volume-text">80 ml</div>
+                                                            
+                                                            <div class="img-rs volume-price"
+                                                              style="width: 300px; height: 120px">
+                                                              <div id="txt-volume-price"
+                                                                class="img-rs volume-price text-value BambinoNewHeavy" style="font-weight: 900; font-size: 50px;">
+                                                                180
+                                                              </div>
+                                                              <img src="images/y-box.png" alt="Snow"
+                                                                class="streach-img-no-border" />
+                                                            </div>
+                                                          </div>
+
+
+
+                                                          <!-- <img id="img-selected-product" src="images/wood-bg.png"
+                                                            alt="Snow"> -->
+                                                          <!-- <div class="productLogoConfirm">
                                                             <img id="productLogoConfirm"
                                                               src="images/product_images/logo1.png" class="streach-img"
                                                               alt="Snow" />
-                                                          </div>
-                                                          <div class="productBottleConfirm">
+                                                          </div> -->
+                                                          <!-- <div class="productBottleConfirm">
                                                             <img id="productBottleConfirm"
                                                               src="images/product_images/bottle1.png"
                                                               class="streach-img" alt="Snow" />
-                                                          </div>
-                                                          <div id="volume-text">80 ml</div>
-                                                          <div class="text-Rs volume-price">Rs.</div>
-                                                          <div class="img-rs volume-price"
-                                                            style="width: 250px; height: 100px">
-                                                            <div id="txt-volume-price"
-                                                              class="img-rs volume-price text-value">
-                                                              180
-                                                            </div>
-                                                            <img src="images/bg-option.png" alt="Snow"
-                                                              class="streach-img" />
-                                                          </div>
+                                                          </div> -->
+                                                          
                                                           <div class="expire-text">Best before 4 months from purchase
                                                             date</div>
                                                           <div class="accept-layer" style="width: 100%; height: 100px">
-                                                            <div id="btnDecline" class="img-decline"
-                                                              onclick="confirmation(btnDecline.id)">
-                                                              <img id="btnDeclineImage" src="images/bg-button.png"
-                                                                alt="Snow" class="streach-img box-shadow" />
-                                                              <div class="text-decline">DECLINE</div>
-                                                            </div>
 
                                                             <div id="btnConfirm" class="img-accept"
-                                                              onclick="confirmation(btnConfirm.id)">
+                                                              onclick="confirmation(btnConfirm.id)" style="left: 14%;">
                                                               <img id="btnConfirmImage" src="images/bg-button.png"
-                                                                alt="Snow" class="streach-img box-shadow" />
-                                                              <div class="text-accept">CONFIRM</div>
+                                                                alt="Snow" class="streach-img box-shadow"/>
+                                                              <div class="text-accept BambinoNewSemiBold" style="font-size: 35px; margin: -5px;">Accept</div>
                                                             </div>
+
+                                                            <div id="btnDecline" class="img-decline"
+                                                              onclick="confirmation(btnDecline.id)" style="left: 55%;">
+                                                              <img id="btnDeclineImage" src="images/bg-button-red.png"
+                                                                alt="Snow" class="streach-img box-shadow" style="height: 85px;"/>
+                                                              <div class="text-decline BambinoNewSemiBold" style="font-size: 35px; margin: -5px;">Decline</div>
+                                                            </div>
+
+                                                            
                                                           </div>
                                                         </div>
 
                                                         <div id="printReceipt-container" class="container1 noselect"
                                                           style="display: none">
+
+                                                          <div class="product4Logo">
+                                                            <img src="images/product_images/logo.png" alt="Snow" />
+                                                          </div>
+                                                          <div class="main-title-txt BambinoNewHeavy">YOUR RECEIPT</div>
+
+
+                                                          <div class="volume-title" style="display: block;">
+                                                            <img id="no4imgProduct1Image1" src="images/bg-receipt.png" class="streach-img-no-border" alt="Snow">
+                                                          </div>
+
                                                           <img src="images/background_logo.png" alt="Snow"
                                                             style="width: 100%; height: 100%" />
-                                                          <img class="img-bill" src="images/ic-bill.png" alt="Snow" />
-                                                          <div class="receipt-title">Please collect your receipt.</div>
-                                                          <div class="receipt-info">
+                                                          <!-- <img class="img-bill" src="images/ic-bill.png" alt="Snow" /> -->
+                                                          <div class="receipt-title">Show the receipt at checkout</div>
+                                                          <!-- <div class="receipt-info">
                                                             Issue it at the counter <br />
                                                             to get your SAVINGS
-                                                          </div>
+                                                          </div> -->
                                                           <div class="value-title-layer">
                                                             <div class="total-text">Total</div>
                                                             <div class="quantity-text">Quantity</div>
                                                           </div>
                                                           <div class="value-layer">
-                                                            <div id="confirmedPrice" class="total-value">Rs. 180</div>
-                                                            <div id="confirmedVolume" class="quantity-value">80 ml</div>
+                                                            <div id="confirmedPrice" class="total-value">25 SAR</div>
+                                                            <div id="confirmedVolume" class="quantity-value">1.5 L</div>
                                                           </div>
-                                                          <div id="btnNext" class="button-next"
+                                                          <div id="btnNext" class="button-next" style="width: 250px;"
                                                             onclick="confirmation(btnNext.id)">
                                                             <img id="btnNextImage" src="images/bg-option.png" alt="Snow"
                                                               class="streach-img box-shadow" />
-                                                            <div class="text-next">NEXT</div>
+                                                            <div class="text-next">Next</div>
                                                           </div>
                                                         </div>
+
+
+                                                        <!-- <div id="refillGuide-container" class="container1"
+                                                          style="display: none">
+                                                          <img id="imgBtnRefillGuide" src="images/background_logo.png"
+                                                            alt="Snow" class="streach-img-no-border" />
+
+                                                          <div class="product4Logo">
+                                                            <img src="images/product_images/logo.png" alt="Snow" />
+                                                          </div>
+                                                          <div class="main-title-txt BambinoNewHeavy">BEGIN REFILL</div>
+
+                                                          <div class="info-layer">
+                                                            <div class="info-text">
+                                                              Please place bottle under the blinking button
+                                                            </div>
+                                                          </div>
+
+                                                          <div class="select-nobe-layer">
+                                                            <img id="imgSelectNobe" style="w" src="images/nobe1.gif" alt="Snow" />
+                                                          </div>
+
+                                                          <div class="print-receipt-layer">
+                                                            <div class="info-text-receipt">
+                                                              Press the blinking button to begin refilling
+                                                            </div>
+                                                        </div> -->
+
+
+                                                        
 
                                                         <div id="refillGuide-container" class="container1"
                                                           style="display: none">
                                                           <img id="imgBtnRefillGuide" src="images/background_logo.png"
                                                             alt="Snow" class="streach-img-no-border" />
+
+                                                            <div class="product4Logo">
+                                                              <img src="images/product_images/logo.png" alt="Snow" />
+                                                            </div>
+                                                            <div class="main-title-txt BambinoNewHeavy">BEGIN REFILL</div>
+
                                                           <div class="info-layer">
                                                             <div class="info-text">
-                                                              Please place bottle under the blinking button & press it
-                                                              to start
-                                                              refilling
+                                                              Please place bottle under the blinking button
                                                             </div>
-                                                            <img class="info-img" src="images/ic-tap.png" alt="Snow" />
+                                                            <!-- <img class="info-img" src="images/ic-tap.png" alt="Snow" /> -->
                                                           </div>
 
                                                           <div class="select-nobe-layer">
-                                                            <img id="imgSelectNobe" src="images/nobe1.gif" alt="Snow" />
+                                                            <img id="imgSelectNobe" style="width: 90%;" src="images/begin-refill-wood.png" alt="Snow" />
                                                           </div>
 
                                                           <div class="print-receipt-layer">
                                                             <div class="info-text-receipt">
-                                                              Please collect your recipt.<br />
-                                                              Issue it at the counter to get your SAVING
+                                                              Press the blinking button to begin refilling
                                                             </div>
-                                                            <img class="info-img-receipt" src="images/ic-bill.png"
-                                                              alt="Snow" />
+                                                            <!-- <img class="info-img-receipt" src="images/ic-bill.png"
+                                                              alt="Snow" /> -->
                                                           </div>
                                                         </div>
 
@@ -2607,27 +2828,50 @@
                                                           style="display: none">
                                                           <img id="imgBtnOutOfPaper" src="images/background_logo.png"
                                                             alt="Snow" class="streach-img-no-border" />
-                                                          <div id="divFillingText" class="select-text">Filling in
-                                                            progress</div>
-                                                          <div class="filling-layer">
+
+                                                            <div class="product4Logo">
+                                                              <img src="images/product_images/logo.png" alt="Snow" />
+                                                            </div>
+                                                            <div class="main-title-txt BambinoNewHeavy">PLEASE WAIT</div>
+
+                                                          <div id="divFillingText" class="select-text">Refilling in progress</div>
+
+                                                          <div class="volume-title" style="display: block; top: 25%; height: 250px;">
+                                                            <img id="no4imgProduct1Image1" src="images/please wait.png" class="streach-img-no-border" alt="Snow">
+                                                          </div>
+
+                                                          <!-- <div class="filling-layer"> -->
                                                             <div class="filling-text">Amount</div>
-                                                            <div class="img-rs volume-price"
+
+                                                            <div id="divFillingAmount" class="filling-text" style="top: 40%; color: #00804a;">0 ml</div>
+
+                                                            <!-- <div class="img-rs volume-price"
                                                               style="width: 180px; height: 100px">
                                                               <div id="divFillingAmount" class="filling-text"
-                                                                style="width: 170px; height: 100px; text-align: end; left: 0">
-                                                                0
+                                                                style="width: 170px; height: 100px; text-align: end;
+                                                                ">
+                                                                0 ml
                                                               </div>
                                                               <img src="images/bg-option.png" alt="Snow"
                                                                 class="streach-img" />
                                                               <div class="filling-text text-value" style="left: 80%">ml
                                                               </div>
-                                                            </div>
-                                                          </div>
+                                                            </div> -->
+                                                          <!-- </div> -->
+
                                                           <div id="btnStop" class="btn-stop">
-                                                            <img id="btnStopImage" src="images/bg-button.png" alt="Snow"
+                                                            <img id="btnStopImage" src="images/bg-option.png" alt="Snow"
                                                               class="streach-img box-shadow" />
-                                                            <div class="text-decline">STOP</div>
+                                                            <div class="text-decline BambinoNewSemiBold">Stop</div>
                                                           </div>
+
+                                                          <!-- <div id="btnStop" class="btn-stop"
+                                                              onclick="confirmation(btnDecline.id)" style="left: 55%;">
+                                                              <img id="btnDeclineImage" src="images/bg-button-red.png"
+                                                                alt="Snow" class="streach-img box-shadow" style="height: 85px;"/>
+                                                              <div class="text-decline BambinoNewSemiBold" style="font-size: 35px; margin: -5px;">Decline</div>
+                                                          </div> -->
+
                                                         </div>
 
                                                         <div id="thankYou-container" class="container1"
