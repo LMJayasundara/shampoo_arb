@@ -3411,7 +3411,7 @@ function updateStatus() {
     ipc_state != BUTTON_STOP
   ) {
     if (ipc_state != STATE_FILL) {
-      // changeStateTo("filling");
+      changeStateTo("filling");
       console.log('test');
     } else {
       divFillingAmount.innerHTML = parseInt(serialReturnVolume, 10);
