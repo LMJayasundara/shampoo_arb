@@ -18,7 +18,7 @@ var app = express();
 const {callSyncAllApi, callKegApi, callTransactionApi, callSaveKegDetailsApi} = require('./Request')
 var sha1 = require('sha1');
 const { connect } = require("http2");
-
+const { Gpio } = require('onoff');
 
 var productDataList = [];
 var printerStatus = 0;
@@ -39,46 +39,147 @@ eval(fs.readFileSync("printer.js") + "");
 app.use(cors());
 app.set("port", 3001);
 
-var portName = "/dev/ttyS0"; //'/dev/ttyS0'; //This is the standard Raspberry Pi Serial port '/dev/tnt1'; //
-const parsers = serialport.parsers;
-const parser = new parsers.Readline({
-  delimiter: "\n",
+// var portName = "/dev/ttyS0"; //'/dev/ttyS0'; //This is the standard Raspberry Pi Serial port '/dev/tnt1'; //
+// const parsers = serialport.parsers;
+// const parser = new parsers.Readline({
+//   delimiter: "\n",
+// });
+
+// var sp = new serialport(portName, {
+//   baudRate: 9600,
+//   dataBits: 8,
+//   parity: "none",
+//   stopBits: 1,
+//   flowControl: false,
+// });
+
+// sp.pipe(parser);
+
+// sp.on("close", function (err) {
+//   console.log("+++++port closed");
+// });
+
+// sp.on("error", function (err) {
+//   console.error("++++++++++++error", err);
+// });
+
+// sp.on("open", function () {
+//   console.log("++++++++port opened...");
+// });
+
+// parser.on("data", function (reply) {
+//   if (reply != null || reply != undefined) {
+//     serialDataReceived = reply.toString();
+//   }
+//   console.log("receive " + serialDataReceived);
+//   sp.write(serialDataSend + "\n");
+//   console.log("send " + serialDataSend);
+// });
+
+// var server = http.createServer(app).listen(app.get("port"), function () {
+//   console.log("Express server listening on port " + app.get("port"));
+// });
+
+///////////////////////////////////////////////////////////////
+
+const Readline = serialport.parsers.Readline;
+const parser1 = new Readline();
+
+const gpio18 = new Gpio('18', 'out');
+const gpio21 = new Gpio('21', 'out');
+gpio18.writeSync(0);
+gpio21.writeSync(0);
+
+var port1 = new serialport('/dev/ttyAMA0', {
+	baudRate: 9600,
+	dataBits: 8,
+	parity: 'none',
+	stopBits: 1,
+	flowControl: false
 });
 
-var sp = new serialport(portName, {
-  baudRate: 9600,
-  dataBits: 8,
-  parity: "none",
-  stopBits: 1,
-  flowControl: false,
-});
+port1.pipe(parser1);
+port1.on('open', onPort1Open);
+parser1.on('data', onData1);
+port1.on('error', onError1);
+port1.on('close', onClose1);
 
-sp.pipe(parser);
+// var main_function = setInterval(main, 299);
 
-sp.on("close", function (err) {
-  console.log("+++++port closed");
-});
+function onPort1Open() {
+	console.log("port 1 open");
+}
 
-sp.on("error", function (err) {
-  console.error("++++++++++++error", err);
-});
+function chk_junk(val){
+  // console.log("Incoming data :", val);
+  let isnum = /^\d+$/.test(val);
+  console.log(isnum);
 
-sp.on("open", function () {
-  console.log("++++++++port opened...");
-});
-
-parser.on("data", function (reply) {
-  if (reply != null || reply != undefined) {
-    serialDataReceived = reply.toString();
+  if (isnum == true){
+    serialDataReceived = val;
+    console.log("port 1 Recived : " + serialDataReceived);
+    main();
   }
-  console.log("receive " + serialDataReceived);
-  sp.write(serialDataSend + "\n");
-  console.log("send " + serialDataSend);
-});
+  else {
+    console.log('Junk data');
+  }
 
-var server = http.createServer(app).listen(app.get("port"), function () {
-  console.log("Express server listening on port " + app.get("port"));
-});
+}
+
+function onData1(data) {
+  console.log("------------------ Data from machine ------------------ :", data);
+  if(data.includes("#")){
+    var data2 = data.split("#");
+    // serialDataReceived = data2[1];
+    // serialDataReceived = (data2[1].match(/.{1,11}/g))[0];
+
+    var val = (data2[1].match(/.{1,11}/g))[0];
+    chk_junk(val);
+    // console.log("port 1 Recived : " + serialDataReceived);
+  }
+}
+
+function onClose1() {
+	console.log("port 1 closed");
+}
+
+function onError1() {
+	console.log("somethings wrong in port 1");
+}
+
+// async function main() {
+//   gpio18.writeSync(1);
+// 	await sleep(11); //10
+// 	sendSerial1(serialDataSend);
+// 	console.log("serial data send :"+serialDataSend);
+// 	await sleep(119); // 100
+//
+//   gpio18.writeSync(0);
+// 	await sleep(11); //20
+// }
+
+async function main() {
+  gpio18.writeSync(1);
+	await sleep(20);
+	sendSerial1(serialDataSend);
+	console.log("serial data send :"+serialDataSend);
+  await sleep(20);
+  gpio18.writeSync(0);
+	await sleep(20); //20
+}
+
+function sleep(ms) {
+	return new Promise(resolve => {
+		setTimeout(resolve, ms)
+	})
+}
+
+function sendSerial1(datax) {
+	port1.write("#"+datax+"\n");
+}
+
+///////////////////////////////////////////////////////////////
+
 
 wifi.init({
   iface: null, // network interface, choose a random wifi interface if set to null

@@ -1499,13 +1499,15 @@ function getVolumeBackgroundID(id) {
 function setDataInPrintNotificationUI() {
   prodName.innerHTML = selectedProductName;
   divSelectedVolumePrice.innerHTML = selectedProductPrice + " SAR";
-  divConfirmedPrice.innerHTML = "Rs. " + selectedProductPrice;
-  divConfirmedVolume.innerHTML = selectedVolume + " ml";
+  divConfirmedPrice.innerHTML = selectedProductPrice + " SAR";
+  
   if(selectedVolume >= 1000){
     divSelectedVolume.innerHTML = selectedVolume/1000 + " L";
+    divConfirmedVolume.innerHTML = selectedVolume/1000 + " L";
   }
   else{
     divSelectedVolume.innerHTML = selectedVolume + " ml";
+    divConfirmedVolume.innerHTML = selectedVolume + " ml";
   }
   
 }
@@ -3409,7 +3411,8 @@ function updateStatus() {
     ipc_state != BUTTON_STOP
   ) {
     if (ipc_state != STATE_FILL) {
-      changeStateTo("filling");
+      // changeStateTo("filling");
+      console.log('test');
     } else {
       divFillingAmount.innerHTML = parseInt(serialReturnVolume, 10);
     }
