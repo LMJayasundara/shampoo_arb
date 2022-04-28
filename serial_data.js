@@ -205,6 +205,21 @@ io.sockets.on("connection", function (socket) {
     console.log("data received");
   });
 
+  // ///////////////// send eng /////////////////
+  let data_eng = fs.readFileSync('eng.json');
+  let lang_eng = JSON.parse(data_eng);
+  socket.emit("LANG_ENG", lang_eng);
+
+  ///////////////// send ban /////////////////
+  let data_arb = fs.readFileSync('arb.json');
+  // let lang_ban = JSON.parse(data_ban);
+  socket.emit("LANG_ARB", data_arb);
+
+  socket.on("READ_ALL", function (data) {
+    socket.emit("FILE_DETAILS", readAll());
+    console.log("data received");
+  });
+
   socket.on("READ_ALL", function (data) {
     socket.emit("FILE_DETAILS", readAll());
     console.log("data received");

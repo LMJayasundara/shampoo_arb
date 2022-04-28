@@ -377,6 +377,7 @@ var divAlertText;
 var divAlertTextSettings;
 var divFillingText;
 var divFillingAmount;
+var divFillingAmountArb;
 var selectDropdown;
 
 var idPrice1;
@@ -490,6 +491,42 @@ var barcodeInputHidden;
 var barcodeTimer = null;
 var selectedLanguage = "english";
 
+var eng_json = null;
+var arb_json = null;
+
+var eng_li = null;
+var arb_li = null;
+
+function convertToArbNumber(numericText) {
+  const digitMap = {
+      '1': '١',
+      '2': '٢',
+      '3': '٣',
+      '4': '٤',
+      '5': '٥',
+      '6': '٦',
+      '7': '٧',
+      '8': '٨',
+      '9': '٩',
+      '0': '٠',
+  };
+
+ return String(numericText).replace(/\d/g, function(key) {
+      return digitMap[key];
+  });
+}
+
+var enc = new TextDecoder("utf-8");
+function fetchJson(){
+  try {
+    eng_li = eng_json.eng;
+    arb_li = JSON.parse(enc.decode(arb_json)).arb;
+  }
+  catch (error) {
+    console.log(error);
+  }
+};
+
 $(document).ready(function () {
   try {
     function connect() {
@@ -508,6 +545,14 @@ $(document).ready(function () {
           document.getElementById("txtBarcodeIDHidden").focus();
         }
         console.log(data);
+      });
+
+      socket.on("LANG_ENG", function (data) {
+        eng_json = data;
+      });
+
+      socket.on("LANG_ARB", function (data) {
+        arb_json = data;
       });
 
       socket.on("FILE_DETAILS", function (obj) {
@@ -893,7 +938,32 @@ $(document).ready(function () {
           selectedLanguage = "english";
           startTimer(60);
           ipc_state = STATE_PORDUCT_SELECTION;
+          fetchJson();
+          setProductDetails();
           hideAll();
+          console.log(eng_li);
+
+
+          document.getElementById("page1maintitle").textContent = eng_li[0];
+          document.getElementById("page2maintitle").textContent = eng_li[1];
+          document.getElementById("page3maintitle").textContent = eng_li[2];
+          document.getElementById("page4maintitle").textContent = eng_li[3];
+          document.getElementById("page5maintitle").textContent = eng_li[4];
+          document.getElementById("page6maintitle").textContent = eng_li[5];
+
+          document.getElementById("no4product1Detail1").textContent = eng_li[7];
+          document.getElementById("bckbtnlangid").textContent = eng_li[10];
+          document.getElementById("bckbtnlangid1").textContent = eng_li[10];
+          document.getElementById("bckbtnlangid2").textContent = eng_li[10];
+
+          document.getElementById("info-text").textContent = eng_li[29];
+          document.getElementById("info-text-receipt").textContent = eng_li[30];
+
+          document.getElementById("divFillingText").textContent = eng_li[32];
+          document.getElementById("amounttxt").textContent = eng_li[33];
+          document.getElementById("btnStoptxt").textContent = eng_li[34];
+
+
           $("div#selectProduct-container").show();
           socket.emit("TAP", 1);
         }, 100);
@@ -902,10 +972,33 @@ $(document).ready(function () {
       $("#btnBengali").on("click", function (evt) {
         setTimeout(function () {
           console.log("clicked");
-          selectedLanguage = "bengali";
+          selectedLanguage = "arabic";
           startTimer(60);
           ipc_state = STATE_PORDUCT_SELECTION;
+          fetchJson();
+          setProductDetails();
           hideAll();
+          console.log(arb_li);
+          // Page 1
+          document.getElementById("page1maintitle").textContent = arb_li[0];
+          document.getElementById("page2maintitle").textContent = arb_li[1];
+          document.getElementById("page3maintitle").textContent = arb_li[2];
+          document.getElementById("page4maintitle").textContent = arb_li[3];
+          document.getElementById("page5maintitle").textContent = arb_li[4];
+          document.getElementById("page6maintitle").textContent = arb_li[5];
+
+          document.getElementById("no4product1Detail1").textContent = arb_li[7];
+          document.getElementById("bckbtnlangid").textContent = arb_li[10];
+          document.getElementById("bckbtnlangid1").textContent = arb_li[10];
+          document.getElementById("bckbtnlangid2").textContent = arb_li[10];
+
+          document.getElementById("info-text").textContent = arb_li[29];
+          document.getElementById("info-text-receipt").textContent = arb_li[30];
+
+          document.getElementById("divFillingText").textContent = arb_li[32];
+          document.getElementById("amounttxt").textContent = arb_li[33];
+          document.getElementById("btnStoptxt").textContent = arb_li[34];
+
           $("div#selectProduct-container").show();
           socket.emit("TAP", 1);
         }, 100);
@@ -1101,8 +1194,15 @@ function selectProduct(id) {
       //   idProductVolumeSave.style.display = "none";
       // }
 
-      idProductVolumeSave.innerHTML = productName;
-      productScreenLogo.innerHTML = "Corn oil is a light oil great for cooking. It controls cholesterol level."
+      if (selectedLanguage == "english"){
+        idProductVolumeSave.innerHTML = eng_li[7];
+        productScreenLogo.innerHTML = eng_li[12];
+      }
+      if (selectedLanguage == "arabic"){
+        idProductVolumeSave.innerHTML = arb_li[7];
+        productScreenLogo.innerHTML = arb_li[12] + " "+ arb_li[13] + " " + arb_li[14];
+      }
+      
 
       volumeList = productVolumes.split("/");
       actualVolumeCount = volumeList.length;
@@ -1283,89 +1383,182 @@ function show6Volumes() {
 function setVolumeData(productVolumes, productPrices, productDiscounts) {
   if (productVolumes[0] != undefined) {
 
-    vol2product1Detail2.innerHTML = productPrices[0] + " SAR";
-    vol3product1Detail2.innerHTML = productPrices[0] + " SAR";
-    vol6product1Detail2.innerHTML = productPrices[0] + " SAR";
+    if(selectedLanguage == 'english'){
+      vol2product1Detail2.innerHTML = productPrices[0] + " SAR";
+      vol3product1Detail2.innerHTML = productPrices[0] + " SAR";
+      vol6product1Detail2.innerHTML = productPrices[0] + " SAR";
 
-    if (productVolumes[0] >= 1000){
-      vol2product1Detail1.innerHTML = productVolumes[0]/1000 + " L";
-      vol3product1Detail1.innerHTML = productVolumes[0]/1000 + " L";
-      vol6product1Detail1.innerHTML = productVolumes[0]/1000 + " L";
+      if (productVolumes[0] >= 1000){
+        vol2product1Detail1.innerHTML = productVolumes[0]/1000 + " L";
+        vol3product1Detail1.innerHTML = productVolumes[0]/1000 + " L";
+        vol6product1Detail1.innerHTML = productVolumes[0]/1000 + " L";  
+      }
+      else{
+        vol2product1Detail1.innerHTML = productVolumes[0] + " ml";
+        vol3product1Detail1.innerHTML = productVolumes[0] + " ml";
+        vol6product1Detail1.innerHTML = productVolumes[0] + " ml";
+      }
+
+      if (productDiscounts[0] == "0") {
+        vol2product1Detail3.style.display = "none";
+        vol3product1Detail3.style.display = "none";
+        vol6product1Detail3.style.display = "none";
+      } else {
+        vol2product1Detail3.style.display = "block";
+        vol3product1Detail3.style.display = "block";
+        vol6product1Detail3.style.display = "block";
+        vol2product1Detail3.innerHTML = "Save<br>"+ productDiscounts[0] + " SAR";
+        vol3product1Detail3.innerHTML = "Save<br>"+ productDiscounts[0] + " SAR";
+        vol6product1Detail3.innerHTML = "Save<br>"+ productDiscounts[0] + " SAR";
+      }
     }
-    else{
-      vol2product1Detail1.innerHTML = productVolumes[0] + " ml";
-      vol3product1Detail1.innerHTML = productVolumes[0] + " ml";
-      vol6product1Detail1.innerHTML = productVolumes[0] + " ml";
+    if(selectedLanguage == 'arabic'){
+      vol2product1Detail2.innerHTML = arb_li[9] + " " + convertToArbNumber(productPrices[0]);
+      vol3product1Detail2.innerHTML = arb_li[9] + " " + convertToArbNumber(productPrices[0]);
+      vol6product1Detail2.innerHTML = arb_li[9] + " " + convertToArbNumber(productPrices[0]);
+
+      if (productVolumes[0] >= 1000){
+        vol2product1Detail1.innerHTML = arb_li[17] + " " + convertToArbNumber(productVolumes[0]/1000);
+        vol3product1Detail1.innerHTML = arb_li[17] + " " + convertToArbNumber(productVolumes[0]/1000);
+        vol6product1Detail1.innerHTML = arb_li[17] + " " + convertToArbNumber(productVolumes[0]/1000);  
+      }
+      else{
+        vol2product1Detail1.innerHTML = arb_li[18] + " " + convertToArbNumber(productVolumes[0]);
+        vol3product1Detail1.innerHTML = arb_li[18] + " " + convertToArbNumber(productVolumes[0]);
+        vol6product1Detail1.innerHTML = arb_li[18] + " " + convertToArbNumber(productVolumes[0]);
+      }
+
+      if (productDiscounts[0] == "0") {
+        vol2product1Detail3.style.display = "none";
+        vol3product1Detail3.style.display = "none";
+        vol6product1Detail3.style.display = "none";
+      } else {
+        vol2product1Detail3.style.display = "block";
+        vol3product1Detail3.style.display = "block";
+        vol6product1Detail3.style.display = "block";
+        vol2product1Detail3.innerHTML = arb_li[16] + "<br>" + convertToArbNumber(productDiscounts[0]) + " " + arb_li[9];
+        vol3product1Detail3.innerHTML = arb_li[16] + "<br>" + convertToArbNumber(productDiscounts[0]) + " " + arb_li[9];
+        vol6product1Detail3.innerHTML = arb_li[16] + "<br>" + convertToArbNumber(productDiscounts[0]) + " " + arb_li[9];
+      }
     }
 
-    if (productDiscounts[0] == "0") {
-      vol2product1Detail3.style.display = "none";
-      vol3product1Detail3.style.display = "none";
-      vol6product1Detail3.style.display = "none";
-    } else {
-      vol2product1Detail3.style.display = "block";
-      vol3product1Detail3.style.display = "block";
-      vol6product1Detail3.style.display = "block";
-      vol2product1Detail3.innerHTML = "Save<br>"+ productDiscounts[0] + " SAR";
-      vol3product1Detail3.innerHTML = "Save<br>"+ productDiscounts[0] + " SAR";
-      vol6product1Detail3.innerHTML = "Save<br>"+ productDiscounts[0] + " SAR";
-    }
+    
   }
 
   if (productVolumes[1] != undefined) {
 
-    vol2product2Detail2.innerHTML = productPrices[1] + " SAR";
-    vol3product2Detail2.innerHTML = productPrices[1] + " SAR";
-    vol6product2Detail2.innerHTML = productPrices[1] + " SAR";
+    if(selectedLanguage == 'english'){
+      vol2product2Detail2.innerHTML = productPrices[1] + " SAR";
+      vol3product2Detail2.innerHTML = productPrices[1] + " SAR";
+      vol6product2Detail2.innerHTML = productPrices[1] + " SAR";
 
-    if(productVolumes[1] >= 1000){
-      vol2product2Detail1.innerHTML = productVolumes[1]/1000 + " L";
-      vol3product2Detail1.innerHTML = productVolumes[1]/1000 + " L";
-      vol6product2Detail1.innerHTML = productVolumes[1]/1000 + " L";
+      if(productVolumes[1] >= 1000){
+        vol2product2Detail1.innerHTML = productVolumes[1]/1000 + " L";
+        vol3product2Detail1.innerHTML = productVolumes[1]/1000 + " L";
+        vol6product2Detail1.innerHTML = productVolumes[1]/1000 + " L";
+      }
+      else{
+        vol2product2Detail1.innerHTML = productVolumes[1] + " ml";
+        vol3product2Detail1.innerHTML = productVolumes[1] + " ml";
+        vol6product2Detail1.innerHTML = productVolumes[1] + " ml";
+      }
+      
+      if (productDiscounts[1] == "0") {
+        vol2product2Detail3.style.display = "none";
+        vol3product2Detail3.style.display = "none";
+        vol6product2Detail3.style.display = "none";
+      } else {
+        vol2product2Detail3.style.display = "block";
+        vol3product2Detail3.style.display = "block";
+        vol6product2Detail3.style.display = "block";
+        vol2product2Detail3.innerHTML = "Save<br>"+ productDiscounts[1] + " SAR";
+        vol3product2Detail3.innerHTML = "Save<br>"+ productDiscounts[1] + " SAR";
+        vol6product2Detail3.innerHTML = "Save<br>"+ productDiscounts[1] + " SAR";
+      }
     }
-    else{
-      vol2product2Detail1.innerHTML = productVolumes[1] + " ml";
-      vol3product2Detail1.innerHTML = productVolumes[1] + " ml";
-      vol6product2Detail1.innerHTML = productVolumes[1] + " ml";
+
+    if(selectedLanguage == 'arabic'){
+      vol2product2Detail2.innerHTML = arb_li[9] + " " + convertToArbNumber(productPrices[1]);
+      vol3product2Detail2.innerHTML = arb_li[9] + " " + convertToArbNumber(productPrices[1]);
+      vol6product2Detail2.innerHTML = arb_li[9] + " " + convertToArbNumber(productPrices[1]);
+
+      if(productVolumes[1] >= 1000){
+        vol2product2Detail1.innerHTML = arb_li[17] + " " + convertToArbNumber(productVolumes[1]/1000);
+        vol3product2Detail1.innerHTML = arb_li[17] + " " + convertToArbNumber(productVolumes[1]/1000);
+        vol6product2Detail1.innerHTML = arb_li[17] + " " + convertToArbNumber(productVolumes[1]/1000);
+      }
+      else{
+        vol2product2Detail1.innerHTML = arb_li[18] + " " + convertToArbNumber(productVolumes[1]);
+        vol3product2Detail1.innerHTML = arb_li[18] + " " + convertToArbNumber(productVolumes[1]);
+        vol6product2Detail1.innerHTML = arb_li[18] + " " + convertToArbNumber(productVolumes[1]);
+      }
+      
+      if (productDiscounts[1] == "0") {
+        vol2product2Detail3.style.display = "none";
+        vol3product2Detail3.style.display = "none";
+        vol6product2Detail3.style.display = "none";
+      } else {
+        vol2product2Detail3.style.display = "block";
+        vol3product2Detail3.style.display = "block";
+        vol6product2Detail3.style.display = "block";
+        vol2product2Detail3.innerHTML = arb_li[16] + "<br>" + convertToArbNumber(productDiscounts[1]) + " " + arb_li[9];
+        vol3product2Detail3.innerHTML = arb_li[16] + "<br>" + convertToArbNumber(productDiscounts[1]) + " " + arb_li[9];
+        vol6product2Detail3.innerHTML = arb_li[16] + "<br>" + convertToArbNumber(productDiscounts[1]) + " " + arb_li[9];
+      }
     }
-    
-    if (productDiscounts[1] == "0") {
-      vol2product2Detail3.style.display = "none";
-      vol3product2Detail3.style.display = "none";
-      vol6product2Detail3.style.display = "none";
-    } else {
-      vol2product2Detail3.style.display = "block";
-      vol3product2Detail3.style.display = "block";
-      vol6product2Detail3.style.display = "block";
-      vol2product2Detail3.innerHTML = "Save<br>"+ productDiscounts[1] + " SAR";
-      vol3product2Detail3.innerHTML = "Save<br>"+ productDiscounts[1] + " SAR";
-      vol6product2Detail3.innerHTML = "Save<br>"+ productDiscounts[1] + " SAR";
-    }
+  
   }
 
   if (productVolumes[2] != undefined) {
 
-    vol3product3Detail2.innerHTML = productPrices[2] + " SAR";
-    vol6product3Detail2.innerHTML = productPrices[2] + " SAR";
-
-    if (productVolumes[2] >= 1000){
-      vol3product3Detail1.innerHTML = productVolumes[2]/1000 + " L";
-      vol6product3Detail1.innerHTML = productVolumes[2]/1000 + " L";
+    if(selectedLanguage == 'english'){
+      vol3product3Detail2.innerHTML = productPrices[2] + " SAR";
+      vol6product3Detail2.innerHTML = productPrices[2] + " SAR";
+  
+      if (productVolumes[2] >= 1000){
+        vol3product3Detail1.innerHTML = productVolumes[2]/1000 + " L";
+        vol6product3Detail1.innerHTML = productVolumes[2]/1000 + " L";
+        
+      }
+      else{
+        vol3product3Detail1.innerHTML = productVolumes[2] + " ml";
+        vol6product3Detail1.innerHTML = productVolumes[2] + " ml";
+      }
+  
+      if (productDiscounts[2] == "0") {
+        vol3product3Detail3.style.display = "none";
+        vol6product3Detail3.style.display = "none";
+      } else {
+        vol3product3Detail3.style.display = "block";
+        vol6product3Detail3.style.display = "block";
+        vol3product3Detail3.innerHTML = "Save<br>"+ productDiscounts[2] + " SAR";
+        vol6product3Detail3.innerHTML = "Save<br>"+ productDiscounts[2] + " SAR";
+      }
     }
-    else{
-      vol3product3Detail1.innerHTML = productVolumes[2] + " ml";
-      vol6product3Detail1.innerHTML = productVolumes[2] + " ml";
-    }
-
-    if (productDiscounts[2] == "0") {
-      vol3product3Detail3.style.display = "none";
-      vol6product3Detail3.style.display = "none";
-    } else {
-      vol3product3Detail3.style.display = "block";
-      vol6product3Detail3.style.display = "block";
-      vol3product3Detail3.innerHTML = "Save<br>"+ productDiscounts[2] + " SAR";
-      vol6product3Detail3.innerHTML = "Save<br>"+ productDiscounts[2] + " SAR";
-    }
+    if(selectedLanguage == 'arabic'){
+      vol3product3Detail2.innerHTML = arb_li[9] + " " + convertToArbNumber(productPrices[2]);
+      vol6product3Detail2.innerHTML = arb_li[9] + " " + convertToArbNumber(productPrices[2]);
+  
+      if (productVolumes[2] >= 1000){
+        vol3product3Detail1.innerHTML = arb_li[17] + " " + convertToArbNumber(productVolumes[2]/1000);
+        vol6product3Detail1.innerHTML = arb_li[17] + " " + convertToArbNumber(productVolumes[2]/1000);
+        
+      }
+      else{
+        vol3product3Detail1.innerHTML = arb_li[18] + " " + convertToArbNumber(productVolumes[2]);
+        vol6product3Detail1.innerHTML = arb_li[18] + " " + convertToArbNumber(productVolumes[2]);
+      }
+  
+      if (productDiscounts[2] == "0") {
+        vol3product3Detail3.style.display = "none";
+        vol6product3Detail3.style.display = "none";
+      } else {
+        vol3product3Detail3.style.display = "block";
+        vol6product3Detail3.style.display = "block";
+        vol3product3Detail3.innerHTML = arb_li[16] + "<br>" + convertToArbNumber(productDiscounts[2]) + " " + arb_li[9];
+        vol6product3Detail3.innerHTML = arb_li[16] + "<br>" + convertToArbNumber(productDiscounts[2]) + " " + arb_li[9];
+      }
+    }    
   }
 
   if (productVolumes[3] != undefined) {
@@ -1497,18 +1690,57 @@ function getVolumeBackgroundID(id) {
 }
 
 function setDataInPrintNotificationUI() {
-  prodName.innerHTML = selectedProductName;
-  divSelectedVolumePrice.innerHTML = selectedProductPrice + " SAR";
-  divConfirmedPrice.innerHTML = selectedProductPrice + " SAR";
+
+  if(selectedLanguage == "english"){
+    prodName.innerHTML = selectedProductName;
+    divSelectedVolumePrice.innerHTML = selectedProductPrice + " SAR";
+    divConfirmedPrice.innerHTML = selectedProductPrice + " SAR";
+
+    document.getElementById("expire-text").textContent = eng_li[20];
+    document.getElementById("text-accept").textContent = eng_li[21];
+    document.getElementById("text-decline").textContent = eng_li[22];
+
+    document.getElementById("total-text").textContent = eng_li[24];
+    document.getElementById("quantity-text").textContent = eng_li[25];
+    document.getElementById("receipt-title").textContent = eng_li[26];
+    document.getElementById("text-next").textContent = eng_li[27];
+
+
+    if(selectedVolume >= 1000){
+      divSelectedVolume.innerHTML = selectedVolume/1000 + " L";
+      divConfirmedVolume.innerHTML = selectedVolume/1000 + " L";
+    }
+    else{
+      divSelectedVolume.innerHTML = selectedVolume + " ml";
+      divConfirmedVolume.innerHTML = selectedVolume + " ml";
+    }
+  }
+  if(selectedLanguage == "arabic"){
+    prodName.innerHTML = arb_li[7];
+    divSelectedVolumePrice.innerHTML = arb_li[9] + " " + convertToArbNumber(selectedProductPrice);
+    divConfirmedPrice.innerHTML = arb_li[9] + " " + convertToArbNumber(selectedProductPrice);
+
+    document.getElementById("expire-text").textContent = arb_li[20];
+    document.getElementById("text-accept").textContent = arb_li[21];
+    document.getElementById("text-decline").textContent = arb_li[22];
+
+    document.getElementById("total-text").textContent = arb_li[24];
+    document.getElementById("quantity-text").textContent = arb_li[25];
+    document.getElementById("receipt-title").textContent = arb_li[26];
+    document.getElementById("text-next").textContent = arb_li[27];
+
+    if(selectedVolume >= 1000){
+      divSelectedVolume.innerHTML = arb_li[17] + " " + convertToArbNumber(selectedVolume/1000);
+      divConfirmedVolume.innerHTML = arb_li[17] + " " + convertToArbNumber(selectedVolume/1000);
+    }
+    else{
+      divSelectedVolume.innerHTML = arb_li[18] + " " + convertToArbNumber(selectedVolume);
+      divConfirmedVolume.innerHTML = arb_li[18] + " " + convertToArbNumber(selectedVolume);
+    }
+  }
   
-  if(selectedVolume >= 1000){
-    divSelectedVolume.innerHTML = selectedVolume/1000 + " L";
-    divConfirmedVolume.innerHTML = selectedVolume/1000 + " L";
-  }
-  else{
-    divSelectedVolume.innerHTML = selectedVolume + " ml";
-    divConfirmedVolume.innerHTML = selectedVolume + " ml";
-  }
+  
+  
   
 }
 
@@ -2000,6 +2232,7 @@ function initData(fileDataList) {
   divAlertTextSettings = document.getElementById("divAlertTextSettings");
   divFillingText = document.getElementById("divFillingText");
   divFillingAmount = document.getElementById("divFillingAmount");
+  divFillingAmountArb = document.getElementById("divFillingAmountArb");
   selectDropdown = document.getElementById("idSelectProduct");
 
   divDebugProductVol1 = document.getElementById("debugVolume1");
@@ -2189,7 +2422,7 @@ if(productCount != 0) {
         break;
     }
   }
-  setProductDetails();
+  // setProductDetails();
   setDebugOptions();
   console.log("read done");
 }
@@ -2261,8 +2494,16 @@ function setProductDetails() {
     //no4imgProduct1Image1.src = "images/vim.png"
     console.log(productList[0]);
     no4product1Detail1.innerHTML = productList[0].productName;
-    no4product1Detail2.innerHTML =
-      "Save upto " + getMaximumDiscount(productList[0].productDiscounts.split("/")) + " SAR";
+    
+
+    if (selectedLanguage == "english"){
+      no4product1Detail2.innerHTML =
+      eng_li[8] + " " + getMaximumDiscount(productList[0].productDiscounts.split("/")) + " " + eng_li[9];
+    }
+    if (selectedLanguage == "arabic"){
+      no4product1Detail2.innerHTML =
+      arb_li[9] + " " + convertToArbNumber(getMaximumDiscount(productList[0].productDiscounts.split("/"))) + " " + arb_li[8];
+    }
 
     //no8imgProduct1Image1.src = "images/sunlight.png"
     no6product1Detail1.innerHTML = productList[0].productName;
@@ -2309,8 +2550,15 @@ function setProductDetails() {
   if (productList[1] != undefined) {
     //no4imgProduct2Image1.src = "images/vim.png"
     no4product2Detail1.innerHTML = productList[1].productName;
-    no4product2Detail2.innerHTML =
-      "Save upto " +getMaximumDiscount(productList[1].productDiscounts.split("/")) +" SAR";
+
+    if (selectedLanguage == "english"){
+      no4product2Detail2.innerHTML =
+      eng_li[8] + " " + getMaximumDiscount(productList[1].productDiscounts.split("/")) + " " + eng_li[9];
+    }
+    if (selectedLanguage == "arabic"){
+      no4product2Detail2.innerHTML =
+      arb_li[9] + " " + convertToArbNumber(getMaximumDiscount(productList[1].productDiscounts.split("/"))) + " " + arb_li[8];
+    }
 
     no6product2Detail1.innerHTML = productList[1].productName;
 
@@ -3414,7 +3662,22 @@ function updateStatus() {
       changeStateTo("filling");
       console.log('test');
     } else {
-      divFillingAmount.innerHTML = parseInt(serialReturnVolume, 10);
+      // divFillingAmount.innerHTML = parseInt(serialReturnVolume, 10);
+
+      if (selectedLanguage == "english"){
+        $("div#divFillingAmount").show();
+        $("div#divFillingAmountArb").hide();
+
+        divFillingAmount.innerHTML = parseInt(serialReturnVolume, 10);
+      }
+      if (selectedLanguage == "arabic"){
+        $("div#divFillingAmount").hide();
+        $("div#divFillingAmountArb").show();
+
+        divFillingAmount.innerHTML = parseInt(serialReturnVolume, 10);
+        divFillingAmountArb.innerHTML = convertToArbNumber(parseInt(serialReturnVolume, 10));
+      }
+      
     }
   } else if (
     serialReturnState == 05 &&
