@@ -297,6 +297,7 @@ var btnConfirmImage;
 var btnNextImage;
 var btnEngImage;
 var btnBenImage;
+var tapToStartcontainerbackground;
 var btnStopImage;
 var btnBckImage;
 var btnBckImage1;
@@ -489,7 +490,7 @@ var barcodeReaderValue = "";
 var kegResponse = null;
 var barcodeInputHidden;
 var barcodeTimer = null;
-var selectedLanguage = "english";
+var selectedLanguage = null;
 
 var eng_json = null;
 var arb_json = null;
@@ -923,6 +924,19 @@ $(document).ready(function () {
 
       $("#imgBtnTapToStart").on("click", function (evt) {
         setTimeout(function () {
+          if(selectedLanguage != null){
+            console.log("clicked");
+            startTimer(60);
+            hideAll();
+            // $("div#language-container").show();
+            $("div#selectProduct-container").show();
+            socket.emit("TAP", 1);
+          }
+        }, 100);
+      });
+
+      $("#imgBtnTapToStart2").on("click", function (evt) {
+        setTimeout(function () {
           console.log("clicked");
           startTimer(60);
           hideAll();
@@ -933,6 +947,9 @@ $(document).ready(function () {
       });
 
       $("#btnEnglish").on("click", function (evt) {
+        btnEngImage.src = "images/bg-button-red.png";
+        btnBenImage.src = "images/bg-button.png";
+        imgBtnTapToStart.src = "images/eng.png";
         setTimeout(function () {
           console.log("clicked");
           selectedLanguage = "english";
@@ -940,7 +957,7 @@ $(document).ready(function () {
           ipc_state = STATE_PORDUCT_SELECTION;
           fetchJson();
           setProductDetails();
-          hideAll();
+          // hideAll();
           console.log(eng_li);
 
 
@@ -964,12 +981,16 @@ $(document).ready(function () {
           document.getElementById("btnStoptxt").textContent = eng_li[34];
 
 
-          $("div#selectProduct-container").show();
+          // $("div#selectProduct-container").show();
+          // $("div#tapToStart-container-eng").show();
           socket.emit("TAP", 1);
         }, 100);
       });
 
       $("#btnBengali").on("click", function (evt) {
+        btnBenImage.src = "images/bg-button-red.png";
+        btnEngImage.src = "images/bg-button.png";
+        imgBtnTapToStart.src = "images/arb.png";
         setTimeout(function () {
           console.log("clicked");
           selectedLanguage = "arabic";
@@ -977,7 +998,7 @@ $(document).ready(function () {
           ipc_state = STATE_PORDUCT_SELECTION;
           fetchJson();
           setProductDetails();
-          hideAll();
+          // hideAll();
           console.log(arb_li);
           // Page 1
           document.getElementById("page1maintitle").textContent = arb_li[0];
@@ -999,7 +1020,8 @@ $(document).ready(function () {
           document.getElementById("amounttxt").textContent = arb_li[33];
           document.getElementById("btnStoptxt").textContent = arb_li[34];
 
-          $("div#selectProduct-container").show();
+          // $("div#selectProduct-container").show();
+          // $("div#tapToStart-container-arb").show();
           socket.emit("TAP", 1);
         }, 100);
       });
@@ -1056,6 +1078,10 @@ function hideAll() {
   $("div#cip-instructions-container").hide();
   $("div#cip-inprogress-container").hide();
   $("div#selectProduct-container").hide();
+
+  $("div#tapToStart-container-eng").hide();
+  $("div#tapToStart-container-arb").hide();
+
   $("div#password-container").hide();
   $("div#outOfPaper-container").hide();
   $("div#selectVolume-container").hide();
@@ -1825,12 +1851,12 @@ function confirmation(id) {
   else if (id == "btnConfirm") {
     btnConfirmImage.src = "images/bg-selected.png";
   }
-  else if(id == "btnEnglish"){
-    btnEngImage.src = "images/bg-selected.png";
-  }
-  else if(id == "btnBengali"){
-    btnBenImage.src = "images/bg-selected.png";
-  }
+  // else if(id == "btnEnglish"){
+  //   btnEngImage.src = "images/bg-selected.png";
+  // }
+  // else if(id == "btnBengali"){
+  //   btnBenImage.src = "images/bg-selected.png";
+  // }
   else if(id == "btnBckImage"){
     btnBckImage.src = "images/bg-selected.png";
   }
@@ -1940,8 +1966,8 @@ function confirmation(id) {
     btnDeclineImage.src = "images/bg-button-red.png";
     btnConfirmImage.src = "images/bg-button.png";
     btnNextImage.src = "images/bg-button.png";
-    btnBenImage.src = "images/bg-button.png";
-    btnEngImage.src = "images/bg-button.png";
+    // btnBenImage.src = "images/bg-button.png";
+    // btnEngImage.src = "images/bg-button.png";
     btnStopImage.src = "images/bg-button-red.png";
     btnBckImage.src = "images/bg-button-red.png";
     btnBckImage1.src = "images/bg-button-red.png";
@@ -2326,6 +2352,7 @@ function initData(fileDataList) {
   btnNextImage = document.getElementById("btnNextImage");
   btnBenImage = document.getElementById("btnBenImage");
   btnEngImage = document.getElementById("btnEngImage");
+  imgBtnTapToStart = document.getElementById("imgBtnTapToStart");
   btnStopImage = document.getElementById("btnStopImage");
   btnBckImage = document.getElementById("btnBckImage");
   btnBckImage1 = document.getElementById("btnBckImage1");
@@ -3677,7 +3704,7 @@ function updateStatus() {
         divFillingAmount.innerHTML = parseInt(serialReturnVolume, 10);
         divFillingAmountArb.innerHTML = convertToArbNumber(parseInt(serialReturnVolume, 10));
       }
-      
+
     }
   } else if (
     serialReturnState == 05 &&
