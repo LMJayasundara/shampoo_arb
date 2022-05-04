@@ -21,10 +21,10 @@
   <div class="container1">
     <div id="loading-container" class="container1" style="display: block">
       <img src="images/background_logo.png" alt="Snow" class="img-class" />
-      <div id="loading" onclick="">
+      <div id="loading" style="top: 50%;">
         <img src="images/loading.gif" alt="loading" />
       </div>
-      <div class="setting">Setting up device</div>
+      <div class="setting" style="font-family: bambino_newsemibold; top: 60%;">Setting up device</div>
     </div>
 
     <div id="wait-container" style="display: none" class="loading-container">
@@ -192,7 +192,7 @@
       <div id="btnBackKegUpdate" onclick="goBack(btnBackKegUpdate.id)"
       class="button-back"></div>
 
-      <div class="main-title-txt" id="page1maintitle" style="font-family: bambino_newblack;">NETWORK STATUS</div>
+      <div class="main-title-txt" style="font-family: bambino_newblack;">NETWORK STATUS</div>
 
 
       <!-- <div class="select-text" style="width: 50%; left: 25%">
@@ -268,7 +268,7 @@
       <div id="btnBackBarcodeData" onclick="goBack(btnBackBarcodeData.id)"
       class="button-back"></div>
 
-      <div class="main-title-txt" id="page1maintitle" style="font-family: bambino_newblack;">KEG DETAILS</div>
+      <div class="main-title-txt" style="font-family: bambino_newblack;">KEG DETAILS</div>
 
 
       <div class="debug-view-api" style="top: 13%">
@@ -404,7 +404,7 @@
       <div id="btnBackSettings" onclick="goBack(btnBackSettings.id)"
       class="button-back"></div>
 
-      <div class="main-title-txt" id="page1maintitle" style="font-family: bambino_newblack;">PRODUCT DETAILS</div>
+      <div class="main-title-txt" style="font-family: bambino_newblack;">PRODUCT DETAILS</div>
 
       <div id="btnUpdateUI" class="btn-update-ui" style="display: none">
         <div class="text-accept">Update UI</div>
@@ -419,11 +419,11 @@
       </div>
 
       <div class="current-value-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Current volume</div>
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Current volume</div>
         <div>
           <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;" />
-          <div class="right-text">L</div>
-          <div id="idCurrentVolume" class="in-value"></div>
+          <!-- <div class="right-text">L</div> -->
+          <div id="idCurrentVolume" class="in-value" style="color: #00804a; font-size: 35px; font-family: bambino_newbold;"></div>
         </div>
       </div>
 
@@ -433,21 +433,21 @@
           <img class="bg" src="images/keg-details.png" alt="Snow"/>
           <div class="right-text">L</div>
           <div class="in-value-refill easy-get">
-            <input type="text" id="idRefillValue" class="easy-put keyboardNum" onclick="numberpadnew(this)" />
+            <input type="text" id="idRefillValue" style="color: #00804a; font-size: 35px; font-family: bambino_newbold;" class="easy-put keyboardNum" onclick="numberpadnew(this)" />
           </div>
         </div>
       </div>
 
       <div class="last-refill-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Last refill date</div>
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Last refill date</div>
         <div>
           <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
-          <div id="idLastRefillDate" class="in-value"></div>
+          <div id="idLastRefillDate" class="in-value" style="color: #00804a; font-size: 35px; font-family: bambino_newbold;"></div>
         </div>
       </div>
 
       <div class="manufacture-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Manufacture date</div>
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Mfr. date</div>
         <!-- <div class="manufacture-date-container">
           <input id="idManufacDate" class="sd" type="date" name="selected_date" />
           <span class="open-button">
@@ -466,13 +466,13 @@
                   ui-widget-content
                   ui-corner-all
                   ui-autocomplete-input
-                " aria-haspopup="true" role="textbox" autocomplete="off" style="width: 105%; border:none" />
+                " aria-haspopup="true" role="textbox" autocomplete="off" style="width: 105%; border:none; color: #00804a; font-size: 35px; font-family: bambino_newbold;"/>
           </div>
         </div>
       </div>
 
       <div class="expire-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Expire date</div>
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Expire date</div>
         <!-- <div class="manufacture-date-container">
           <input id="idExpireDate" class="sd" type="date" name="selected_date" />
           <span class="open-button">
@@ -491,14 +491,14 @@
                   ui-widget-content
                   ui-corner-all
                   ui-autocomplete-input
-                " aria-haspopup="true" role="textbox" autocomplete="off" style="width: 105%; border:none" />
+                " aria-haspopup="true" role="textbox" autocomplete="off" style="width: 105%; border:none; color: #00804a; font-size: 35px; font-family: bambino_newbold;" />
           </div>
         </div>
 
       </div>
 
       <div class="batch-no-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Batch No</div>
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Batch No</div>
         <div>
           <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px; width: 40%;"/>
           <div class="in-value-refill">
@@ -510,7 +510,7 @@
                   ui-widget-content
                   ui-corner-all
                   ui-autocomplete-input
-                " aria-haspopup="true" role="textbox" autocomplete="off" style="width: 105%; border:none" />
+                " aria-haspopup="true" role="textbox" autocomplete="off" style="width: 105%; border:none; color: #00804a; font-size: 35px; font-family: bambino_newbold;" />
           </div>
         </div>
         <!-- <div>
@@ -523,7 +523,7 @@
         <div id="debugVolume1" style="display: block">
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p id="vol1Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 1</p>
+              <p id="vol1Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Price 1</p>
             </div>
             <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
@@ -531,14 +531,14 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow"/>
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idPrice1" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idPrice1" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug overflow-auto">
-              <p class="p-class" id="vol1Discount" style="color: #00804a; font-family: bambino_newsemibold;">Discount 1</p>
+              <p class="p-class" id="vol1Discount" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Discount 1</p>
             </div>
             <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
@@ -546,7 +546,7 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idDiscount1" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idDiscount1" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -554,7 +554,7 @@
         <div id="debugVolume2" style="display: block">
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p id="vol2Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 2</p>
+              <p id="vol2Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Price 2</p>
             </div>
             <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
@@ -562,14 +562,14 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idPrice2" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idPrice2" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p class="p-class" id="vol2Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">
+              <p class="p-class" id="vol2Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
                 Discount 2
               </p>
             </div>
@@ -579,7 +579,7 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idDiscount2" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idDiscount2" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -588,7 +588,7 @@
         <div id="debugVolume3" style="display: block">
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p id="vol3Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 3</p>
+              <p id="vol3Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Price 3</p>
             </div>
             <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
@@ -596,14 +596,14 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idPrice3" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idPrice3" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p class="p-class" id="vol3Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">
+              <p class="p-class" id="vol3Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
                 Discount 3
               </p>
             </div>
@@ -613,7 +613,7 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idDiscount3" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idDiscount3" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -622,7 +622,7 @@
         <div id="debugVolume4" style="display: block">
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p id="vol4Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 4</p>
+              <p id="vol4Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Price 4</p>
             </div>
             <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
@@ -630,14 +630,14 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idPrice4" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idPrice4" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p class="p-class" id="vol4Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">
+              <p class="p-class" id="vol4Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
                 Discount 4
               </p>
             </div>
@@ -647,7 +647,7 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idDiscount4" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idDiscount4" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -656,7 +656,7 @@
         <div id="debugVolume5" style="display: block">
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p id="vol5Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 5</p>
+              <p id="vol5Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Price 5</p>
             </div>
             <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
@@ -664,14 +664,14 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idPrice5" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idPrice5" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p class="p-class" id="vol5Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">
+              <p class="p-class" id="vol5Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
                 Discount 5
               </p>
             </div>
@@ -681,7 +681,7 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idDiscount5" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idDiscount5" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -690,7 +690,7 @@
         <div id="debugVolume6" style="display: block">
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug overflow-auto">
-              <p id="vol6Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 6</p>
+              <p id="vol6Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Price 6</p>
             </div>
             <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
@@ -698,14 +698,14 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idPrice6" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idPrice6" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p class="p-class" id="vol6Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">
+              <p class="p-class" id="vol6Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
                 Discount 6
               </p>
             </div>
@@ -715,7 +715,7 @@
             <div class="col-7 col-debug">
               <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input style="border:none" type="text" id="idDiscount6" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none; text-align: right; color: #00804a; font-size: 35px; font-family: bambino_newbold;" type="text" id="idDiscount6" class="easy-put in-value-prices col-12" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -768,8 +768,10 @@
       </div>
 
       <div class="dropDown-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Select product</div>
-        <div style="font-size: 14px">
+        <div style="position: absolute; width: 100%;">
+          <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px; margin-top: 10px;">Select product</div>
+        </div>
+        <div style="font-size: 10px;">
           <select id="idSelectProduct" onchange="showSelectedProductData()" class="dropdown-Select"></select>
         </div>
       </div>
@@ -788,7 +790,7 @@
       <div id="btnBackUpdateUI" onclick="goBack(btnBackUpdateUI.id)"
       class="button-back"></div>
 
-      <div class="main-title-txt" id="page1maintitle" style="font-family: bambino_newblack;">NETWORK STATUS</div>
+      <div class="main-title-txt" style="font-family: bambino_newblack;">NETWORK STATUS</div>
 
 
       <!-- <div class="select-text" style="width: 50%; left: 25%">
@@ -1070,7 +1072,7 @@
                                                           </div>
 
 
-                                                          <div class="main-title-txt BambinoNewHeavy" id="page1maintitle">SELECT THE PRODUCT</div>
+                                                          <div class="main-title-txt" id="page1maintitle">SELECT THE PRODUCT</div>
                                                           <!-- <div class="scan-bottle">
                 <img src="images/bottle.gif" alt="Snow" style="width:100% ;height: auto; ">
             </div> -->

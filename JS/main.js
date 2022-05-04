@@ -540,8 +540,8 @@ $(document).ready(function () {
           selected_nozzel_number = "0";
           selectedVolume = "0";
           hideAll();
-          // $("div#tapToStart-container").show();
-          $("div#debug-container").show();
+          $("div#tapToStart-container").show();
+          // $("div#debug-container").show();
           // $("div#barcode-data-container").show();
           // $("div#barcode-data-view-container").show();
           socket.emit("PRINTER_STATUS", 0);
@@ -3204,49 +3204,47 @@ function showSelectedProductData() {
     }
 
     if (productVolumes.split("/")[0] != undefined) {
-      vol1Price.textContent = productVolumes.split("/")[0] + " ml Price";
-      vol1Discount.textContent = productVolumes.split("/")[0] + "ml Discount";
-      idPrice1.value = productPrices.split("/")[0];
-      idDiscount1.value = productDiscounts.split("/")[0];
+      vol1Price.textContent = productVolumes.split("/")[0]/1000 + " L Price";
+      vol1Discount.textContent = productVolumes.split("/")[0]/1000 + " L Discount";
+      idPrice1.value = productPrices.split("/")[0] + " SAR";
+      idDiscount1.value = productDiscounts.split("/")[0] + " SAR";
     }
     if (productVolumes.split("/")[1] != undefined) {
-      vol2Price.textContent = productVolumes.split("/")[1] + "ml Price";
-      vol2Discount.textContent = productVolumes.split("/")[1] + "ml Discount";
-      idPrice2.value = productPrices.split("/")[1];
-      idDiscount2.value = productDiscounts.split("/")[1];
+      vol2Price.textContent = productVolumes.split("/")[1]/1000 + " L Price";
+      vol2Discount.textContent = productVolumes.split("/")[1]/1000 + " L Discount";
+      idPrice2.value = productPrices.split("/")[1] + " SAR";
+      idDiscount2.value = productDiscounts.split("/")[1] + " SAR";
     }
 
     if (productVolumes.split("/")[2] != undefined) {
-      vol3Price.textContent = productVolumes.split("/")[2] + "ml Price";
-      vol3Discount.textContent = productVolumes.split("/")[2] + "ml Discount";
-      idPrice3.value = productPrices.split("/")[2];
-      idDiscount3.value = productDiscounts.split("/")[2];
+      vol3Price.textContent = productVolumes.split("/")[2]/1000 + " L Price";
+      vol3Discount.textContent = productVolumes.split("/")[2]/1000 + " L Discount";
+      idPrice3.value = productPrices.split("/")[2] + " SAR";
+      idDiscount3.value = productDiscounts.split("/")[2] + " SAR";
     }
 
     if (productVolumes.split("/")[3] != undefined) {
-      vol4Price.textContent = productVolumes.split("/")[3] + "ml Price";
-      vol4Discount.textContent = productVolumes.split("/")[3] + "ml Discount";
-      idPrice4.value = productPrices.split("/")[3];
-      idDiscount4.value = productDiscounts.split("/")[3];
+      vol4Price.textContent = productVolumes.split("/")[3]/1000 + " L Price";
+      vol4Discount.textContent = productVolumes.split("/")[3]/1000 + " L Discount";
+      idPrice4.value = productPrices.split("/")[3] + " SAR";
+      idDiscount4.value = productDiscounts.split("/")[3] + " SAR";
     }
 
     if (productVolumes.split("/")[4] != undefined) {
       vol5Price.textContent = productVolumes.split("/")[4] + "ml Price";
-      vol5Discount.textContent = productVolumes.split("/")[4] + "ml Discount";
-      idPrice5.value = productPrices.split("/")[4];
-      idDiscount5.value = productDiscounts.split("/")[4];
+      vol5Discount.textContent = productVolumes.split("/")[4] + " ml Discount";
+      idPrice5.value = productPrices.split("/")[4] + " SAR";
+      idDiscount5.value = productDiscounts.split("/")[4] + " SAR";
     }
 
     if (productVolumes.split("/")[5] != undefined) {
       vol6Price.textContent = productVolumes.split("/")[5] + "ml Price";
-      vol6Discount.textContent = productVolumes.split("/")[5] + "ml Discount";
-      idPrice6.value = productPrices.split("/")[5];
-      idDiscount6.value = productDiscounts.split("/")[5];
+      vol6Discount.textContent = productVolumes.split("/")[5] + " ml Discount";
+      idPrice6.value = productPrices.split("/")[5] + " SAR";
+      idDiscount6.value = productDiscounts.split("/")[5] + " SAR";
     }
 
-    divCurrentVolume.innerHTML = (parseFloat(productRemaining) / 1000).toFixed(
-      2
-    );
+    divCurrentVolume.innerHTML = (parseFloat(productRemaining) / 1000).toFixed(2) + " L";
     divLastRefillDate.innerHTML = productRFD.toString().split(" ")[0];
     divRefillVolume.value = "";
     divBatchNoValue.value = batchNo;

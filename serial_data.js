@@ -28,7 +28,7 @@ var globalSocket;
 var serialDataReceived = "";
 var serialDataSend;
 var coun222t = 1;
-var vol = "0";1
+var vol = "0";
 var dateTime = null;
 var machine_id = "";
 var token = "";
@@ -372,13 +372,17 @@ io.sockets.on("connection", function (socket) {
   socket.on("SYNC_KEG_DETAILS", function (barcodeID) {
     barcodeValue = barcodeID;
     callKegApi(machine_id, barcodeID, token, function(response){
-      console.log(response)
-      id_batch = response.product.id_batch;
-      if(response.isSuccess) {
-        var obj = getProductDetailsFromResponse("fromKeg", response);
-	      io.sockets.emit("SYNC_KEG_DETAILS", obj);
-      } else {
-	      io.sockets.emit("SYNC_KEG_DETAILS", null);
+      if(response.product != null){
+        id_batch = response.product.id_batch;
+        if(response.isSuccess) {
+          var obj = getProductDetailsFromResponse("fromKeg", response);
+          io.sockets.emit("SYNC_KEG_DETAILS", obj);
+        } else {
+          io.sockets.emit("SYNC_KEG_DETAILS", null);
+        }
+      }
+      else{
+        io.sockets.emit("SYNC_KEG_DETAILS", null);
       }
     });
   });

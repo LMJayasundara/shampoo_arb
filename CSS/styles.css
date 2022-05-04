@@ -1,53 +1,3 @@
-/* @font-face {
-  font-family: 'BambinoNewHeavy';
-  src: local('../Fontsx/english/BambinoNewHeavy.otf');
-}
-
-@font-face {
-  font-family: 'BambinoNewSemiBold';
-  src: local('../Fontsx/english/BambinoNewSemiBold.otf');
-}
-
-@font-face {
-  font-family: 'GEFlowBold';
-  src: local('../Fontsx/arabic/GEFlowBold.otf');
-}
-
-.BambinoNewHeavy {
-  font-family: 'BambinoNewHeavy';
-}
-
-.BambinoNewSemiBold {
-  font-family: 'BambinoNewSemiBold';
-}
-
-.GEFlowBold {
-  font-family: 'GEFlowBold';
-} */
-
-/* @font-face {
-  font-family: "Trebuchet MS";
-  src: local("Fontsx/english/BambinoNewSemiBold.otf");
-}
-
-.TrebuchetMS {
-  font-family: 'Trebuchet MS';
-}
-
-@font-face {
-  font-family: 'bambino_newbold';
-  src: url('mindburger_studio_-_bambino_new_bold-webfont.woff2') format('woff2'),
-       url('mindburger_studio_-_bambino_new_bold-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-} */
-
-
-/* .droid-arabic-kufi {
-  font-family: 'El Messiri', sans-serif;
-} */
-
 @font-face {
   font-family: 'bambino_newblack';
   src: url('bambinonewblack-webfont.woff2') format('woff2'),
@@ -82,17 +32,17 @@
 
 @font-face { 
   font-family: 'ElMessiri-Bold';
-  src: url('../Fontsx/El_Messiri/static/ElMessiri-Bold.ttf');
+  src: url('../Fonts/El_Messiri/static/ElMessiri-Bold.ttf');
 } 
 
 @font-face { 
   font-family: 'ElMessiri-SemiBold';
-  src: url('../Fontsx/El_Messiri/static/ElMessiri-SemiBold.ttf');
+  src: url('../Fonts/El_Messiri/static/ElMessiri-SemiBold.ttf');
 } 
 
 @font-face { 
   font-family: 'ElMessiri-Regular';
-  src: url('../Fontsx/El_Messiri/static/ElMessiri-Regular.ttf');
+  src: url('../Fonts/El_Messiri/static/ElMessiri-Regular.ttf');
 } 
 
 @keyframes transitionOUT {
@@ -1050,19 +1000,20 @@
 
 .dropdown-Select {
   position: absolute;
-  font-size: 35px;
+  font-size: 30px;
   width: 40%;
   height: 70px;
   color: black;
-  font-weight: 500;
-  /* font-family: "Trebuchet MS"; */
+  /* font-weight: 500; */
+  font-family: "bambino_newbold";
 }
 
 .dropdown-Select option {
-  font-size: 25px;
+  font-size: 14px;
   color: black;
-  font-weight: 500;
+  /* font-weight: 500; */
   /* font-family: "Trebuchet MS"; */
+  font-family: "bambino_newbold";
 }
 
 .txt-select {
