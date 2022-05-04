@@ -49,12 +49,12 @@
       <div class="language-layer" style="width: 100%; height: 100px">
         <div id="btnEnglish" class="img-decline" onclick="confirmation(btnEnglish.id)">
           <img id="btnEngImage" src="images/bg-button.png" alt="Snow" class="streach-img box-shadow" />
-          <div class="text-decline" style="color: white;">ENGLISH</div>
+          <div class="text-decline" style="color: white; font-family: 'bambino_newbold';">ENGLISH</div>
         </div>
 
         <div id="btnBengali" class="img-accept" onclick="confirmation(btnBengali.id)">
           <img id="btnBenImage" src="images/bg-button.png" alt="Snow" class="streach-img box-shadow" />
-          <div class="text-accept" style="color: white;">عربي</div>
+          <div class="text-accept" style="color: white; font-family: 'ElMessiri-Bold';">عربي</div>
         </div>
       </div>
     </div>
@@ -155,7 +155,6 @@
                 font-size: 45px;
                 color: white;
                 height: 70px !important;
-                font-family: Trebuchet MS;
                 font-weight: 800;
               ">
             SCAN BARCODE
@@ -967,11 +966,11 @@
                                                                       this.src='images/default_bottle.png'" class="streach-img" alt="Snow" />
                                                                   </div>
                                                                   <div id="no4product1Detail1"
-                                                                    class="produt-detail-one BambinoNewSemiBold">
+                                                                    class="produt-detail-one">
                                                                     Product 1
                                                                   </div>
                                                                   <div id="no4product1Detail2"
-                                                                    class="produt-detail-two BambinoNewSemiBold">
+                                                                    class="produt-detail-two">
                                                                     Save upto 1 SAR
                                                                   </div>                                                                  
 
@@ -1018,11 +1017,11 @@
                                 this.src='images/default_bottle.png'" class="streach-img" alt="Snow" />
                                                                   </div>
                                                                   <div id="no4product2Detail1"
-                                                                    class="produt-detail-one BambinoNewSemiBold">
+                                                                    class="produt-detail-one">
                                                                     Product 2
                                                                   </div>
                                                                   <div id="no4product2Detail2"
-                                                                    class="produt-detail-two BambinoNewSemiBold">
+                                                                    class="produt-detail-two">
                                                                     Save upto Rs. 50
                                                                   </div>
                                                                   <div class="produt-detail-three">
@@ -1146,7 +1145,7 @@
                                                                 onclick="goBack(btnBackSelectProduct.id); confirmation(btnBckImage.id)">
                                                                 <img id="btnBckImage" src="images/bg-option.png" alt="Snow"
                                                                   class="streach-img box-shadow" />
-                                                                <div class="text-next BambinoNewSemiBold" id="bckbtnlangid">Back</div>
+                                                                <div class="text-next" id="bckbtnlangid">Back</div>
                                                               </div>
                                                             </div>
 
@@ -2180,8 +2179,9 @@
                                                                 src="images/product_images/bottle1.png"
                                                                 class="streach-img" alt="Snow" />
                                                             </div>
-                                                            <div id="idProductVolumeSave" class="produt-detail-one BambinoNewSemiBold">Prod 1</div>
-                                                            <div id="productScreenLogo" class="produt-detail-two BambinoNewSemiBold" style="
+                                                            <div id="idProductVolumeSave1" class="produt-detail-one1">Prod line 1</div>
+                                                            <div id="idProductVolumeSave2" class="produt-detail-one2">Prod line 2</div>
+                                                            <div id="productScreenLogo" class="produt-detail-two" style="
                                                             line-height: 30px;
                                                             font-size: 25px;
                                                             ">description</div>
@@ -2199,8 +2199,8 @@
                                                                 <img id="product4Bottle1" src="images/product_images/bottle1.png" onerror="this.onerror=null; 
                                                                   this.src='images/default_bottle.png'" class="streach-img" alt="Snow">
                                                               </div>
-                                                              <div id="no4product1Detail1" class="produt-detail-one BambinoNewSemiBold">AFIA Corn Oil</div>
-                                                              <div id="no4product1Detail2" class="produt-detail-two BambinoNewSemiBold">Save upto 3 SAR</div>
+                                                              <div id="no4product1Detail1" class="produt-detail-one">AFIA Corn Oil</div>
+                                                              <div id="no4product1Detail2" class="produt-detail-two">Save upto 3 SAR</div>
                                                               <div class="produt-detail-three">
                                                                 <img src="images/add-img.png" style="height: 60px;">
                                                               </div>
@@ -2275,7 +2275,7 @@
                                                                   onclick="goBack(btnBackSelectVolume1.id); confirmation(btnBckImage1.id)">
                                                                   <img id="btnBckImage1" src="images/bg-option.png" alt="Snow"
                                                                     class="streach-img box-shadow" />
-                                                                  <div class="text-next BambinoNewSemiBold" id="bckbtnlangid1">Back</div>
+                                                                  <div class="text-next" id="bckbtnlangid1">Back</div>
                                                               </div>
 
                                                             </div>
@@ -2440,7 +2440,7 @@
                                                                   onclick="goBack(btnBackSelectVolume2.id); confirmation(btnBckImage2.id)">
                                                                   <img id="btnBckImage2" src="images/bg-option.png" alt="Snow"
                                                                     class="streach-img box-shadow" />
-                                                                  <div class="text-next BambinoNewSemiBold" id="bckbtnlangid2">Back</div>
+                                                                  <div class="text-next" id="bckbtnlangid2">Back</div>
                                                               </div>
                                                             </div>
 
@@ -2705,14 +2705,23 @@
                                                                 class="streach-img" alt="Snow" />
                                                             </div>
 
-                                                            <div class="text-Rs volume-price BambinoNewSemiBold" id="prodName" style="
+                                                            <div class="text-Rs volume-price" id="prodName1" style="
+                                                            top: 15%;
+                                                            width: 100%;
+                                                            color: brown;
+                                                            font-size: 50px;
+                                                            /* font-weight: bold; */
+                                                            ">line 1</div>
+
+                                                            <div class="text-Rs volume-price" id="prodName2" style="
                                                             top: 30%;
                                                             width: 100%;
-                                                            color: #00804a;
-                                                            font-size: 40px;
-                                                            font-weight: bold;
-                                                            ">Rs.</div>
-                                                            <div class="text-Rs BambinoNewSemiBold" id="volume-text">80 ml</div>
+                                                            color: brown;
+                                                            font-size: 50px;
+                                                            /* font-weight: bold; */
+                                                            ">line 2</div>
+
+                                                            <div class="text-Rs" id="volume-text">80 ml</div>
                                                             
                                                             <div class="img-rs volume-price"
                                                               style="width: 300px; height: 120px">
@@ -2748,14 +2757,14 @@
                                                               onclick="confirmation(btnConfirm.id)" style="left: 14%;">
                                                               <img id="btnConfirmImage" src="images/bg-button.png"
                                                                 alt="Snow" class="streach-img box-shadow"/>
-                                                              <div class="text-accept BambinoNewSemiBold" style="font-size: 35px; margin: -5px;" id="text-accept">Accept</div>
+                                                              <div class="text-accept" style="font-size: 35px; margin: -5px;" id="text-accept">Accept</div>
                                                             </div>
 
                                                             <div id="btnDecline" class="img-decline"
                                                               onclick="confirmation(btnDecline.id)" style="left: 55%;">
                                                               <img id="btnDeclineImage" src="images/bg-button-red.png"
                                                                 alt="Snow" class="streach-img box-shadow" style="height: 85px;"/>
-                                                              <div class="text-decline BambinoNewSemiBold" style="font-size: 35px; margin: -5px;" id="text-decline">Decline</div>
+                                                              <div class="text-decline" style="font-size: 35px; margin: -5px;" id="text-decline">Decline</div>
                                                             </div>
 
                                                             
@@ -2783,7 +2792,7 @@
                                                             Issue it at the counter <br />
                                                             to get your SAVINGS
                                                           </div> -->
-                                                          <div class="value-title-layer">
+                                                          <div class="value-title-layer" id="value-title-layer-rcpt">
                                                             <div class="total-text" id="total-text">Total</div>
                                                             <div class="quantity-text" id="quantity-text">Quantity</div>
                                                           </div>
@@ -2869,7 +2878,7 @@
                                                             </div>
                                                             <div class="main-title-txt BambinoNewHeavy" id="page6maintitle">PLEASE WAIT</div>
 
-                                                          <div id="divFillingText" class="select-text">Refilling in progress</div>
+                                                          <div id="divFillingText" class="select-text" style="font-size: 32px;">Refilling in progress</div>
 
                                                           <div class="volume-title" style="display: block; top: 25%; height: 250px;">
                                                             <img id="no4imgProduct1Image1" src="images/please wait.png" class="streach-img-no-border" alt="Snow">
@@ -2898,14 +2907,14 @@
                                                           <div id="btnStop" class="btn-stop">
                                                             <img id="btnStopImage" src="images/bg-option.png" alt="Snow"
                                                               class="streach-img box-shadow" />
-                                                            <div class="text-decline BambinoNewSemiBold" id="btnStoptxt">Stop</div>
+                                                            <div class="text-decline" id="btnStoptxt" style="font-size: 38px;">Stop</div>
                                                           </div>
 
                                                           <!-- <div id="btnStop" class="btn-stop"
                                                               onclick="confirmation(btnDecline.id)" style="left: 55%;">
                                                               <img id="btnDeclineImage" src="images/bg-button-red.png"
                                                                 alt="Snow" class="streach-img box-shadow" style="height: 85px;"/>
-                                                              <div class="text-decline BambinoNewSemiBold" style="font-size: 35px; margin: -5px;">Decline</div>
+                                                              <div class="text-decline" style="font-size: 35px; margin: -5px;">Decline</div>
                                                           </div> -->
 
                                                         </div>
@@ -2915,6 +2924,13 @@
                                                           <img id="imgBtnThankYou" src="images/bg-thanks.jpg" alt="Snow"
                                                             class="streach-img-no-border" />
                                                         </div>
+
+                                                        <div id="thankYou-container-arb" class="container1"
+                                                          style="display: none">
+                                                          <img id="imgBtnThankYou" src="images/bg-thanks-arb.png" alt="Snow"
+                                                            class="streach-img-no-border" />
+                                                        </div>
+
                                                       </div>
 
                                                       <script src="JS/jquery.js"></script>

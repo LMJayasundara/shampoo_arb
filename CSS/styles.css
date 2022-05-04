@@ -1,21 +1,16 @@
-@font-face {
-  font-family: "Trebuchet MS";
-  src: local("fonts/Avenir.otf");
+/* @font-face {
+  font-family: 'BambinoNewHeavy';
+  src: local('../Fontsx/english/BambinoNewHeavy.otf');
 }
 
 @font-face {
-  font-family: 'BambinoNewHeavy'; /*a name to be used later*/
-  src: local('../Fontsx/english/BambinoNewHeavy.otf'); /*URL to font*/
+  font-family: 'BambinoNewSemiBold';
+  src: local('../Fontsx/english/BambinoNewSemiBold.otf');
 }
 
 @font-face {
-  font-family: 'BambinoNewSemiBold'; /*a name to be used later*/
-  src: local('../Fontsx/english/BambinoNewSemiBold.otf'); /*URL to font*/
-}
-
-@font-face {
-  font-family: 'GEFlowBold'; /*a name to be used later*/
-  src: local('../Fontsx/arabic/GEFlowBold.otf'); /*URL to font*/
+  font-family: 'GEFlowBold';
+  src: local('../Fontsx/arabic/GEFlowBold.otf');
 }
 
 .BambinoNewHeavy {
@@ -28,7 +23,77 @@
 
 .GEFlowBold {
   font-family: 'GEFlowBold';
+} */
+
+/* @font-face {
+  font-family: "Trebuchet MS";
+  src: local("Fontsx/english/BambinoNewSemiBold.otf");
 }
+
+.TrebuchetMS {
+  font-family: 'Trebuchet MS';
+}
+
+@font-face {
+  font-family: 'bambino_newbold';
+  src: url('mindburger_studio_-_bambino_new_bold-webfont.woff2') format('woff2'),
+       url('mindburger_studio_-_bambino_new_bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+} */
+
+
+/* .droid-arabic-kufi {
+  font-family: 'El Messiri', sans-serif;
+} */
+
+@font-face {
+  font-family: 'bambino_newblack';
+  src: url('bambinonewblack-webfont.woff2') format('woff2'),
+       url('bambinonewblack-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bambino_newbold';
+  src: url('bambinonewbold-webfont.woff2') format('woff2'),
+       url('bambinonewbold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bambino_newsemibold';
+  src: url('bambinonewsemibold-webfont.woff2') format('woff2'),
+       url('bambinonewsemibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ge_flowbold';
+  src: url('geflowbold-webfont.woff2') format('woff2'),
+       url('geflowbold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face { 
+  font-family: 'ElMessiri-Bold';
+  src: url('../Fontsx/El_Messiri/static/ElMessiri-Bold.ttf');
+} 
+
+@font-face { 
+  font-family: 'ElMessiri-SemiBold';
+  src: url('../Fontsx/El_Messiri/static/ElMessiri-SemiBold.ttf');
+} 
+
+@font-face { 
+  font-family: 'ElMessiri-Regular';
+  src: url('../Fontsx/El_Messiri/static/ElMessiri-Regular.ttf');
+} 
 
 @keyframes transitionOUT {
   from {
@@ -141,7 +206,7 @@
   text-align: center;
   color: black;
   font-size: 50px;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   transform: translate(-50%, -50%);
 }
 
@@ -151,7 +216,7 @@
   left: 50%;
   color: black;
   font-size: 50px;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   transform: translate(-50%, -50%);
 }
 
@@ -190,7 +255,7 @@
   align-items: center;
   font-size: 32px;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   /* font-weight: 600; */
   left: 50%;
   transform: translate(-50%, -50%);
@@ -202,7 +267,7 @@
   text-align: center;
   align-items: center;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   font-size: 30px;
   top: 20px;
 }
@@ -216,7 +281,7 @@
   align-items: center;
   font-size: 40px;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .cip_row {
@@ -255,7 +320,7 @@
   position: absolute;
   top: 5%;
   left: 50%;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .cip-imgs {
@@ -287,7 +352,7 @@
   color: black;
   background: red;
   border-radius: 10px;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   text-align: center;
 }
 
@@ -313,7 +378,7 @@
   color: black;
   font-size: 70px;
   font-weight: bold;
-  font-family: Verdana;
+  /* font-family: Verdana; */
   background-color: black;
   border-radius: 15px;
 }
@@ -339,7 +404,7 @@
   color: black;
   padding: 20px;
   font-size: 50px;
-  font-family: Verdana;
+  /* font-family: Verdana; */
   text-align: center;
   border-radius: 50px;
 }
@@ -361,7 +426,7 @@
   left: 5%;
   width: 90%;
   height: 50%;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .volume {
@@ -372,7 +437,7 @@
 #volume-liters {
   position: absolute;
   align-self: center;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   font-size: 50px;
   color: black;
   top: 8%;
@@ -400,7 +465,7 @@
   padding-right: 0px;
   font-size: 25px;
   color: black;
-  font-family: "Segoe UI";
+  /* font-family: "Segoe UI"; */
 }
 
 .p-class {
@@ -525,7 +590,7 @@
   transform: translate(-50%, -50%);
   font-size: 40px;
   /* font-weight: bold;
-  font-family: "Trebuchet MS"; */
+  /* font-family: "Trebuchet MS"; */
 }
 
 .img-rs {
@@ -548,12 +613,12 @@
 
 .expire-text {
   position: absolute;
-  font-size: 35px;
+  font-size: 28px;
   width: 100%;
   top: 50%;
   color: black;
   text-align: center;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .accept-layer {
@@ -587,7 +652,7 @@
   color: white;
   text-align: center;
   /* font-family: "Trebuchet MS"; */
-  font-family: 'BambinoNewSemiBold';
+  /* font-family: 'BambinoNewSemiBold'; */
   font-weight: 600;
   /* width: 200px; */
 }
@@ -612,7 +677,7 @@
   height: 100%;
   top: 18%;
   text-align: center;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   font-weight: bold;
   font-size: 40px;
   font-weight: bold;
@@ -627,7 +692,7 @@
   font-size: 30px;
   color: black;
   text-align: center;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .vol-price {
@@ -653,18 +718,18 @@
 .info-text {
   width: 100%;
   text-align: center;
-  font-size: 32px;
+  font-size: 28px;
   margin-top: 15%;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .info-text-receipt {
   width: 100%;
   text-align: center;
-  font-size: 32px;
+  font-size: 28px;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   position: relative;
   top: 7%;
 }
@@ -721,12 +786,12 @@
   position: absolute;
   left: 0;
   color: black;
-  font-size: 32px;
+  font-size: 28px;
   text-align: center;
   top: 50%;
   width: 100%;
   height: 50px;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .receipt-info {
@@ -738,12 +803,12 @@
   top: 41%;
   width: 100%;
   height: 150px;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .value-title-layer {
   position: absolute;
-  top: 20%;
+  top: 19%;
   width: 100%;
 }
 
@@ -754,7 +819,7 @@
   font-size: 45px;
   /* font-weight: bold; */
   color: white;
-  font-family: "BambinoNewSemiBold";
+  /* font-family: "BambinoNewSemiBold"; */
 }
 
 .quantity-text {
@@ -764,7 +829,7 @@
   font-size: 45px;
   /* font-weight: bold; */
   color: white;
-  font-family: "BambinoNewSemiBold";
+  /* font-family: "BambinoNewSemiBold"; */
 }
 
 .value-layer {
@@ -772,7 +837,7 @@
   top: 30%;
   width: 100%;
   height: 100px;
-  font-family: "BambinoNewSemiBold";
+  /* font-family: "BambinoNewSemiBold"; */
 }
 
 .total-value {
@@ -784,7 +849,7 @@
   font-size: 45px;
   color: #00804a;
   /* font-family: "Trebuchet MS"; */
-  font-family: "BambinoNewSemiBold";
+  /* font-family: "BambinoNewSemiBold"; */
 }
 
 .quantity-value {
@@ -796,7 +861,7 @@
   font-size: 45px;
   color: #00804a;
   /* font-family: "Trebuchet MS"; */
-  font-family: "BambinoNewSemiBold";
+  /* font-family: "BambinoNewSemiBold"; */
 }
 
 .button-next {
@@ -857,7 +922,7 @@
   color: white;
   text-align: center;
   font-weight: bold;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -870,7 +935,7 @@
   color: black;
   text-align: center;
   font-weight: bold;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   width: 220px;
   height: 100px;
   text-align: end;
@@ -913,7 +978,7 @@
   font-size: 30px;
   color: black;
   text-align: center;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .btn-stop {
@@ -943,14 +1008,14 @@
   height: 70px;
   color: black;
   font-weight: 500;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .dropdown-Select option {
   font-size: 25px;
   color: black;
   font-weight: 500;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .txt-select {
@@ -959,7 +1024,7 @@
   left: 15%;
   font-size: 25px;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .custom-select {
@@ -967,7 +1032,7 @@
   left: 50%;
   top: 5%;
   height: 70px;
-  font-family: Arial;
+  /* font-family: Arial; */
   background: transparent;
   text-align: center;
 }
@@ -1056,7 +1121,7 @@
   color: red;
   font-size: 20px;
   border-radius: 15px;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .current-value-layer {
@@ -1386,7 +1451,7 @@
   color: black;
   font-weight: 500;
   margin-top: 5px;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .btn-view-details {
@@ -1440,7 +1505,7 @@
   width: 100%;
   text-align: center;
   font-size: 50px;
-  font-family: avenir;
+  /* font-family: avenir; */
   color: black;
 }
 
@@ -1479,7 +1544,7 @@
   top: 23%;
   position: relative;
   color: black;
-  font-family: avenir;
+  /* font-family: avenir; */
 }
 
 .image-container {
@@ -1542,7 +1607,7 @@
   font-size: 25px;
   color: black;
   font-weight: bold;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   border-radius: 20px;
   background-image: url(../images/bg-option.png);
 }
@@ -1556,7 +1621,7 @@
   font-size: 25px;
   color: black;
   font-weight: bold;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   border-radius: 20px;
   background-image: url(../images/bg-option.png);
 }
@@ -1628,7 +1693,7 @@
   left: 5%;
   width: 90%;
   height: 78%;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .product4Logo {
@@ -1719,6 +1784,26 @@
   font-size: 40px;
   font-weight: bold;
   color: #00804a;
+}
+
+.produt-detail-one1 {
+  position: absolute;
+  top: 15%;
+  left: 40%;
+  width: 50%;
+  font-size: 50px;
+  /* font-weight: bold; */
+  color: brown;
+}
+
+.produt-detail-one2 {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 50%;
+  font-size: 50px;
+  /* font-weight: bold; */
+  color: brown;
 }
 
 .produt-detail-two {
@@ -1932,7 +2017,7 @@
   text-align: center;
   font-size: 35px;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   border-radius: 14px;
 }
 
@@ -1944,7 +2029,7 @@
   padding: 0;
   margin-left: 5px;
   background: transparent;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   border: none;
 }
 
@@ -1957,7 +2042,7 @@
   padding: 0;
   margin-right: 5px;
   background: transparent;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   border: none;
 }
 
@@ -1994,7 +2079,7 @@
   font-size: 35px;
   width: 90%;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   font-weight: 600;
   line-height: 2ex;
   text-align: center;
@@ -2111,7 +2196,7 @@
   align-items: center;
   font-size: 40px;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .alert-product-name {
@@ -2122,7 +2207,7 @@
   align-items: center;
   font-size: 40px;
   color: aliceblue;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
 }
 
 .alert-buttons {
@@ -2139,7 +2224,7 @@
   height: 100%;
   font-size: 27px;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   border-radius: 10px;
 }
 
@@ -2158,6 +2243,6 @@
   top: 72%;
   font-size: 20px;
   color: black;
-  font-family: "Trebuchet MS";
+  /* font-family: "Trebuchet MS"; */
   border-radius: 10px;
 }
