@@ -809,6 +809,7 @@ $(document).ready(function () {
         setTimeout(function () {
           showLoading();
           socket.emit("SAVE_KEG_DETAILS", kegResponse.fileName);
+          socket.emit("SYNC_ALL_DETAILS", "");
         }, 100);
       });
 
@@ -3951,12 +3952,10 @@ function stopProcess() {
 
   plastic = selectedVolume == 500 ? plastic500 : plastic1000;
   // remainingProduct = parseInt(selectedProduct.productRemaining) - 500;
-  remainingProduct =
-    parseInt(selectedProduct.productRemaining) -
-    parseInt(divFillingAmount.innerHTML);
-  // remainingProduct =
-  //   parseInt(selectedProduct.productRemaining) - parseInt(selectedVolume);
+  remainingProduct = parseInt(selectedProduct.productRemaining) - parseInt(divFillingAmount.innerHTML);
+  // remainingProduct = parseInt(selectedProduct.productRemaining) - parseInt(selectedVolume);
   console.log("PRODUCT R " + remainingProduct);
+
   fileData =
     selectedProductID +
     "," +
