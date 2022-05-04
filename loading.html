@@ -114,58 +114,110 @@
 
     <div id="settings-container" class="container1 noselect" style="display: none">
       <img src="images/background_logo.png" alt="Snow" class="img-class" />
-      <div id="btnBackDebug" onclick="goBack(btnBackDebug.id)" class="button-close">
-        <img src="images/close.png" alt="Snow" class="img-close" />
+
+      <div class="product4Logo">
+        <img src="images/product_images/logo.png" alt="Snow" />
       </div>
+
+      <!-- <div id="btnBackDebug" onclick="goBack(btnBackDebug.id)" class="button-close">
+        <img src="images/close.png" alt="Snow" class="img-close" />
+      </div> -->
+
+      <div id="btnBackDebug" onclick="goBack(btnBackDebug.id)"
+      class="button-back"></div>
 
       <div id="divAlertLayerSettings" class="alert-layer" style="display: none">
         <div id="divAlertTextSettings" class="alert-text"></div>
       </div>
 
       <div id="btnUpdateUI" class="btn-update-keg">
-        <img src="images/add.png" alt="Snow" style="display: block; margin: auto; width: 25%" />
-        <div class="txt-debug">ADD NEW KEG</div>
+
+        <div style="text-align: center; padding-top: 7%;">
+          <div class="row">
+            <div class="col-4">
+              <img src="images/add.png" alt="Snow" style="display: block; margin: auto; width: 40%" />
+            </div>
+            <div class="col-8 txt-debug">
+              Add new keg
+            </div>
+          </div>
+        </div>
+
       </div>
+
       <div id="btnViewDetails" class="btn-view-details">
-        <img src="images/view.png" alt="Snow" style="display: block; margin: auto; width: 25%" />
-        <div class="txt-debug">VIEW KEG DETAILS</div>
+
+        <div style="text-align: center; padding-top: 7%;">
+          <div class="row">
+            <div class="col-4">
+              <img src="images/view.png" alt="Snow" style="display: block; margin: auto; width: 40%" />
+            </div>
+            <div class="col-8 txt-debug">
+              View keg details
+            </div>
+          </div>
+        </div>
+
       </div>
       <div id="btnSyncAll" class="btn-sync-all">
-        <img src="images/sync.png" alt="Snow" style="display: block; margin: auto; width: 25%" />
-        <div class="txt-debug">SYNC ALL</div>
+
+        <div style="text-align: center; padding-top: 7%;">
+          <div class="row">
+            <div class="col-4">
+              <img src="images/sync.png" alt="Snow" style="display: block; margin: auto; width: 40%" />
+            </div>
+            <div class="col-8 txt-debug">
+              Sync all
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
     <div id="barcode-data-container" class="container1 noselect" style="display: none" onclick="setFocusTo()">
-      <img src="images/background_logo.png" alt="Snow" class="img-class" />
-      <div id="btnBackKegUpdate" onclick="goBack(btnBackKegUpdate.id)" class="button-close">
+      <img src="images/network-status.png" alt="Snow" class="img-class" />
+      <!-- <div id="btnBackKegUpdate" onclick="goBack(btnBackKegUpdate.id)" class="button-close">
         <img src="images/close.png" alt="Snow" class="img-close" />
-      </div>
+      </div> -->
       <div id="idWifiConnectImage" class="wifi-connected">
         <img src="images/connected.png" class="img-class" />
       </div>
 
-      <div class="select-text" style="width: 50%; left: 25%">
-        NETWORK STATUS
+
+      <div class="product4Logo">
+        <img src="images/product_images/logo.png" alt="Snow" />
       </div>
-      <div class="select-text txt-disconnect">
+
+      <div id="btnBackKegUpdate" onclick="goBack(btnBackKegUpdate.id)"
+      class="button-back"></div>
+
+      <div class="main-title-txt" id="page1maintitle" style="font-family: bambino_newblack;">NETWORK STATUS</div>
+
+
+      <!-- <div class="select-text" style="width: 50%; left: 25%">
+        NETWORK STATUS
+      </div> -->
+      <div class="select-text txt-disconnect" style="font-family: 'bambino_newsemibold';">
         Connected
       </div>
 
-      <div id="idEnterBarcodeContainer" class="network-layer align-items-center" style="display: block">
+      <div id="idEnterBarcodeContainer" class="network-layer align-items-center" style="display: block; top: 32%;">
         <div class="row justify-content-center text-row">
           <div style="
-                font-size: 45px;
-                color: white;
+                font-size: 35px;
+                color: #00804a;
                 height: 70px !important;
                 font-weight: 800;
+                font-family: bambino_newbold;
+                padding-top: 40px;
               ">
-            SCAN BARCODE
+            Scan barcode
           </div>
         </div>
 
-        <div class="div-or">OR</div>
-        <div class="justify-content-center text-row" style="margin-left: 0px; margin-right: 0px">
+        <div class="div-or" style="color: #00804a; font-family: bambino_newbold;">OR</div>
+        <div class="justify-content-center text-row" style="margin-left: 45px; margin-right: 0px">
           <div class="network-col" onclick="onClickTxtBarcode()"
             style="display: block; margin-left: 5%; margin-right: 5%">
             <input id="txtBarcodeIDHidden" type="text" style="
@@ -184,8 +236,9 @@
                   ui-widget-content ui-corner-all ui-autocomplete-input
                   form-control
                 " aria-haspopup="true" role="textbox" onkeyup="onKeyUpBarcodeHidden()" autocomplete="off" />
-            <input id="txtBarcodeID" type="text" style="height: 80px; z-index: 1000" placeholder=" ENTER BARCODE ID"
+            <input id="txtBarcodeID" type="text" style="height: 80px; z-index: 1000;" placeholder=" ENTER BARCODE ID"
               class="
+                  col-11
                   edit-text
                   ui-keyboard-input
                   keyboardPopup
@@ -194,79 +247,89 @@
                 " aria-haspopup="true" role="textbox" autocomplete="off" />
           </div>
         </div>
-        <div class="row justify-content-center text-row" style="margin-bottom: 20px; margin-top: 50px;">
+        <div class="row justify-content-center text-row" style="margin-bottom: 20px; margin-top: 100px;">
           <div id="btnSyncBarcode" class="btn-sync-keg">
-            <div class="connect-text">SYNC DATA</div>
+            <div class="connect-text">Sync Data</div>
           </div>
         </div>
       </div>
     </div>
 
     <div id="barcode-data-view-container" class="container1 noselect" style="display: none">
-      <img src="images/background.png" alt="Snow" class="img-class" />
-      <div id="btnBackBarcodeData" onclick="goBack(btnBackBarcodeData.id)" class="button-close">
+      <img src="images/background_logo.png" alt="Snow" class="img-class" />
+      <!-- <div id="btnBackBarcodeData" onclick="goBack(btnBackBarcodeData.id)" class="button-close">
         <img src="images/close.png" alt="Snow" class="img-close" />
+      </div> -->
+
+      <div class="product4Logo">
+        <img src="images/product_images/logo.png" alt="Snow" />
       </div>
 
+      <div id="btnBackBarcodeData" onclick="goBack(btnBackBarcodeData.id)"
+      class="button-back"></div>
+
+      <div class="main-title-txt" id="page1maintitle" style="font-family: bambino_newblack;">KEG DETAILS</div>
+
+
       <div class="debug-view-api" style="top: 13%">
-        <div class="txt-select keg-details">
+        <!-- <div class="txt-select keg-details">
           Keg details received successfullly !
-        </div>
-        <div class="txt-select" style="top: 12%; margin-top: 5%; color: yellow; font-size: 25px">
+        </div> -->
+        <div class="txt-select" style="top: 80%; margin-top: 5%; margin-left: -4%; color: black; font-size: 25px; font-family: bambino_newsemibold;">
           Please check the datails and press SAVE button.
         </div>
       </div>
 
       <div class="debug-view-api" style="top: 28%">
-        <div class="txt-select" style="font-size: 30px">Product Name</div>
+        <div class="txt-select" style="font-size: 30px; color: #00804a; font-family: bambino_newsemibold;">Product Name</div>
         <div>
-          <img class="bg" style="height: 60px" src="images/bg-button.png" alt="Snow" />
-          <div id="idProductNameAPI" class="in-value-refill" style="font-size: 35px">
+          <img class="bg" style="height: 60px;" src="images/keg-details.png" alt="Snow" />
+          <div id="idProductNameAPI" class="in-value-refill" style="font-size: 35px; color: #00804a; font-family: bambino_newsemibold;">
             Sunlight
           </div>
         </div>
       </div>
 
       <div class="debug-view-api" style="top: 36%">
-        <div class="txt-select" style="font-size: 30px">Refill volume</div>
+        <div class="txt-select" style="font-size: 30px; color: #00804a; font-family: bambino_newsemibold;">Refill volume</div>
         <div>
-          <img class="bg" style="height: 60px" src="images/bg-button.png" alt="Snow" />
-          <div id="idRefillVolumeAPI" class="in-value-refill" style="font-size: 35px">
+          <img class="bg" style="height: 60px" src="images/keg-details.png" alt="Snow" />
+          <div id="idRefillVolumeAPI" class="in-value-refill" style="font-size: 35px; color: #00804a; font-family: bambino_newsemibold;">
             25 L
           </div>
         </div>
       </div>
 
       <div class="debug-view-api" style="top: 44%">
-        <div class="txt-select" style="font-size: 30px">Last refill date</div>
+        <div class="txt-select" style="font-size: 30px; color: #00804a; font-family: bambino_newsemibold;">Last refill date</div>
         <div>
-          <img class="bg" style="height: 60px" src="images/bg-button.png" alt="Snow" />
-          <div id="idLastRefillDateAPI" class="in-value" style="font-size: 35px">
+          <img class="bg" style="height: 60px" src="images/keg-details.png" alt="Snow" />
+          <div id="idLastRefillDateAPI" class="in-value" style="font-size: 35px; color: #00804a; font-family: bambino_newsemibold;">
             2021/09/10
           </div>
         </div>
       </div>
 
       <div class="debug-view-api" style="top: 52%">
-        <div class="txt-select" style="font-size: 30px">Manufacture date</div>
-        <img class="bg" style="height: 60px" src="images/bg-button.png" alt="Snow" />
-        <div id="idManufactureDateAPI" class="in-value" style="font-size: 35px">
+        <div class="txt-select" style="font-size: 30px; color: #00804a; font-family: bambino_newsemibold;">Mfr. date</div>
+        <img class="bg" style="height: 60px" src="images/keg-details.png" alt="Snow" />
+        <div id="idManufactureDateAPI" class="in-value" style="font-size: 35px; color: #00804a; font-family: bambino_newsemibold;">
           2021/08/25
         </div>
       </div>
 
       <div class="debug-view-api" style="top: 60%">
-        <div class="txt-select" style="font-size: 30px">Expire date</div>
-        <img class="bg" style="height: 60px" src="images/bg-button.png" alt="Snow" />
-        <div id="idExpireDateAPI" class="in-value" style="font-size: 35px">
+        <div class="txt-select" style="font-size: 30px; color: #00804a; font-family: bambino_newsemibold;">Expire date</div>
+        <img class="bg" style="height: 60px" src="images/keg-details.png" alt="Snow" />
+        <div id="idExpireDateAPI" class="in-value" style="font-size: 35px; color: #00804a; font-family: bambino_newsemibold;">
           2021/10/10
         </div>
       </div>
 
       <div class="debug-view-api" style="top: 68%">
-        <div class="txt-select" style="font-size: 30px">Batch No</div>
-        <img class="bg" style="height: 60px" src="images/bg-button.png" alt="Snow" />
-        <div id="idbatchNoAPI" class="in-value-refill" style="font-size: 35px">
+        <div class="txt-select" style="font-size: 30px; color: #00804a; font-family: bambino_newsemibold;">Batch No</div>
+        <img class="bg" style="height: 60px" src="images/keg-details.png" alt="Snow" />
+        <div id="idbatchNoAPI" class="in-value-refill" style="font-size: 35px; color: #00804a; font-family: bambino_newsemibold;">
           ABC123
         </div>
       </div>
@@ -319,19 +382,29 @@
         </div>
       </div>
 
-      <div id="btnDebugSaveAPI" class="btn-dubug-save"
-        style="background-color: navy; border-radius: 20px; display: block">
-        <div class="text-accept" style="font-size: 25px; font-weight: bold">
-          SAVE
+      <div id="btnDebugSaveAPI" class="btn-dubug-save row justify-content-center text-row"
+        style="background-color: #00804a; border-radius: 50px; display: block">
+        <div class="connect-text">
+          Save
         </div>
       </div>
+
     </div>
 
     <div id="debug-container" class="container1 noselect" style="display: none">
-      <img src="images/background.png" alt="Snow" class="img-class" />
-      <div id="btnBackSettings" onclick="goBack(btnBackSettings.id)" class="button-close">
+      <img src="images/background_logo.png" alt="Snow" class="img-class" />
+      <!-- <div id="btnBackSettings" onclick="goBack(btnBackSettings.id)" class="button-close">
         <img src="images/close.png" alt="Snow" class="img-close" />
+      </div> -->
+
+      <div class="product4Logo">
+        <img src="images/product_images/logo.png" alt="Snow" />
       </div>
+
+      <div id="btnBackSettings" onclick="goBack(btnBackSettings.id)"
+      class="button-back"></div>
+
+      <div class="main-title-txt" id="page1maintitle" style="font-family: bambino_newblack;">PRODUCT DETAILS</div>
 
       <div id="btnUpdateUI" class="btn-update-ui" style="display: none">
         <div class="text-accept">Update UI</div>
@@ -346,9 +419,9 @@
       </div>
 
       <div class="current-value-layer">
-        <div class="txt-select">Current volume</div>
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Current volume</div>
         <div>
-          <img class="bg" src="images/bg-button.png" alt="Snow" />
+          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;" />
           <div class="right-text">L</div>
           <div id="idCurrentVolume" class="in-value"></div>
         </div>
@@ -357,7 +430,7 @@
       <div class="refill-value-layer" style="display: none">
         <div class="txt-select">Refill volume</div>
         <div>
-          <img class="bg" src="images/bg-button.png" alt="Snow" />
+          <img class="bg" src="images/keg-details.png" alt="Snow"/>
           <div class="right-text">L</div>
           <div class="in-value-refill easy-get">
             <input type="text" id="idRefillValue" class="easy-put keyboardNum" onclick="numberpadnew(this)" />
@@ -366,37 +439,68 @@
       </div>
 
       <div class="last-refill-layer">
-        <div class="txt-select">Last refill date</div>
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Last refill date</div>
         <div>
-          <img class="bg" src="images/bg-button.png" alt="Snow" />
+          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
           <div id="idLastRefillDate" class="in-value"></div>
         </div>
       </div>
 
       <div class="manufacture-layer">
-        <div class="txt-select">Manufacture date</div>
-        <div class="manufacture-date-container">
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Manufacture date</div>
+        <!-- <div class="manufacture-date-container">
           <input id="idManufacDate" class="sd" type="date" name="selected_date" />
           <span class="open-button">
             <button type="button">📅</button>
           </span>
+        </div> -->
+
+        <div>
+          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
+          <div class="in-value-refill">
+            <input type="text" id="idManufacDate" class="
+                  keyboardNum
+                  keyboardPopup
+                  form-control
+                  ui-keyboard-input
+                  ui-widget-content
+                  ui-corner-all
+                  ui-autocomplete-input
+                " aria-haspopup="true" role="textbox" autocomplete="off" style="width: 105%; border:none" />
+          </div>
         </div>
       </div>
 
       <div class="expire-layer">
-        <div class="txt-select">Expire date</div>
-        <div class="manufacture-date-container">
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Expire date</div>
+        <!-- <div class="manufacture-date-container">
           <input id="idExpireDate" class="sd" type="date" name="selected_date" />
           <span class="open-button">
             <button type="button" style="top: 10px">📅</button>
           </span>
+        </div> -->
+
+        <div>
+          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
+          <div class="in-value-refill">
+            <input type="text" id="idExpireDate" class="
+                  keyboardNum
+                  keyboardPopup
+                  form-control
+                  ui-keyboard-input
+                  ui-widget-content
+                  ui-corner-all
+                  ui-autocomplete-input
+                " aria-haspopup="true" role="textbox" autocomplete="off" style="width: 105%; border:none" />
+          </div>
         </div>
+
       </div>
 
       <div class="batch-no-layer">
-        <div class="txt-select">Batch No</div>
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Batch No</div>
         <div>
-          <img class="bg" src="images/bg-button.png" alt="Snow" />
+          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px; width: 40%;"/>
           <div class="in-value-refill">
             <input type="text" id="idBatchNoValue" class="
                   keyboardNum
@@ -406,72 +510,76 @@
                   ui-widget-content
                   ui-corner-all
                   ui-autocomplete-input
-                " aria-haspopup="true" role="textbox" autocomplete="off" />
+                " aria-haspopup="true" role="textbox" autocomplete="off" style="width: 105%; border:none" />
           </div>
         </div>
+        <!-- <div>
+          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
+          <div id="idBatchNoValue" class="in-value-refill"></div>
+        </div> -->
       </div>
 
       <div class="volume-prices overflow-auto" id="style-2">
         <div id="debugVolume1" style="display: block">
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug">
-              <p id="vol1Price" class="vol-price">Price 1</p>
+            <div class="col-5 col-debug">
+              <p id="vol1Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 1</p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow"/>
               <div class="in-value2 easy-get">
-                <input type="text" id="idPrice1" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idPrice1" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug overflow-auto">
-              <p class="p-class" id="vol1Discount">Discount 1</p>
+            <div class="col-5 col-debug overflow-auto">
+              <p class="p-class" id="vol1Discount" style="color: #00804a; font-family: bambino_newsemibold;">Discount 1</p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idDiscount1" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idDiscount1" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
         </div>
         <div id="debugVolume2" style="display: block">
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug">
-              <p id="vol2Price" class="vol-price">Price 2</p>
+            <div class="col-5 col-debug">
+              <p id="vol2Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 2</p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idPrice2" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idPrice2" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug">
-              <p class="p-class" id="vol2Discount" class="vol-price">
+            <div class="col-5 col-debug">
+              <p class="p-class" id="vol2Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">
                 Discount 2
               </p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idDiscount2" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idDiscount2" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -479,33 +587,33 @@
 
         <div id="debugVolume3" style="display: block">
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug">
-              <p id="vol3Price" class="vol-price">Price 3</p>
+            <div class="col-5 col-debug">
+              <p id="vol3Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 3</p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idPrice3" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idPrice3" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug">
-              <p class="p-class" id="vol3Discount" class="vol-price">
+            <div class="col-5 col-debug">
+              <p class="p-class" id="vol3Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">
                 Discount 3
               </p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idDiscount3" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idDiscount3" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -513,33 +621,33 @@
 
         <div id="debugVolume4" style="display: block">
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug">
-              <p id="vol4Price" class="vol-price">Price 4</p>
+            <div class="col-5 col-debug">
+              <p id="vol4Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 4</p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idPrice4" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idPrice4" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug">
-              <p class="p-class" id="vol4Discount" class="vol-price">
+            <div class="col-5 col-debug">
+              <p class="p-class" id="vol4Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">
                 Discount 4
               </p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idDiscount4" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idDiscount4" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -547,33 +655,33 @@
 
         <div id="debugVolume5" style="display: block">
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug">
-              <p id="vol5Price" class="vol-price">Price 5</p>
+            <div class="col-5 col-debug">
+              <p id="vol5Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 5</p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idPrice5" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idPrice5" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug">
-              <p class="p-class" id="vol5Discount" class="vol-price">
+            <div class="col-5 col-debug">
+              <p class="p-class" id="vol5Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">
                 Discount 5
               </p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idDiscount5" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idDiscount5" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -581,33 +689,33 @@
 
         <div id="debugVolume6" style="display: block">
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug overflow-auto">
-              <p id="vol6Price" class="vol-price">Price 6</p>
+            <div class="col-5 col-debug overflow-auto">
+              <p id="vol6Price" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">Price 6</p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idPrice6" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idPrice6" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
 
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-4 col-debug">
-              <p class="p-class" id="vol6Discount" class="vol-price">
+            <div class="col-5 col-debug">
+              <p class="p-class" id="vol6Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold;">
                 Discount 6
               </p>
             </div>
-            <div class="col-1 col-debug">
+            <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
-            </div>
+            </div> -->
             <div class="col-7 col-debug">
-              <img class="col-bg" src="images/bg-button.png" alt="Snow" />
+              <img class="col-bg" src="images/keg-details.png" alt="Snow" />
               <div class="in-value2 easy-get">
-                <input type="text" id="idDiscount6" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
+                <input style="border:none" type="text" id="idDiscount6" class="easy-put in-value-prices" onclick="numberpadnew(this)" />
               </div>
             </div>
           </div>
@@ -660,7 +768,7 @@
       </div>
 
       <div class="dropDown-layer">
-        <div class="txt-select">Select product</div>
+        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold;">Select product</div>
         <div style="font-size: 14px">
           <select id="idSelectProduct" onchange="showSelectedProductData()" class="dropdown-Select"></select>
         </div>
@@ -669,21 +777,33 @@
 
     <div id="updateUI-container" class="container1 noselect" style="display: none">
       <img src="images/background_logo.png" alt="Snow" class="img-class" />
-      <div id="btnBackUpdateUI" onclick="goBack(btnBackUpdateUI.id)" class="button-close">
+      <!-- <div id="btnBackUpdateUI" onclick="goBack(btnBackUpdateUI.id)" class="button-close">
         <img src="images/close.png" alt="Snow" class="img-close" />
+      </div> -->
+
+      <div class="product4Logo">
+        <img src="images/product_images/logo.png" alt="Snow" />
       </div>
-      <div class="select-text" style="width: 50%; left: 25%">
+
+      <div id="btnBackUpdateUI" onclick="goBack(btnBackUpdateUI.id)"
+      class="button-back"></div>
+
+      <div class="main-title-txt" id="page1maintitle" style="font-family: bambino_newblack;">NETWORK STATUS</div>
+
+
+      <!-- <div class="select-text" style="width: 50%; left: 25%">
         NETWORK STATUS
-      </div>
+      </div> -->
       <div class="select-text txt-disconnect">
         Disconnected
       </div>
+
       <div id="idWifiConnectLayer" class="network-layer align-items-center" style="display: block">
         <div class="row justify-content-center text-row">
-          <div class="col-4 network-col">
-            <div class="select-text" style="width: 100%">SSID :</div>
+          <div class="col-3 network-col">
+            <div class="select-text" style="width: 100%; font-family: bambino_newbold; font-size: 44px; padding-top: 15%; color: #00804a;">SSID :</div>
           </div>
-          <div class="col-8 network-col" style="display: block">
+          <div class="col-9 network-col" style="display: block">
             <input id="txtSsid" type="text" style="height: 75%" placeholder=" ENTER SSID" class="
                   keyboardPopup
                   form-control
@@ -696,10 +816,13 @@
           </div>
         </div>
         <div class="row justify-content-center text-row">
-          <div class="col-4 network-col">
-            <div class="password-text">Password :</div>
+          <!-- <div class="col-4 network-col">
+            <div class="password-text" style="font-family: bambino_newbold; font-size: 44px;">PW :</div>
+          </div> -->
+          <div class="col-3 network-col">
+            <div class="select-text" style="width: 100%; font-family: bambino_newbold; font-size: 44px; padding-top: 15%; color: #00804a;">PW :</div>
           </div>
-          <div class="col-8 network-col" style="display: block">
+          <div class="col-9 network-col" style="display: block">
             <input id="txtPassword" type="text" style="height: 75%" placeholder="ENTER PASSWORD" class="
                   keyboardPopup
                   form-control
@@ -717,6 +840,7 @@
           </div>
         </div>
       </div>
+
       <div id="idWifiDisconnectedImage" class="wifi-disconnected">
         <img src="images/disconnected.png" class="img-class" />
       </div>
@@ -2139,13 +2263,13 @@
                                                             <div class="grid-item" onclick="numClick('7')">7</div>
                                                             <div class="grid-item" onclick="numClick('8')">8</div>
                                                             <div class="grid-item" onclick="numClick('9')">9</div>
-                                                            <div class="grid-item" onclick="numClick('DELETE')">
+                                                            <div class="grid-item-bck" onclick="numClick('DELETE')">
                                                               <img src="images/ic-delete.png" alt="Snow"
                                                                 class="streach-img"
-                                                                style="padding-left: 15%; padding-right: 30%; height: 60%" />
+                                                                style="padding-left: 15%; padding-right: 30%; padding-bottom: 10%; height: 100%" />
                                                             </div>
                                                             <div class="grid-item" onclick="numClick('0')">0</div>
-                                                            <div class="grid-item" onclick="numClick('OK')">OK</div>
+                                                            <div class="grid-item-ok" onclick="numClick('OK')" style="color: white; font-family: 'bambino_newblack';">OK</div>
                                                           </div>
                                                         </div>
 

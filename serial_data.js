@@ -7,8 +7,8 @@ const download = require("download");
 const serialport = require("serialport");
 const cors = require("cors");
 const http = require("http");
-// var wifi = require("node-wifi");
-var Wifi = require('rpi-wifi-connection');
+var wifi = require("node-wifi");
+// var Wifi = require('rpi-wifi-connection');
 const async = require("asyncawait/async");
 const await = require("asyncawait/await");
 const { checkNetworkStatus } = require('check-network-status');
@@ -18,7 +18,7 @@ var app = express();
 const {callSyncAllApi, callKegApi, callTransactionApi, callSaveKegDetailsApi} = require('./Request')
 var sha1 = require('sha1');
 const { connect } = require("http2");
-const { Gpio } = require('onoff');
+// const { Gpio } = require('onoff');
 
 var productDataList = [];
 var printerStatus = 0;
@@ -82,101 +82,101 @@ app.set("port", 3001);
 
 ///////////////////////////////////////////////////////////////
 
-const Readline = serialport.parsers.Readline;
-const parser1 = new Readline();
+// const Readline = serialport.parsers.Readline;
+// const parser1 = new Readline();
 
-const gpio18 = new Gpio('18', 'out');
-const gpio21 = new Gpio('21', 'out');
-gpio18.writeSync(0);
-gpio21.writeSync(0);
+// const gpio18 = new Gpio('18', 'out');
+// const gpio21 = new Gpio('21', 'out');
+// gpio18.writeSync(0);
+// gpio21.writeSync(0);
 
-var port1 = new serialport('/dev/ttyAMA0', {
-	baudRate: 9600,
-	dataBits: 8,
-	parity: 'none',
-	stopBits: 1,
-	flowControl: false
-});
+// var port1 = new serialport('/dev/ttyAMA0', {
+// 	baudRate: 9600,
+// 	dataBits: 8,
+// 	parity: 'none',
+// 	stopBits: 1,
+// 	flowControl: false
+// });
 
-port1.pipe(parser1);
-port1.on('open', onPort1Open);
-parser1.on('data', onData1);
-port1.on('error', onError1);
-port1.on('close', onClose1);
+// port1.pipe(parser1);
+// port1.on('open', onPort1Open);
+// parser1.on('data', onData1);
+// port1.on('error', onError1);
+// port1.on('close', onClose1);
 
-// var main_function = setInterval(main, 299);
+// // var main_function = setInterval(main, 299);
 
-function onPort1Open() {
-	console.log("port 1 open");
-}
+// function onPort1Open() {
+// 	console.log("port 1 open");
+// }
 
-function chk_junk(val){
-  // console.log("Incoming data :", val);
-  let isnum = /^\d+$/.test(val);
-  console.log(isnum);
+// function chk_junk(val){
+//   // console.log("Incoming data :", val);
+//   let isnum = /^\d+$/.test(val);
+//   console.log(isnum);
 
-  if (isnum == true){
-    serialDataReceived = "#"+val;
-    console.log("port 1 Recived : " + serialDataReceived);
-    main();
-  }
-  else {
-    console.log('Junk data');
-  }
+//   if (isnum == true){
+//     serialDataReceived = "#"+val;
+//     console.log("port 1 Recived : " + serialDataReceived);
+//     main();
+//   }
+//   else {
+//     console.log('Junk data');
+//   }
 
-}
+// }
 
-function onData1(data) {
-  console.log("------------------ Data from machine ------------------ :", data);
-  if(data.includes("#")){
-    var data2 = data.split("#");
-    // serialDataReceived = data2[1];
-    // serialDataReceived = (data2[1].match(/.{1,11}/g))[0];
+// function onData1(data) {
+//   console.log("------------------ Data from machine ------------------ :", data);
+//   if(data.includes("#")){
+//     var data2 = data.split("#");
+//     // serialDataReceived = data2[1];
+//     // serialDataReceived = (data2[1].match(/.{1,11}/g))[0];
 
-    var val = (data2[1].match(/.{1,11}/g))[0];
-    chk_junk(val);
-    // console.log("port 1 Recived : " + serialDataReceived);
-  }
-}
+//     var val = (data2[1].match(/.{1,11}/g))[0];
+//     chk_junk(val);
+//     // console.log("port 1 Recived : " + serialDataReceived);
+//   }
+// }
 
-function onClose1() {
-	console.log("port 1 closed");
-}
+// function onClose1() {
+// 	console.log("port 1 closed");
+// }
 
-function onError1() {
-	console.log("somethings wrong in port 1");
-}
+// function onError1() {
+// 	console.log("somethings wrong in port 1");
+// }
+
+// // async function main() {
+// //   gpio18.writeSync(1);
+// // 	await sleep(11); //10
+// // 	sendSerial1(serialDataSend);
+// // 	console.log("serial data send :"+serialDataSend);
+// // 	await sleep(119); // 100
+// //
+// //   gpio18.writeSync(0);
+// // 	await sleep(11); //20
+// // }
 
 // async function main() {
 //   gpio18.writeSync(1);
-// 	await sleep(11); //10
+// 	await sleep(20);
 // 	sendSerial1(serialDataSend);
 // 	console.log("serial data send :"+serialDataSend);
-// 	await sleep(119); // 100
-//
+//   await sleep(20);
 //   gpio18.writeSync(0);
-// 	await sleep(11); //20
+// 	await sleep(20); //20
 // }
 
-async function main() {
-  gpio18.writeSync(1);
-	await sleep(20);
-	sendSerial1(serialDataSend);
-	console.log("serial data send :"+serialDataSend);
-  await sleep(20);
-  gpio18.writeSync(0);
-	await sleep(20); //20
-}
+// function sleep(ms) {
+// 	return new Promise(resolve => {
+// 		setTimeout(resolve, ms)
+// 	})
+// }
 
-function sleep(ms) {
-	return new Promise(resolve => {
-		setTimeout(resolve, ms)
-	})
-}
-
-function sendSerial1(datax) {
-	port1.write(datax+"\n");
-}
+// function sendSerial1(datax) {
+// 	port1.write(datax+"\n");
+// }
 
 ///////////////////////////////////////////////////////////////
 
@@ -184,12 +184,12 @@ var server = http.createServer(app).listen(app.get("port"), function () {
   console.log("Express server listening on port " + app.get("port"));
 });
 
-// wifi.init({
-//   iface: null, // network interface, choose a random wifi interface if set to null
-// });
+wifi.init({
+  iface: null, // network interface, choose a random wifi interface if set to null
+});
 
 
-var wifi = new Wifi();
+// var wifi = new Wifi();
 
 //socket stuff
 var io = require("socket.io").listen(server);
@@ -245,30 +245,30 @@ io.sockets.on("connection", function (socket) {
   });
 
   socket.on("IS_WIFI_ON", function (data) {
-    // checkNetworkStatus({
-    //   timeout: 3000,
-    //   url: 'https://google.com'
-    // }).then(value => {
-    //   socket.emit("IS_WIFI_ON", {value, data})
-    // });
-    wifi.getState().then((connected) => {
-      if(connected) {
-        console.log("CONNECTION");
-        console.log(connected);
-        var object = {value: true, data: data};
-        socket.emit("IS_WIFI_ON", object);
-      } else {
-        console.log("NOT CONNECTION");
-        var object = {value: false, data: data};
-        socket.emit("IS_WIFI_ON", object);
-      }
-     
-    })
-    .catch((error) => {
-      console.log(error);
-      var object = {value: false, data: data};
-      socket.emit("IS_WIFI_ON", object);
+    checkNetworkStatus({
+      timeout: 3000,
+      url: 'https://google.com'
+    }).then(value => {
+      socket.emit("IS_WIFI_ON", {value, data})
     });
+    // wifi.getState().then((connected) => {
+    //   if(connected) {
+    //     console.log("CONNECTION");
+    //     console.log(connected);
+    //     var object = {value: true, data: data};
+    //     socket.emit("IS_WIFI_ON", object);
+    //   } else {
+    //     console.log("NOT CONNECTION");
+    //     var object = {value: false, data: data};
+    //     socket.emit("IS_WIFI_ON", object);
+    //   }
+     
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    //   var object = {value: false, data: data};
+    //   socket.emit("IS_WIFI_ON", object);
+    // });
   });
 
   function setMachineIDandToken() {
@@ -406,26 +406,26 @@ io.sockets.on("connection", function (socket) {
     var ssid = data.split(" ")[0];
     var pass = data.split(" ")[1];
     console.log("connecting.....");
-    // wifi.connect({ ssid: ssid, password: pass }, function (err) {
-    //   if (err) {
-    //     console.log(err);
-    //   } else {
-    //     console.log("Connected");
-    //     isSuccess = true;
-    //   }
-    //   console.log("okkkkkkkk" + isSuccess);
-    //   socket.emit("WIFI_CONNECT", isSuccess);
-    // });
-
-    wifi.connect({ssid:ssid, psk:pass}).then(() => {
-      isSuccess = true
+    wifi.connect({ ssid: ssid, password: pass }, function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Connected");
+        isSuccess = true;
+      }
       console.log("okkkkkkkk" + isSuccess);
       socket.emit("WIFI_CONNECT", isSuccess);
-      })
-      .catch((error) => {
-        console.log(error);
-        socket.emit("WIFI_CONNECT", false);
-      });
+    });
+
+    // wifi.connect({ssid:ssid, psk:pass}).then(() => {
+    //   isSuccess = true
+    //   console.log("okkkkkkkk" + isSuccess);
+    //   socket.emit("WIFI_CONNECT", isSuccess);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     socket.emit("WIFI_CONNECT", false);
+    //   });
       console.log("data received" + data);
     });
 
