@@ -540,8 +540,8 @@ $(document).ready(function () {
           selected_nozzel_number = "0";
           selectedVolume = "0";
           hideAll();
-          $("div#tapToStart-container").show();
-          // $("div#filling-container").show();
+          // $("div#tapToStart-container").show();
+          $("div#password-container").show();
           // $("div#barcode-data-container").show();
           // $("div#barcode-data-view-container").show();
           socket.emit("PRINTER_STATUS", 0);
