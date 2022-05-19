@@ -137,7 +137,7 @@
             <div class="col-4">
               <img src="images/add.png" alt="Snow" style="display: block; margin: auto; width: 40%" />
             </div>
-            <div class="col-8 txt-debug">
+            <div class="col-8 txt-debug" id="addkegid">
               Add new keg
             </div>
           </div>
@@ -152,7 +152,7 @@
             <div class="col-4">
               <img src="images/view.png" alt="Snow" style="display: block; margin: auto; width: 40%" />
             </div>
-            <div class="col-8 txt-debug">
+            <div class="col-8 txt-debug" id="viewkegid">
               View keg details
             </div>
           </div>
@@ -166,7 +166,7 @@
             <div class="col-4">
               <img src="images/sync.png" alt="Snow" style="display: block; margin: auto; width: 40%" />
             </div>
-            <div class="col-8 txt-debug">
+            <div class="col-8 txt-debug" id="syncallid">
               Sync all
             </div>
           </div>
@@ -192,19 +192,18 @@
       <div id="btnBackKegUpdate" onclick="goBack(btnBackKegUpdate.id)"
       class="button-back"></div>
 
-      <div class="main-title-txt" style="font-family: bambino_newblack;">NETWORK STATUS</div>
-
+      <div class="main-title-txt" style="font-family: bambino_newblack;" id="netstatustitle">NETWORK STATUS</div>
 
       <!-- <div class="select-text" style="width: 50%; left: 25%">
         NETWORK STATUS
       </div> -->
-      <div class="select-text txt-disconnect" style="font-family: 'bambino_newsemibold';">
+      <div class="select-text txt-disconnect" style="font-family: 'bambino_newsemibold';" id="disconnecttxtid">
         Connected
       </div>
 
       <div id="idEnterBarcodeContainer" class="network-layer align-items-center" style="display: block; top: 32%;">
         <div class="row justify-content-center text-row">
-          <div style="
+          <div id="scanBarcodeid" style="
                 font-size: 35px;
                 color: #00804a;
                 height: 70px !important;
@@ -216,7 +215,7 @@
           </div>
         </div>
 
-        <div class="div-or" style="color: #00804a; font-family: bambino_newbold;">OR</div>
+        <div id="ortxtid" class="div-or" style="color: #00804a; font-family: bambino_newbold;">OR</div>
         <div class="justify-content-center text-row" style="margin-left: 45px; margin-right: 0px">
           <div class="network-col" onclick="onClickTxtBarcode()"
             style="display: block; margin-left: 5%; margin-right: 5%">
@@ -236,7 +235,7 @@
                   ui-widget-content ui-corner-all ui-autocomplete-input
                   form-control
                 " aria-haspopup="true" role="textbox" onkeyup="onKeyUpBarcodeHidden()" autocomplete="off" />
-            <input id="txtBarcodeID" type="text" style="height: 80px; z-index: 1000;" placeholder=" ENTER BARCODE ID"
+            <input id="txtBarcodeID" name="barcodeholder" type="text" style="height: 80px; z-index: 1000;" placeholder=" ENTER BARCODE ID"
               class="
                   col-11
                   edit-text
@@ -249,7 +248,7 @@
         </div>
         <div class="row justify-content-center text-row" style="margin-bottom: 20px; margin-top: 100px;">
           <div id="btnSyncBarcode" class="btn-sync-keg">
-            <div class="connect-text">Sync Data</div>
+            <div id="synctxtid" class="connect-text">Sync Data</div>
           </div>
         </div>
       </div>
@@ -404,7 +403,7 @@
       <div id="btnBackSettings" onclick="goBack(btnBackSettings.id)"
       class="button-back"></div>
 
-      <div class="main-title-txt" style="font-family: bambino_newblack;">PRODUCT DETAILS</div>
+      <div class="main-title-txt" id="proddettiyle" style="font-family: bambino_newblack;">PRODUCT DETAILS</div>
 
       <div id="btnUpdateUI" class="btn-update-ui" style="display: none">
         <div class="text-accept">Update UI</div>
@@ -769,7 +768,7 @@
 
       <div class="dropDown-layer">
         <div style="position: absolute; width: 100%;">
-          <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px; margin-top: 10px;">Select product</div>
+          <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px; margin-top: 10px;" id="sub1">Select product</div>
         </div>
         <div style="font-size: 10px;">
           <select id="idSelectProduct" onchange="showSelectedProductData()" class="dropdown-Select"></select>
@@ -2252,26 +2251,26 @@
                                                             <img src="images/product_images/logo.png" alt="Snow" />
                                                           </div>
                                                           <!-- <div class="select-text">Enter passcode</div> -->
-                                                          <div class="main-title-txt" style="font-family: 'bambino_newblack';">ENTER PASSCODE</div>
+                                                          <div id="passcodetitle" class="main-title-txt" style="font-family: 'bambino_newblack';">ENTER PASSCODE</div>
                                                           <div id="idPassword" class="numberField">
                                                             <div id="divPasswordMask" class="password-mask"></div>
                                                           </div>
                                                           <div class="numberPad">
-                                                            <div class="grid-item" onclick="numClick('1')">1</div>
-                                                            <div class="grid-item" onclick="numClick('2')">2</div>
-                                                            <div class="grid-item" onclick="numClick('3')">3</div>
-                                                            <div class="grid-item" onclick="numClick('4')">4</div>
-                                                            <div class="grid-item" onclick="numClick('5')">5</div>
-                                                            <div class="grid-item" onclick="numClick('6')">6</div>
-                                                            <div class="grid-item" onclick="numClick('7')">7</div>
-                                                            <div class="grid-item" onclick="numClick('8')">8</div>
-                                                            <div class="grid-item" onclick="numClick('9')">9</div>
+                                                            <div class="grid-item" id="num1" onclick="numClick('1')">1</div>
+                                                            <div class="grid-item" id="num2" onclick="numClick('2')">2</div>
+                                                            <div class="grid-item" id="num3" onclick="numClick('3')">3</div>
+                                                            <div class="grid-item" id="num4" onclick="numClick('4')">4</div>
+                                                            <div class="grid-item" id="num5" onclick="numClick('5')">5</div>
+                                                            <div class="grid-item" id="num6" onclick="numClick('6')">6</div>
+                                                            <div class="grid-item" id="num7" onclick="numClick('7')">7</div>
+                                                            <div class="grid-item" id="num8" onclick="numClick('8')">8</div>
+                                                            <div class="grid-item" id="num9" onclick="numClick('9')">9</div>
                                                             <div class="grid-item-bck" onclick="numClick('DELETE')">
                                                               <img src="images/ic-delete.png" alt="Snow"
                                                                 class="streach-img"
                                                                 style="padding-left: 15%; padding-right: 30%; padding-bottom: 10%; height: 100%" />
                                                             </div>
-                                                            <div class="grid-item" onclick="numClick('0')">0</div>
+                                                            <div class="grid-item" id="num0" onclick="numClick('0')">0</div>
                                                             <div class="grid-item-ok" onclick="numClick('OK')" style="color: white; font-family: 'bambino_newblack';">OK</div>
                                                           </div>
                                                         </div>
@@ -3022,7 +3021,7 @@
                                                             <div class="filling-text" id="amounttxt">Amount</div>
 
                                                             <div id="divFillingAmount" class="filling-text" style="top: 40%; color: #00804a;">0</div>
-                                                            <div id="divFillingAmountArb" class="filling-text" style="top: 40%; color: #00804a;">0</div>
+                                                            <!-- <div id="divFillingAmountArb" class="filling-text" style="top: 40%; color: #00804a;">x</div> -->
 
                                                             <!-- <div class="img-rs volume-price"
                                                               style="width: 180px; height: 100px">

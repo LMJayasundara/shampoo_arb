@@ -912,6 +912,108 @@ $(document).ready(function () {
           $("#idPassword").text("");
           hideAll();
           $("div#password-container").show();
+
+          if(selectedLanguage == "english"){
+            document.getElementById("passcodetitle").textContent = eng_li[36];
+            document.getElementById("passcodetitle").style.fontFamily = "bambino_newblack";
+
+            document.getElementById("num1").textContent = "1";
+            document.getElementById("num1").style.fontFamily = "bambino_newblack";
+            document.getElementById("num2").textContent = "2";
+            document.getElementById("num2").style.fontFamily = "bambino_newblack";
+            document.getElementById("num3").textContent = "3";
+            document.getElementById("num3").style.fontFamily = "bambino_newblack";
+            document.getElementById("num4").textContent = "4";
+            document.getElementById("num4").style.fontFamily = "bambino_newblack";
+            document.getElementById("num5").textContent = "5";
+            document.getElementById("num5").style.fontFamily = "bambino_newblack";
+            document.getElementById("num6").textContent = "6";
+            document.getElementById("num6").style.fontFamily = "bambino_newblack";
+            document.getElementById("num7").textContent = "7";
+            document.getElementById("num7").style.fontFamily = "bambino_newblack";
+            document.getElementById("num8").textContent = "8";
+            document.getElementById("num8").style.fontFamily = "bambino_newblack";
+            document.getElementById("num9").textContent = "9";
+            document.getElementById("num9").style.fontFamily = "bambino_newblack";
+            document.getElementById("num0").textContent = "0";
+            document.getElementById("num0").style.fontFamily = "bambino_newblack";
+
+            document.getElementById("addkegid").textContent = eng_li[38];
+            document.getElementById("addkegid").style.fontFamily = "bambino_newbold";
+            document.getElementById("viewkegid").textContent = eng_li[39];
+            document.getElementById("viewkegid").style.fontFamily = "bambino_newbold";
+            document.getElementById("syncallid").textContent = eng_li[40];
+            document.getElementById("syncallid").style.fontFamily = "bambino_newbold";
+
+            document.getElementById("netstatustitle").textContent = eng_li[42];
+            document.getElementById("netstatustitle").style.fontFamily = "bambino_newblack";
+            document.getElementById("disconnecttxtid").textContent = eng_li[43];
+            document.getElementById("disconnecttxtid").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("scanBarcodeid").textContent = eng_li[44];
+            document.getElementById("scanBarcodeid").style.fontFamily = "bambino_newbold";
+            document.getElementById("ortxtid").textContent = eng_li[45];
+            document.getElementById("ortxtid").style.fontFamily = "bambino_newbold";
+            document.getElementsByName('barcodeholder')[0].placeholder = eng_li[46];
+            document.getElementById("synctxtid").textContent = eng_li[47];
+            document.getElementById("synctxtid").style.fontFamily = "bambino_newbold";
+
+            document.getElementById("proddettiyle").textContent = eng_li[49];
+            document.getElementById("proddettiyle").style.fontFamily = "bambino_newblack";
+            document.getElementById("sub1").textContent = eng_li[50];
+            document.getElementById("sub1").style.fontFamily = "bambino_newsemibold";
+
+          }
+          if(selectedLanguage == "arabic"){
+            document.getElementById("passcodetitle").textContent = arb_li[36];
+            document.getElementById("passcodetitle").style.fontFamily = "ElMessiri-Bold";
+
+            document.getElementById("num1").textContent = "١";
+            document.getElementById("num1").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("num2").textContent = "٢";
+            document.getElementById("num2").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("num3").textContent = "٣";
+            document.getElementById("num3").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("num4").textContent = "٤";
+            document.getElementById("num4").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("num5").textContent = "٥";
+            document.getElementById("num5").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("num6").textContent = "٦";
+            document.getElementById("num6").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("num7").textContent = "٧";
+            document.getElementById("num7").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("num8").textContent = "٨";
+            document.getElementById("num8").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("num9").textContent = "٩";
+            document.getElementById("num9").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("num0").textContent = "٠";
+            document.getElementById("num0").style.fontFamily = "ElMessiri-Bold";
+
+            document.getElementById("addkegid").textContent = arb_li[38];
+            document.getElementById("addkegid").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("viewkegid").textContent = arb_li[39];
+            document.getElementById("viewkegid").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("syncallid").textContent = arb_li[40];
+            document.getElementById("syncallid").style.fontFamily = "ElMessiri-Bold";
+
+            document.getElementById("netstatustitle").textContent = arb_li[42];
+            document.getElementById("netstatustitle").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("disconnecttxtid").textContent = arb_li[43];
+            document.getElementById("disconnecttxtid").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("scanBarcodeid").textContent = arb_li[44];
+            document.getElementById("scanBarcodeid").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("ortxtid").textContent = arb_li[45];
+            document.getElementById("ortxtid").style.fontFamily = "ElMessiri-Bold";
+            document.getElementsByName('barcodeholder')[0].placeholder = arb_li[46];
+            document.getElementById("synctxtid").textContent = arb_li[47];
+            document.getElementById("synctxtid").style.fontFamily = "ElMessiri-Bold";
+
+            document.getElementById("proddettiyle").textContent = arb_li[49];
+            document.getElementById("proddettiyle").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("sub1").textContent = arb_li[50];
+            document.getElementById("sub1").style.fontFamily = "ElMessiri-SemiBold";
+            
+          }
+
         }, 100);
       });
 
@@ -963,6 +1065,7 @@ $(document).ready(function () {
           // hideAll();
           console.log(eng_li);
 
+          document.getElementById("divFillingAmount").textContent = parseInt("100", 10).toString() + " ml";
 
           document.getElementById("page1maintitle").textContent = eng_li[0];
           document.getElementById("page1maintitle").style.fontFamily = "bambino_newblack";
@@ -1019,6 +1122,9 @@ $(document).ready(function () {
           // hideAll();
           console.log(arb_li);
           // Page 1
+
+          document.getElementById("divFillingAmount").textContent =  convertToArbNumber(parseInt("100", 10)).toString()+ " مل"; 
+
           document.getElementById("page1maintitle").textContent = arb_li[0];
           document.getElementById("page1maintitle").style.fontFamily = "ElMessiri-Bold";
           document.getElementById("page2maintitle").textContent = arb_li[1];
@@ -3833,6 +3939,7 @@ function getNewPricesWithDiscounts() {
 
 function updateStatus() {
   // console.log("serialReturnStateeeeeeeeeeeeeeeeeeeeeee =",serialReturnState);
+
   if (serialReturnEmergency == 01) {
     if (ipc_state != STATE_EMERGENCY) {
       console.log("Emergency 1");

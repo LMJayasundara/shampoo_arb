@@ -35,7 +35,22 @@
         "Refilling in progress",
         "Amount",
         "Stop",
+        "",
+        "ENTER PASSCODE",
+        "",
+        "Add new keg",
+        "View keg details",
+        "Sync all",
+        "",
+        "NETWORK STATUS",
+        "Connected",
+        "Scan barcode",
+        "or",
+        "Enter Barcode ID",
+        "Sync data",
+        "",
+        "PRODUCT DETAILS",
+        "Select Product",
         ""
-
     ]
 }
