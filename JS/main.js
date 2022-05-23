@@ -961,8 +961,59 @@ $(document).ready(function () {
             document.getElementById("proddettiyle").style.fontFamily = "bambino_newblack";
             document.getElementById("sub1").textContent = eng_li[50];
             document.getElementById("sub1").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("sub2").textContent = eng_li[51];
+            document.getElementById("sub2").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("sub3").textContent = eng_li[52];
+            document.getElementById("sub3").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("sub4").textContent = eng_li[53];
+            document.getElementById("sub4").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("sub5").textContent = eng_li[54];
+            document.getElementById("sub5").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("sub6").textContent = eng_li[55];
+            document.getElementById("sub6").style.fontFamily = "bambino_newsemibold";
+
+            const boxes1 = document.querySelectorAll('.txt-select-arb');
+            boxes1.forEach(box => {
+              box.style.left = "12%";
+            });
+
+            const boxes2 = document.querySelectorAll('.in-value-arb');
+            boxes2.forEach(box => {
+              box.style.left = "55%";
+            });
+
+            const boxes3 = document.querySelectorAll('.bg-arb');
+            boxes3.forEach(box => {
+              box.style.left = "50%";
+            });
+
+            const boxes4 = document.querySelectorAll('.dropdown-Select');
+            boxes4.forEach(box => {
+              box.style.left = null;
+            });
+
+            const boxes5 = document.querySelectorAll('.in-value-refill-arb');
+            boxes5.forEach(box => {
+              box.style.left = "49%";
+            });
+
+            const boxes6 = document.querySelectorAll('.vol-price');
+            boxes6.forEach(box => {
+              box.style.left = null;
+            });
+
+            const boxes7 = document.querySelectorAll('.col-bg');
+            boxes7.forEach(box => {
+              box.style.left = "13%";
+            });
+
+            const boxes8 = document.querySelectorAll('.in-value2');
+            boxes8.forEach(box => {
+              box.style.left = "10%";
+            });
 
           }
+
           if(selectedLanguage == "arabic"){
             document.getElementById("passcodetitle").textContent = arb_li[36];
             document.getElementById("passcodetitle").style.fontFamily = "ElMessiri-Bold";
@@ -1011,6 +1062,56 @@ $(document).ready(function () {
             document.getElementById("proddettiyle").style.fontFamily = "ElMessiri-Bold";
             document.getElementById("sub1").textContent = arb_li[50];
             document.getElementById("sub1").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("sub2").textContent = arb_li[51];
+            document.getElementById("sub2").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("sub3").textContent = arb_li[52];
+            document.getElementById("sub3").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("sub4").textContent = arb_li[53];
+            document.getElementById("sub4").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("sub5").textContent = arb_li[54];
+            document.getElementById("sub5").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("sub6").textContent = arb_li[55];
+            document.getElementById("sub6").style.fontFamily = "ElMessiri-SemiBold";
+
+            const boxes1 = document.querySelectorAll('.txt-select-arb');
+            boxes1.forEach(box => {
+              box.style.left = "470px";
+            });
+
+            const boxes2 = document.querySelectorAll('.in-value-arb');
+            boxes2.forEach(box => {
+              box.style.left = "10%";
+            });
+
+            const boxes3 = document.querySelectorAll('.bg-arb');
+            boxes3.forEach(box => {
+              box.style.left = "15%";
+            });
+
+            const boxes4 = document.querySelectorAll('.dropdown-Select');
+            boxes4.forEach(box => {
+              box.style.left = "15%";
+            });
+
+            const boxes5 = document.querySelectorAll('.in-value-refill-arb');
+            boxes5.forEach(box => {
+              box.style.left = "15%";
+            });
+
+            const boxes6 = document.querySelectorAll('.vol-price');
+            boxes6.forEach(box => {
+              box.style.left = "360px";
+            });
+
+            const boxes7 = document.querySelectorAll('.col-bg');
+            boxes7.forEach(box => {
+              box.style.left = "-220px";
+            });
+
+            const boxes8 = document.querySelectorAll('.in-value2');
+            boxes8.forEach(box => {
+              box.style.left = "-67%";
+            });
             
           }
 
@@ -2729,7 +2830,16 @@ function setDebugOptions() {
 
   let productOptions = [];
   productOptions[0] = document.createElement("option");
-  productOptions[0].text = "Select Product";
+  if(selectedLanguage == 'english'){
+    document.getElementById("idSelectProduct").style.fontFamily = "bambino_newsemibold";
+    document.getElementById("idSelectProduct").style.textAlign = "right";
+    document.getElementById("idSelectProduct").style.paddingRight = "1%";
+    productOptions[0].text = eng_li[50];
+  }
+  if(selectedLanguage == 'arabic'){
+    document.getElementById("idSelectProduct").style.fontFamily = "ElMessiri-SemiBold";
+    productOptions[0].text = arb_li[50];
+  }
   productOptions[0].value = 0;
   selectDropdown.add(productOptions[0]);
 
@@ -3311,23 +3421,74 @@ function showSelectedProductData() {
     }
 
     if (productVolumes.split("/")[0] != undefined) {
-      vol1Price.textContent = productVolumes.split("/")[0]/1000 + " L Price";
-      vol1Discount.textContent = productVolumes.split("/")[0]/1000 + " L Discount";
-      idPrice1.value = productPrices.split("/")[0] + " SAR";
-      idDiscount1.value = productDiscounts.split("/")[0] + " SAR";
+      if(selectedLanguage == 'english'){
+        vol1Price.style.fontFamily = "bambino_newsemibold";
+        vol1Price.textContent = productVolumes.split("/")[0]/1000 + " L Price";
+        vol1Discount.style.fontFamily = "bambino_newsemibold";
+        vol1Discount.textContent = productVolumes.split("/")[0]/1000 + " L Discount";
+        idPrice1.style.fontFamily = "bambino_newbold";
+        idPrice1.value = productPrices.split("/")[0] + " SAR";
+        idDiscount1.style.fontFamily = "bambino_newbold";
+        idDiscount1.value = productDiscounts.split("/")[0] + " SAR";
+      }
+      if(selectedLanguage == 'arabic'){
+        vol1Price.style.fontFamily = "ElMessiri-SemiBold";
+        vol1Price.textContent = "سعر " + convertToArbNumber(productVolumes.split("/")[0]/1000) +" لتر ";
+        vol1Discount.style.fontFamily = "ElMessiri-SemiBold";
+        vol1Discount.textContent = "خصم " + convertToArbNumber(productVolumes.split("/")[0]/1000) +" لتر ";
+        idPrice1.style.fontFamily = "ElMessiri-SemiBold";
+        idPrice1.value = convertToArbNumber(productPrices.split("/")[0]) + " ر.س";
+        idDiscount1.style.fontFamily = "ElMessiri-SemiBold";
+        idDiscount1.value = convertToArbNumber(productDiscounts.split("/")[0]) + " ر.س";
+      }
+      
     }
     if (productVolumes.split("/")[1] != undefined) {
-      vol2Price.textContent = productVolumes.split("/")[1]/1000 + " L Price";
-      vol2Discount.textContent = productVolumes.split("/")[1]/1000 + " L Discount";
-      idPrice2.value = productPrices.split("/")[1] + " SAR";
-      idDiscount2.value = productDiscounts.split("/")[1] + " SAR";
+      if(selectedLanguage == 'english'){
+        vol2Price.style.fontFamily = "bambino_newsemibold";
+        vol2Price.textContent = productVolumes.split("/")[1]/1000 + " L Price";
+        vol2Discount.style.fontFamily = "bambino_newsemibold";
+        vol2Discount.textContent = productVolumes.split("/")[1]/1000 + " L Discount";
+        idPrice2.style.fontFamily = "bambino_newbold";
+        idPrice2.value = productPrices.split("/")[1] + " SAR";
+        idDiscount2.style.fontFamily = "bambino_newbold";
+        idDiscount2.value = productDiscounts.split("/")[1] + " SAR";
+      }
+      if(selectedLanguage == 'arabic'){
+        vol2Price.style.fontFamily = "ElMessiri-SemiBold";
+        vol2Price.textContent = "سعر " + convertToArbNumber(productVolumes.split("/")[1]/1000) +" لتر ";
+        vol2Discount.style.fontFamily = "ElMessiri-SemiBold";
+        vol2Discount.textContent = "خصم " + convertToArbNumber(productVolumes.split("/")[1]/1000) +" لتر ";
+        idPrice2.style.fontFamily = "ElMessiri-SemiBold";
+        idPrice2.value = convertToArbNumber(productPrices.split("/")[1]) + " ر.س";
+        idDiscount2.style.fontFamily = "ElMessiri-SemiBold";
+        idDiscount2.value = convertToArbNumber(productDiscounts.split("/")[1]) + " ر.س";
+      }
+      
     }
 
     if (productVolumes.split("/")[2] != undefined) {
-      vol3Price.textContent = productVolumes.split("/")[2]/1000 + " L Price";
-      vol3Discount.textContent = productVolumes.split("/")[2]/1000 + " L Discount";
-      idPrice3.value = productPrices.split("/")[2] + " SAR";
-      idDiscount3.value = productDiscounts.split("/")[2] + " SAR";
+      if(selectedLanguage == 'english'){
+        vol3Price.style.fontFamily = "bambino_newsemibold";
+        vol3Price.textContent = productVolumes.split("/")[2]/1000 + " L Price";
+        vol3Discount.style.fontFamily = "bambino_newsemibold";
+        vol3Discount.textContent = productVolumes.split("/")[2]/1000 + " L Discount";
+        idPrice3.style.fontFamily = "bambino_newbold";
+        idPrice3.value = productPrices.split("/")[2] + " SAR";
+        idDiscount3.style.fontFamily = "bambino_newbold";
+        idDiscount3.value = productDiscounts.split("/")[2] + " SAR";
+      }
+      if(selectedLanguage == 'arabic'){
+        vol3Price.style.fontFamily = "ElMessiri-SemiBold";
+        vol3Price.textContent = "سعر " + convertToArbNumber(productVolumes.split("/")[2]/1000) +" لتر ";
+        vol3Discount.style.fontFamily = "ElMessiri-SemiBold";
+        vol3Discount.textContent = "خصم " + convertToArbNumber(productVolumes.split("/")[2]/1000) +" لتر ";
+        idPrice3.style.fontFamily = "ElMessiri-SemiBold";
+        idPrice3.value = convertToArbNumber(productPrices.split("/")[2]) + " ر.س";
+        idDiscount3.style.fontFamily = "ElMessiri-SemiBold";
+        idDiscount3.value = convertToArbNumber(productDiscounts.split("/")[2]) + " ر.س";
+      }
+      
     }
 
     if (productVolumes.split("/")[3] != undefined) {
@@ -3351,12 +3512,33 @@ function showSelectedProductData() {
       idDiscount6.value = productDiscounts.split("/")[5] + " SAR";
     }
 
-    divCurrentVolume.innerHTML = (parseFloat(productRemaining) / 1000).toFixed(2) + " L";
-    divLastRefillDate.innerHTML = productRFD.toString().split(" ")[0];
-    divRefillVolume.value = "";
-    divBatchNoValue.value = batchNo;
-    divManufactureDate.value = productMFD;
-    divExpireDate.value = productEXD;
+    if(selectedLanguage == 'english'){
+      divCurrentVolume.style.fontFamily = "bambino_newbold";
+      divCurrentVolume.innerHTML = (parseFloat(productRemaining) / 1000).toFixed(2) + " L";
+      divLastRefillDate.style.fontFamily = "bambino_newbold";
+      divLastRefillDate.innerHTML = productRFD.toString().split(" ")[0];
+      divRefillVolume.value = "";
+      divBatchNoValue.style.fontFamily = "bambino_newbold";
+      divBatchNoValue.value = batchNo;
+      divManufactureDate.style.fontFamily = "bambino_newbold";
+      divManufactureDate.value = productMFD;
+      divExpireDate.style.fontFamily = "bambino_newbold";
+      divExpireDate.value = productEXD;
+    }
+    if(selectedLanguage == 'arabic'){
+      divCurrentVolume.style.fontFamily = "ElMessiri-SemiBold";
+      divCurrentVolume.innerHTML = convertToArbNumber((parseFloat(productRemaining) / 1000).toFixed(2)) + " لتر";
+      divLastRefillDate.style.fontFamily = "ElMessiri-SemiBold";
+      divLastRefillDate.innerHTML = convertToArbNumber(productRFD.toString().split(" ")[0]);
+      divRefillVolume.value = "";
+      divBatchNoValue.style.fontFamily = "ElMessiri-SemiBold";
+      divBatchNoValue.value = convertToArbNumber(batchNo);
+      divManufactureDate.style.fontFamily = "ElMessiri-SemiBold";
+      divManufactureDate.value = convertToArbNumber(productMFD);
+      divExpireDate.style.fontFamily = "ElMessiri-SemiBold";
+      divExpireDate.value = convertToArbNumber(productEXD);
+    }
+    
   }
 }
 function clearAllDebugValues() {

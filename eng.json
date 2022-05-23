@@ -51,6 +51,11 @@
         "",
         "PRODUCT DETAILS",
         "Select Product",
+        "Current volume",
+        "Last refill date",
+        "Manufacture date",
+        "Expiry date",
+        "Batch Number",
         ""
     ]
 }

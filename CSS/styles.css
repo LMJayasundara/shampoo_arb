@@ -696,6 +696,8 @@
 .vol-price {
   height: auto;
   margin-top: 17px;
+  position: absolute;
+  width: 100%;
 }
 
 .print-receipt-dialog {
@@ -1026,6 +1028,15 @@
   /* font-family: "Trebuchet MS"; */
 }
 
+.txt-select-arb {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  font-size: 25px;
+  color: black;
+  /* font-family: "Trebuchet MS"; */
+}
+
 .custom-select {
   position: absolute;
   left: 50%;
@@ -1146,6 +1157,14 @@
   top: 11%;
 }
 
+.bg-arb {
+  position: absolute;
+  width: 40%;
+  height: 120px;
+  left: 50%;
+  top: 11%;
+}
+
 .right-text {
   position: absolute;
   left: 90%;
@@ -1165,7 +1184,33 @@
   pointer-events:none;
 }
 
+.in-value-arb {
+  position: absolute;
+  font-size: 45px;
+  color: black;
+  width: 250px;
+  text-align: end;
+  left: 55%;
+  top: 12%;
+  pointer-events:none;
+}
+
 .in-value-refill {
+  position: absolute;
+  font-size: 45px;
+  color: black;
+  width: 250px;
+  text-align: end;
+  left: 55%;
+  top: 12%;
+  background-color: transparent;
+  left: 50%;
+  padding-right: 7px;
+  width: 300px;
+  pointer-events:none;
+}
+
+.in-value-refill-arb {
   position: absolute;
   font-size: 45px;
   color: black;

@@ -418,35 +418,35 @@
       </div>
 
       <div class="current-value-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Current volume</div>
+        <div class="txt-select-arb" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;" id="sub2">Current volume</div>
         <div>
-          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;" />
+          <img class="bg-arb" src="images/keg-details.png" alt="Snow" style="height: 65px;" />
           <!-- <div class="right-text">L</div> -->
-          <div id="idCurrentVolume" class="in-value" style="color: #00804a; font-size: 35px; font-family: bambino_newbold;"></div>
+          <div id="idCurrentVolume" class="in-value-refill-arb" style="color: #00804a; font-size: 35px; font-family: bambino_newbold;"></div>
         </div>
       </div>
 
       <div class="refill-value-layer" style="display: none">
-        <div class="txt-select">Refill volume</div>
+        <div class="txt-select-arb">Refill volume</div>
         <div>
-          <img class="bg" src="images/keg-details.png" alt="Snow"/>
+          <img class="bg-arb" src="images/keg-details.png" alt="Snow"/>
           <div class="right-text">L</div>
-          <div class="in-value-refill easy-get">
+          <div class="in-value-refill-arb easy-get">
             <input type="text" id="idRefillValue" style="color: #00804a; font-size: 35px; font-family: bambino_newbold;" class="easy-put keyboardNum" onclick="numberpadnew(this)" />
           </div>
         </div>
       </div>
 
       <div class="last-refill-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Last refill date</div>
+        <div class="txt-select-arb" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;" id="sub3">Last refill date</div>
         <div>
-          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
-          <div id="idLastRefillDate" class="in-value" style="color: #00804a; font-size: 35px; font-family: bambino_newbold;"></div>
+          <img class="bg-arb" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
+          <div id="idLastRefillDate" class="in-value-refill-arb" style="color: #00804a; font-size: 35px; font-family: bambino_newbold;"></div>
         </div>
       </div>
 
       <div class="manufacture-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Mfr. date</div>
+        <div class="txt-select-arb" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;" id="sub4">Mfr. date</div>
         <!-- <div class="manufacture-date-container">
           <input id="idManufacDate" class="sd" type="date" name="selected_date" />
           <span class="open-button">
@@ -455,8 +455,8 @@
         </div> -->
 
         <div>
-          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
-          <div class="in-value-refill">
+          <img class="bg-arb" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
+          <div class="in-value-refill-arb">
             <input type="text" id="idManufacDate" class="
                   keyboardNum
                   keyboardPopup
@@ -471,7 +471,7 @@
       </div>
 
       <div class="expire-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Expire date</div>
+        <div class="txt-select-arb" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;" id="sub5">Expire date</div>
         <!-- <div class="manufacture-date-container">
           <input id="idExpireDate" class="sd" type="date" name="selected_date" />
           <span class="open-button">
@@ -480,8 +480,8 @@
         </div> -->
 
         <div>
-          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
-          <div class="in-value-refill">
+          <img class="bg-arb" src="images/keg-details.png" alt="Snow" style="height: 65px;"/>
+          <div class="in-value-refill-arb">
             <input type="text" id="idExpireDate" class="
                   keyboardNum
                   keyboardPopup
@@ -497,10 +497,10 @@
       </div>
 
       <div class="batch-no-layer">
-        <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Batch No</div>
+        <div class="txt-select-arb" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;" id="sub6">Batch No</div>
         <div>
-          <img class="bg" src="images/keg-details.png" alt="Snow" style="height: 65px; width: 40%;"/>
-          <div class="in-value-refill">
+          <img class="bg-arb" src="images/keg-details.png" alt="Snow" style="height: 65px; width: 40%;"/>
+          <div class="in-value-refill-arb">
             <input type="text" id="idBatchNoValue" class="
                   keyboardNum
                   keyboardPopup
@@ -536,9 +536,16 @@
           </div>
 
           <div class="row justify-content-center debug-price-layers">
-            <div class="col-5 col-debug overflow-auto">
-              <p class="p-class" id="vol1Discount" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Discount 1</p>
+            <!-- <div class="col-5 col-debug overflow-auto">
+              <p id="vol1Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">Discount 1</p>
+            </div> -->
+
+            <div class="col-5 col-debug">
+              <p id="vol1Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px; padding-bottom: 10px;">
+                Discount 1
+              </p>
             </div>
+
             <!-- <div class="col-1 col-debug">
               <p class="vol-price">Rs.</p>
             </div> -->
@@ -568,7 +575,7 @@
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p class="p-class" id="vol2Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
+              <p id="vol2Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
                 Discount 2
               </p>
             </div>
@@ -602,7 +609,7 @@
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p class="p-class" id="vol3Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
+              <p id="vol3Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
                 Discount 3
               </p>
             </div>
@@ -636,7 +643,7 @@
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p class="p-class" id="vol4Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
+              <p id="vol4Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
                 Discount 4
               </p>
             </div>
@@ -670,7 +677,7 @@
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p class="p-class" id="vol5Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
+              <p id="vol5Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
                 Discount 5
               </p>
             </div>
@@ -704,7 +711,7 @@
 
           <div class="row justify-content-center debug-price-layers">
             <div class="col-5 col-debug">
-              <p class="p-class" id="vol6Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
+              <p id="vol6Discount" class="vol-price" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px;">
                 Discount 6
               </p>
             </div>
@@ -768,7 +775,7 @@
 
       <div class="dropDown-layer">
         <div style="position: absolute; width: 100%;">
-          <div class="txt-select" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px; margin-top: 10px;" id="sub1">Select product</div>
+          <div class="txt-select-arb" style="color: #00804a; font-family: bambino_newsemibold; font-size: 30px; margin-top: 10px;" id="sub1">Select product</div>
         </div>
         <div style="font-size: 10px;">
           <select id="idSelectProduct" onchange="showSelectedProductData()" class="dropdown-Select"></select>
