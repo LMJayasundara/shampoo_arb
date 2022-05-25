@@ -743,7 +743,7 @@ $(document).ready(function () {
         btnStopImage.src = "images/bg-option.png";
         setTimeout(function () {
           console.log("btn stop clicked");
-          ipc_state = BUTTON_STOP;
+          // ipc_state = BUTTON_STOP;
           console.log("ipc state when btn stop " + ipc_state);
           stopFilling();
         }, 1000);
@@ -972,6 +972,33 @@ $(document).ready(function () {
             document.getElementById("sub6").textContent = eng_li[55];
             document.getElementById("sub6").style.fontFamily = "bambino_newsemibold";
 
+            document.getElementById("netstatustitle2").textContent = eng_li[42];
+            document.getElementById("netstatustitle2").style.fontFamily = "bambino_newblack";
+            document.getElementById("txtdisconnect").textContent = eng_li[57];
+            document.getElementById("txtdisconnect").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("connbtnid").textContent = eng_li[58];
+            document.getElementById("connbtnid").style.fontFamily = "bambino_newblack";
+
+            document.getElementById("kegdetailsid").textContent = eng_li[60];
+            document.getElementById("kegdetailsid").style.fontFamily = "bambino_newblack";
+            document.getElementById("checkdetailsid").textContent = eng_li[61];
+            document.getElementById("checkdetailsid").style.fontFamily = "bambino_newsemibold";
+
+            document.getElementById("ProductName").textContent = eng_li[62];
+            document.getElementById("ProductName").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("Refillvolume").textContent = eng_li[63];
+            document.getElementById("Refillvolume").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("Lastrefilldate").textContent = eng_li[64];
+            document.getElementById("Lastrefilldate").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("Mfrdate").textContent = eng_li[65];
+            document.getElementById("Mfrdate").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("Expiredate").textContent = eng_li[66];
+            document.getElementById("Expiredate").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("BatchNo").textContent = eng_li[67];
+            document.getElementById("BatchNo").style.fontFamily = "bambino_newsemibold";
+            document.getElementById("savebrnkeg").textContent = eng_li[68];
+            document.getElementById("savebrnkeg").style.fontFamily = "bambino_newsemibold";
+
             const boxes1 = document.querySelectorAll('.txt-select-arb');
             boxes1.forEach(box => {
               box.style.left = "12%";
@@ -1072,6 +1099,33 @@ $(document).ready(function () {
             document.getElementById("sub5").style.fontFamily = "ElMessiri-SemiBold";
             document.getElementById("sub6").textContent = arb_li[55];
             document.getElementById("sub6").style.fontFamily = "ElMessiri-SemiBold";
+
+            document.getElementById("netstatustitle2").textContent = arb_li[42];
+            document.getElementById("netstatustitle2").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("txtdisconnect").textContent = arb_li[57];
+            document.getElementById("txtdisconnect").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("connbtnid").textContent = arb_li[58];
+            document.getElementById("connbtnid").style.fontFamily = "ElMessiri-Bold";
+
+            document.getElementById("kegdetailsid").textContent = arb_li[60];
+            document.getElementById("kegdetailsid").style.fontFamily = "ElMessiri-Bold";
+            document.getElementById("checkdetailsid").textContent = arb_li[61];
+            document.getElementById("checkdetailsid").style.fontFamily = "ElMessiri-SemiBold";
+
+            document.getElementById("ProductName").textContent = arb_li[62];
+            document.getElementById("ProductName").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("Refillvolume").textContent = arb_li[63];
+            document.getElementById("Refillvolume").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("Lastrefilldate").textContent = arb_li[64];
+            document.getElementById("Lastrefilldate").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("Mfrdate").textContent = arb_li[65];
+            document.getElementById("Mfrdate").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("Expiredate").textContent = arb_li[66];
+            document.getElementById("Expiredate").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("BatchNo").textContent = arb_li[67];
+            document.getElementById("BatchNo").style.fontFamily = "ElMessiri-SemiBold";
+            document.getElementById("savebrnkeg").textContent = arb_li[68];
+            document.getElementById("savebrnkeg").style.fontFamily = "ElMessiri-SemiBold";
 
             const boxes1 = document.querySelectorAll('.txt-select-arb');
             boxes1.forEach(box => {
@@ -1538,11 +1592,32 @@ function showKegDetailsFromResponse(response) {
   var detailsList = kegResponse.fileData.split(",");
   hideAllVolumes();
   idProductNameAPI.innerHTML = detailsList[1];
-  idRefillVolumeAPI.innerHTML = detailsList[2];
-  idLastRefillDateAPI.innerHTML = "2020-10-02";
-  idManufactureDateAPI.innerHTML = detailsList[4];
-  idExpireDateAPI.innerHTML = detailsList[5];
-  idbatchNoAPI.innerHTML = detailsList[9];
+
+  if(selectedLanguage == 'english'){
+    idRefillVolumeAPI.innerHTML = detailsList[2];
+    idRefillVolumeAPI.style.fontFamily = "bambino_newsemibold";
+    idLastRefillDateAPI.innerHTML = detailsList[3];
+    idLastRefillDateAPI.style.fontFamily = "bambino_newsemibold";
+    idManufactureDateAPI.innerHTML = detailsList[4];
+    idManufactureDateAPI.style.fontFamily = "bambino_newsemibold";
+    idExpireDateAPI.innerHTML = detailsList[5];
+    idExpireDateAPI.style.fontFamily = "bambino_newsemibold";
+    idbatchNoAPI.innerHTML = detailsList[9];
+    idbatchNoAPI.style.fontFamily = "bambino_newsemibold";
+  }
+  if(selectedLanguage == 'arabic'){
+    idRefillVolumeAPI.innerHTML = convertToArbNumber(detailsList[2]);
+    idRefillVolumeAPI.style.fontFamily = "ElMessiri-SemiBold";
+    idLastRefillDateAPI.innerHTML = convertToArbNumber(detailsList[3]);
+    idLastRefillDateAPI.style.fontFamily = "ElMessiri-SemiBold";
+    idManufactureDateAPI.innerHTML = convertToArbNumber(detailsList[4]);
+    idManufactureDateAPI.style.fontFamily = "ElMessiri-SemiBold";
+    idExpireDateAPI.innerHTML = convertToArbNumber(detailsList[5]);
+    idExpireDateAPI.style.fontFamily = "ElMessiri-SemiBold";
+    idbatchNoAPI.innerHTML = convertToArbNumber(detailsList[9]);
+    idbatchNoAPI.style.fontFamily = "ElMessiri-SemiBold";
+  }
+  
 
   hideAll();
   $("div#barcode-data-view-container").show();

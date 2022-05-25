@@ -19,6 +19,8 @@ const {callSyncAllApi, callKegApi, callTransactionApi, callSaveKegDetailsApi} = 
 var sha1 = require('sha1');
 const { connect } = require("http2");
 // const { Gpio } = require('onoff');
+// const { createCanvas, loadImage } = require("canvas");
+// const shell = require('shelljs');
 
 var productDataList = [];
 var printerStatus = 0;
@@ -38,6 +40,25 @@ var id_batch = "";
 eval(fs.readFileSync("printer.js") + "");
 app.use(cors());
 app.set("port", 3001);
+
+function convertToArbNumber(numericText) {
+  const digitMap = {
+      '1': '١',
+      '2': '٢',
+      '3': '٣',
+      '4': '٤',
+      '5': '٥',
+      '6': '٦',
+      '7': '٧',
+      '8': '٨',
+      '9': '٩',
+      '0': '٠',
+  };
+
+ return String(numericText).replace(/\d/g, function(key) {
+      return digitMap[key];
+  });
+}
 
 // var portName = "/dev/ttyS0"; //'/dev/ttyS0'; //This is the standard Raspberry Pi Serial port '/dev/tnt1'; //
 // const parsers = serialport.parsers;
@@ -184,11 +205,12 @@ var server = http.createServer(app).listen(app.get("port"), function () {
   console.log("Express server listening on port " + app.get("port"));
 });
 
+// node
 wifi.init({
   iface: null, // network interface, choose a random wifi interface if set to null
 });
 
-
+// pi
 // var wifi = new Wifi();
 
 //socket stuff
@@ -245,12 +267,15 @@ io.sockets.on("connection", function (socket) {
   });
 
   socket.on("IS_WIFI_ON", function (data) {
+    // node
     checkNetworkStatus({
       timeout: 3000,
       url: 'https://google.com'
     }).then(value => {
       socket.emit("IS_WIFI_ON", {value, data})
     });
+
+    // // pi
     // wifi.getState().then((connected) => {
     //   if(connected) {
     //     console.log("CONNECTION");
@@ -410,6 +435,8 @@ io.sockets.on("connection", function (socket) {
     var ssid = data.split(" ")[0];
     var pass = data.split(" ")[1];
     console.log("connecting.....");
+
+    // node
     wifi.connect({ ssid: ssid, password: pass }, function (err) {
       if (err) {
         console.log(err);
@@ -421,6 +448,7 @@ io.sockets.on("connection", function (socket) {
       socket.emit("WIFI_CONNECT", isSuccess);
     });
 
+    // // pi
     // wifi.connect({ssid:ssid, psk:pass}).then(() => {
     //   isSuccess = true
     //   console.log("okkkkkkkk" + isSuccess);
@@ -439,6 +467,7 @@ io.sockets.on("connection", function (socket) {
   });
 
   socket.on("PRINT_TICKET", function (data) {
+
     var date = data["date"].split(" ")[0];
     var time = data["date"].split(" ")[1];
     var productName = data["productName"];
@@ -448,7 +477,133 @@ io.sockets.on("connection", function (socket) {
     var plastic = data["plastic"];
     var belowCode = data["belowCode"];
     var batchCode = data["batchCode"];
-    console.log(data);
+    // console.log(data);
+
+    ///////////////////////////////////////////
+
+    const canvasTxt = require('canvas-txt').default;
+
+    const width = 450;
+    const height = 380;
+
+    // Add post object with the content to render
+    const engTxt = {
+      title1: "Refill Date: ",
+    	title2: "Best Before: ",
+      title3: "Time: ",
+      title4: "Variant: ",
+      title5: "Volume: ",
+      title6: "Price: ",
+      title7: "Batch No: ",
+    }
+
+    const arbTxt = {
+      title1: "إعادة التعبئة تاريخ:",
+    	title2: "يفضل استخدامه خلال:",
+      title3: "وقت: ",
+      title4: "المنتج: ",
+      title5: "مقدار: ",
+      title6: "السعر: ",
+      title7: "رقم الحزمة: ",
+      sub1: "تاريخ الشراء",
+      sub2: "٤ شهور من",
+      sar: "ر.س",
+      li: "إل",
+      productName: "زيت الذرة",
+      ins1: "يُنصح المستخدمون بالحفاظ على نظافة",
+      ins2: "هذه العبوّة القابلة لإعادة التعبئة",
+      ins3: ".لضمان الصلاحية الأمثل للمنتج",
+      ins4: "تعليمات الغسيل: اغسل العبوّة والغطاء تحت الماء",
+      ins5: "الجاري النظيف ٣ مرات على الأقل وجففه جيدًا",
+      ins6: ".مع ضمان عدم ترك أي بقايا من الماء في العبوّة",
+
+    }
+
+    const canvas = createCanvas(width, height);
+    const context = canvas.getContext("2d");
+
+    context.fillStyle = "white";
+    context.fillRect(0, 0, width, height);
+
+    // // Set the style of the test and render it to the canvas
+
+    // 600 is the x value (the center of the image)
+    // 170 is the y (the top of the line of text)
+
+    if(slang == "english"){
+      context.font = "14pt 'PT Sans'";
+      context.textAlign = "right";
+      context.fillStyle = "black";
+
+      context.fillText(engTxt.title1, 210, 30);
+      context.fillText(engTxt.title2, 210, 60);
+      context.fillText(engTxt.title3, 210, 90);
+      context.fillText(engTxt.title4, 210, 120);
+      context.fillText(engTxt.title5, 210, 150);
+      context.fillText(engTxt.title6, 210, 180);
+      context.fillText(engTxt.title7, 210, 210);
+
+      context.fillText(date, 400, 30);
+      context.fillText("4 months from refill", 400, 60);
+      // context.fillText("from refill date", 400, 90);
+      context.fillText(time, 400, 90);
+      context.fillText(productName, 400, 120);
+      context.fillText(productQuantity/1000 + " L", 400, 150);
+      context.fillText(productPrice + " SAR", 400, 180);
+      context.fillText(batchCode, 400, 210);
+
+      context.font = "9pt 'PT Sans'";
+      context.fillText("USERS ARE ADVICED TO MAINTAIN HYGIENE OF THIS", 400, 250);
+      context.fillText("REFILLABLE CONTAINER, TO ENSURE OPTIMUM SHELF", 400, 265);
+      context.fillText("LIFE OF THE PRODUCT.", 320, 280);
+
+      context.fillText("WASHING INSTRUCTIONS: WASH THE BOTTLE", 380, 300);
+      context.fillText("AND LID UNDER CLEAN RUNNING WATER AT ", 380, 315);
+      context.fillText("LEAST 3 TIMES AND DRY THOROUGHLY ENSURING ", 400, 330);
+      context.fillText("NO RESIDUE OF WATER IS LEFT IN THE BOTTLE. ", 400, 345);
+
+    }
+    if(slang == "arabic"){
+      context.font = "16pt 'PT Sans'";
+      context.textAlign = "left";
+      context.fillStyle = "black";
+
+      context.fillText(arbTxt.title1, 240, 30);
+      context.fillText(arbTxt.title2, 240, 60);
+      context.fillText(arbTxt.title3, 240, 100);
+      context.fillText(arbTxt.title4, 240, 130);
+      context.fillText(arbTxt.title5, 240, 160);
+      context.fillText(arbTxt.title6, 240, 190);
+      context.fillText(arbTxt.title7, 240, 220);
+
+      let arb_date = new Intl.DateTimeFormat('ar-EG', {day: 'numeric', month: 'numeric',year : 'numeric'}).format((new Date(date)).getTime());
+      context.fillText(arb_date, 80, 30);
+      context.fillText(arbTxt.sub1, 80, 60);
+      context.fillText(arbTxt.sub2, 80, 80);
+      context.fillText(convertToArbNumber(time), 80, 100);
+      context.fillText(arbTxt.productName, 80, 130);
+      context.fillText(convertToArbNumber(productQuantity/1000) + arbTxt.li, 80, 160);
+      context.fillText(convertToArbNumber(productPrice) + arbTxt.sar, 80, 190);
+      context.fillText(convertToArbNumber(batchCode), 80, 220);
+
+      context.font = "13pt 'PT Sans'";
+      context.fillText(arbTxt.ins1, 100, 260);
+      context.fillText(arbTxt.ins2, 120, 275);
+      context.fillText(arbTxt.ins3, 130, 290);
+
+      context.fillText(arbTxt.ins4, 70, 320);
+      context.fillText(arbTxt.ins5, 80, 335);
+      context.fillText(arbTxt.ins6, 75, 350);
+    }
+
+    const buffer = canvas.toBuffer("image/png");
+    fs.writeFileSync("/home/pi/Documents/shampoo/Demo/image.png", buffer);
+    shell.exec("convert /home/pi/Documents/shampoo/Demo/image.png -depth 1 -type bilevel BMP3:/home/pi/Documents/shampoo/Demo/out.bmp");
+
+    ///////////////////////////////////////////
+
+
+
     printTicket(
       "PRINTER,print," +
         date +

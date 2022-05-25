@@ -56,6 +56,19 @@
         "Manufacture date",
         "Expiry date",
         "Batch Number",
+        "",
+        "Disconnected",
+        "Connect",
+        "",
+        "KEG DETAILS",
+        "Please check the details and press Save",
+        "Product Name",
+        "Refill volume",
+        "Last refill date",
+        "Manufacture date",
+        "Expiry date",
+        "Batch Number",
+        "Save",
         ""
     ]
 }
