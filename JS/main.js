@@ -913,7 +913,12 @@ $(document).ready(function () {
           hideAll();
           $("div#password-container").show();
 
-          if(selectedLanguage == "english"){
+          if(selectedLanguage == "english" || selectedLanguage == null){
+
+            selectedLanguage = "english";
+            fetchJson();
+            setProductDetails();
+
             document.getElementById("passcodetitle").textContent = eng_li[36];
             document.getElementById("passcodetitle").style.fontFamily = "bambino_newblack";
 
@@ -1217,7 +1222,7 @@ $(document).ready(function () {
           ipc_state = STATE_PORDUCT_SELECTION;
           fetchJson();
           setProductDetails();
-          // hideAll();
+          hideAll();
           console.log(eng_li);
 
           document.getElementById("divFillingAmount").textContent = parseInt("100", 10).toString() + " ml";
@@ -1274,7 +1279,7 @@ $(document).ready(function () {
           ipc_state = STATE_PORDUCT_SELECTION;
           fetchJson();
           setProductDetails();
-          // hideAll();
+          hideAll();
           console.log(arb_li);
           // Page 1
 
