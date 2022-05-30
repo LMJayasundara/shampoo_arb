@@ -7,8 +7,8 @@ const download = require("download");
 const serialport = require("serialport");
 const cors = require("cors");
 const http = require("http");
-var wifi = require("node-wifi");
-// var Wifi = require('rpi-wifi-connection');
+// var wifi = require("node-wifi");
+var Wifi = require('rpi-wifi-connection');
 const async = require("asyncawait/async");
 const await = require("asyncawait/await");
 const { checkNetworkStatus } = require('check-network-status');
@@ -18,9 +18,9 @@ var app = express();
 const {callSyncAllApi, callKegApi, callTransactionApi, callSaveKegDetailsApi} = require('./Request')
 var sha1 = require('sha1');
 const { connect } = require("http2");
-// const { Gpio } = require('onoff');
-// const { createCanvas, loadImage } = require("canvas");
-// const shell = require('shelljs');
+const { Gpio } = require('onoff');
+const { createCanvas, loadImage } = require("canvas");
+const shell = require('shelljs');
 
 var productDataList = [];
 var printerStatus = 0;
@@ -103,101 +103,101 @@ function convertToArbNumber(numericText) {
 
 ///////////////////////////////////////////////////////////////
 
-// const Readline = serialport.parsers.Readline;
-// const parser1 = new Readline();
+const Readline = serialport.parsers.Readline;
+const parser1 = new Readline();
 
-// const gpio18 = new Gpio('18', 'out');
-// const gpio21 = new Gpio('21', 'out');
-// gpio18.writeSync(0);
-// gpio21.writeSync(0);
+const gpio18 = new Gpio('18', 'out');
+const gpio21 = new Gpio('21', 'out');
+gpio18.writeSync(0);
+gpio21.writeSync(0);
 
-// var port1 = new serialport('/dev/ttyAMA0', {
-// 	baudRate: 9600,
-// 	dataBits: 8,
-// 	parity: 'none',
-// 	stopBits: 1,
-// 	flowControl: false
-// });
+var port1 = new serialport('/dev/ttyAMA0', {
+	baudRate: 9600,
+	dataBits: 8,
+	parity: 'none',
+	stopBits: 1,
+	flowControl: false
+});
 
-// port1.pipe(parser1);
-// port1.on('open', onPort1Open);
-// parser1.on('data', onData1);
-// port1.on('error', onError1);
-// port1.on('close', onClose1);
+port1.pipe(parser1);
+port1.on('open', onPort1Open);
+parser1.on('data', onData1);
+port1.on('error', onError1);
+port1.on('close', onClose1);
 
-// // var main_function = setInterval(main, 299);
+// var main_function = setInterval(main, 299);
 
-// function onPort1Open() {
-// 	console.log("port 1 open");
-// }
+function onPort1Open() {
+	console.log("port 1 open");
+}
 
-// function chk_junk(val){
-//   // console.log("Incoming data :", val);
-//   let isnum = /^\d+$/.test(val);
-//   console.log(isnum);
+function chk_junk(val){
+  // console.log("Incoming data :", val);
+  let isnum = /^\d+$/.test(val);
+  console.log(isnum);
 
-//   if (isnum == true){
-//     serialDataReceived = "#"+val;
-//     console.log("port 1 Recived : " + serialDataReceived);
-//     main();
-//   }
-//   else {
-//     console.log('Junk data');
-//   }
+  if (isnum == true){
+    serialDataReceived = "#"+val;
+    console.log("port 1 Recived : " + serialDataReceived);
+    main();
+  }
+  else {
+    console.log('Junk data');
+  }
 
-// }
+}
 
-// function onData1(data) {
-//   console.log("------------------ Data from machine ------------------ :", data);
-//   if(data.includes("#")){
-//     var data2 = data.split("#");
-//     // serialDataReceived = data2[1];
-//     // serialDataReceived = (data2[1].match(/.{1,11}/g))[0];
+function onData1(data) {
+  console.log("------------------ Data from machine ------------------ :", data);
+  if(data.includes("#")){
+    var data2 = data.split("#");
+    // serialDataReceived = data2[1];
+    // serialDataReceived = (data2[1].match(/.{1,11}/g))[0];
 
-//     var val = (data2[1].match(/.{1,11}/g))[0];
-//     chk_junk(val);
-//     // console.log("port 1 Recived : " + serialDataReceived);
-//   }
-// }
+    var val = (data2[1].match(/.{1,11}/g))[0];
+    chk_junk(val);
+    // console.log("port 1 Recived : " + serialDataReceived);
+  }
+}
 
-// function onClose1() {
-// 	console.log("port 1 closed");
-// }
+function onClose1() {
+	console.log("port 1 closed");
+}
 
-// function onError1() {
-// 	console.log("somethings wrong in port 1");
-// }
-
-// // async function main() {
-// //   gpio18.writeSync(1);
-// // 	await sleep(11); //10
-// // 	sendSerial1(serialDataSend);
-// // 	console.log("serial data send :"+serialDataSend);
-// // 	await sleep(119); // 100
-// //
-// //   gpio18.writeSync(0);
-// // 	await sleep(11); //20
-// // }
+function onError1() {
+	console.log("somethings wrong in port 1");
+}
 
 // async function main() {
 //   gpio18.writeSync(1);
-// 	await sleep(20);
+// 	await sleep(11); //10
 // 	sendSerial1(serialDataSend);
 // 	console.log("serial data send :"+serialDataSend);
-//   await sleep(20);
+// 	await sleep(119); // 100
+//
 //   gpio18.writeSync(0);
-// 	await sleep(20); //20
+// 	await sleep(11); //20
 // }
 
-// function sleep(ms) {
-// 	return new Promise(resolve => {
-// 		setTimeout(resolve, ms)
-// 	})
-// }
+async function main() {
+  gpio18.writeSync(1);
+	await sleep(20);
+	sendSerial1(serialDataSend);
+	console.log("serial data send :"+serialDataSend);
+  await sleep(20);
+  gpio18.writeSync(0);
+	await sleep(20); //20
+}
 
-// function sendSerial1(datax) {
-// 	port1.write(datax+"\n");
-// }
+function sleep(ms) {
+	return new Promise(resolve => {
+		setTimeout(resolve, ms)
+	})
+}
+
+function sendSerial1(datax) {
+	port1.write(datax+"\n");
+}
 
 ///////////////////////////////////////////////////////////////
 
@@ -206,12 +206,12 @@ var server = http.createServer(app).listen(app.get("port"), function () {
 });
 
 // node
-wifi.init({
-  iface: null, // network interface, choose a random wifi interface if set to null
-});
+// wifi.init({
+//   iface: null, // network interface, choose a random wifi interface if set to null
+// });
 
 // pi
-// var wifi = new Wifi();
+var wifi = new Wifi();
 
 //socket stuff
 var io = require("socket.io").listen(server);
@@ -268,32 +268,32 @@ io.sockets.on("connection", function (socket) {
 
   socket.on("IS_WIFI_ON", function (data) {
     // node
-    checkNetworkStatus({
-      timeout: 3000,
-      url: 'https://google.com'
-    }).then(value => {
-      socket.emit("IS_WIFI_ON", {value, data})
-    });
+    // checkNetworkStatus({
+    //   timeout: 3000,
+    //   url: 'https://google.com'
+    // }).then(value => {
+    //   socket.emit("IS_WIFI_ON", {value, data})
+    // });
 
     // // pi
-    // wifi.getState().then((connected) => {
-    //   if(connected) {
-    //     console.log("CONNECTION");
-    //     console.log(connected);
-    //     var object = {value: true, data: data};
-    //     socket.emit("IS_WIFI_ON", object);
-    //   } else {
-    //     console.log("NOT CONNECTION");
-    //     var object = {value: false, data: data};
-    //     socket.emit("IS_WIFI_ON", object);
-    //   }
+    wifi.getState().then((connected) => {
+      if(connected) {
+        console.log("CONNECTION");
+        console.log(connected);
+        var object = {value: true, data: data};
+        socket.emit("IS_WIFI_ON", object);
+      } else {
+        console.log("NOT CONNECTION");
+        var object = {value: false, data: data};
+        socket.emit("IS_WIFI_ON", object);
+      }
      
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    //   var object = {value: false, data: data};
-    //   socket.emit("IS_WIFI_ON", object);
-    // });
+    })
+    .catch((error) => {
+      console.log(error);
+      var object = {value: false, data: data};
+      socket.emit("IS_WIFI_ON", object);
+    });
   });
 
   function setMachineIDandToken() {
@@ -437,27 +437,27 @@ io.sockets.on("connection", function (socket) {
     console.log("connecting.....");
 
     // node
-    wifi.connect({ ssid: ssid, password: pass }, function (err) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Connected");
-        isSuccess = true;
-      }
-      console.log("okkkkkkkk" + isSuccess);
-      socket.emit("WIFI_CONNECT", isSuccess);
-    });
-
-    // // pi
-    // wifi.connect({ssid:ssid, psk:pass}).then(() => {
-    //   isSuccess = true
+    // wifi.connect({ ssid: ssid, password: pass }, function (err) {
+    //   if (err) {
+    //     console.log(err);
+    //   } else {
+    //     console.log("Connected");
+    //     isSuccess = true;
+    //   }
     //   console.log("okkkkkkkk" + isSuccess);
     //   socket.emit("WIFI_CONNECT", isSuccess);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     socket.emit("WIFI_CONNECT", false);
-    //   });
+    // });
+
+    // pi
+    wifi.connect({ssid:ssid, psk:pass}).then(() => {
+      isSuccess = true
+      console.log("okkkkkkkk" + isSuccess);
+      socket.emit("WIFI_CONNECT", isSuccess);
+      })
+      .catch((error) => {
+        console.log(error);
+        socket.emit("WIFI_CONNECT", false);
+      });
       console.log("data received" + data);
     });
 
@@ -498,24 +498,24 @@ io.sockets.on("connection", function (socket) {
     }
 
     const arbTxt = {
-      title1: "إعادة التعبئة تاريخ:",
+      title1: "تاريخ التعبئة:",
     	title2: "يفضل استخدامه خلال:",
       title3: "وقت: ",
       title4: "المنتج: ",
       title5: "مقدار: ",
       title6: "السعر: ",
       title7: "رقم الحزمة: ",
-      sub1: "تاريخ الشراء",
-      sub2: "٤ شهور من",
+      sub1: "٤ أشهر من",
+      sub2: "تاريخ التعبئة",
       sar: "ر.س",
       li: "إل",
       productName: "زيت الذرة",
       ins1: "يُنصح المستخدمون بالحفاظ على نظافة",
       ins2: "هذه العبوّة القابلة لإعادة التعبئة",
-      ins3: ".لضمان الصلاحية الأمثل للمنتج",
+      ins3: "لضمان الصلاحية الأمثل للمنتج.",
       ins4: "تعليمات الغسيل: اغسل العبوّة والغطاء تحت الماء",
       ins5: "الجاري النظيف ٣ مرات على الأقل وجففه جيدًا",
-      ins6: ".مع ضمان عدم ترك أي بقايا من الماء في العبوّة",
+      ins6: "مع ضمان عدم ترك أي بقايا من الماء في العبوّة.",
 
     }
 
@@ -531,7 +531,7 @@ io.sockets.on("connection", function (socket) {
     // 170 is the y (the top of the line of text)
 
     if(slang == "english"){
-      context.font = "14pt 'PT Sans'";
+      context.font = "bold 14pt 'PT Sans'";
       context.textAlign = "right";
       context.fillStyle = "black";
 
@@ -552,7 +552,7 @@ io.sockets.on("connection", function (socket) {
       context.fillText(productPrice + " SAR", 400, 180);
       context.fillText(batchCode, 400, 210);
 
-      context.font = "9pt 'PT Sans'";
+      context.font = "bold 9pt 'PT Sans'";
       context.fillText("USERS ARE ADVICED TO MAINTAIN HYGIENE OF THIS", 400, 250);
       context.fillText("REFILLABLE CONTAINER, TO ENSURE OPTIMUM SHELF", 400, 265);
       context.fillText("LIFE OF THE PRODUCT.", 320, 280);
@@ -564,7 +564,7 @@ io.sockets.on("connection", function (socket) {
 
     }
     if(slang == "arabic"){
-      context.font = "16pt 'PT Sans'";
+      context.font = "bold 16pt 'PT Sans'";
       context.textAlign = "left";
       context.fillStyle = "black";
 
@@ -586,7 +586,7 @@ io.sockets.on("connection", function (socket) {
       context.fillText(convertToArbNumber(productPrice) + arbTxt.sar, 80, 190);
       context.fillText(convertToArbNumber(batchCode), 80, 220);
 
-      context.font = "13pt 'PT Sans'";
+      context.font = "bold 13pt 'PT Sans'";
       context.fillText(arbTxt.ins1, 100, 260);
       context.fillText(arbTxt.ins2, 120, 275);
       context.fillText(arbTxt.ins3, 130, 290);
@@ -601,8 +601,6 @@ io.sockets.on("connection", function (socket) {
     shell.exec("convert /home/pi/Documents/shampoo/Demo/image.png -depth 1 -type bilevel BMP3:/home/pi/Documents/shampoo/Demo/out.bmp");
 
     ///////////////////////////////////////////
-
-
 
     printTicket(
       "PRINTER,print," +
@@ -700,7 +698,7 @@ function writeLogFile(data) {
 }
 
 function printerStatusReturn(data) {
-  data = 0
+  // data = 0
   console.log("printer status returend" + data);
   console.log("previous " + previousPrinterStatus);
   console.log("latest " + printerStatus);

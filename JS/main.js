@@ -1222,7 +1222,7 @@ $(document).ready(function () {
           ipc_state = STATE_PORDUCT_SELECTION;
           fetchJson();
           setProductDetails();
-          hideAll();
+          // hideAll();
           console.log(eng_li);
 
           document.getElementById("divFillingAmount").textContent = parseInt("100", 10).toString() + " ml";
@@ -1279,7 +1279,7 @@ $(document).ready(function () {
           ipc_state = STATE_PORDUCT_SELECTION;
           fetchJson();
           setProductDetails();
-          hideAll();
+          // hideAll();
           console.log(arb_li);
           // Page 1
 
@@ -1533,7 +1533,7 @@ function selectProduct(id) {
       if (selectedLanguage == "arabic"){
         // idProductVolumeSave.innerHTML = arb_li[7];
         idProductVolumeSave1.innerHTML = "عافية";
-        idProductVolumeSave2.innerHTML = "بزيت الذرة";
+        idProductVolumeSave2.innerHTML = "زيت الذرة";
         document.getElementById("idProductVolumeSave1").style.fontFamily = "ElMessiri-SemiBold";
         document.getElementById("idProductVolumeSave2").style.fontFamily = "ElMessiri-SemiBold";
         productScreenLogo.innerHTML = arb_li[12] + " "+ arb_li[13] + " " + arb_li[14];
