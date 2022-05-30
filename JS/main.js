@@ -2368,6 +2368,7 @@ function confirmation(id) {
         plastic: plastic,
         belowCode: belowCode,
         batchCode: selectedBatchCode,
+        lang: selectedLanguage,
       };
       console.log(obj);
       socket.emit("PRINT_TICKET", obj);

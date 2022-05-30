@@ -477,6 +477,7 @@ io.sockets.on("connection", function (socket) {
     var plastic = data["plastic"];
     var belowCode = data["belowCode"];
     var batchCode = data["batchCode"];
+    var slang = data["lang"];
     // console.log(data);
 
     ///////////////////////////////////////////
