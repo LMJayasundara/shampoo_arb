@@ -830,7 +830,7 @@ $(document).ready(function () {
 
       $("#btnViewDetails").on("click", function (evt) {
         setTimeout(function () {
-          
+
           $("div#divAlertLayerSettings").hide();
           hideAllOptions();
           clearAllDebugValues();
@@ -1171,7 +1171,7 @@ $(document).ready(function () {
             boxes8.forEach(box => {
               box.style.left = "-67%";
             });
-            
+
           }
 
         }, 100);
@@ -1283,7 +1283,7 @@ $(document).ready(function () {
           console.log(arb_li);
           // Page 1
 
-          document.getElementById("divFillingAmount").textContent =  convertToArbNumber(parseInt("100", 10)).toString()+ " مل"; 
+          document.getElementById("divFillingAmount").textContent =  convertToArbNumber(parseInt("100", 10)).toString()+ " مل";
 
           document.getElementById("page1maintitle").textContent = arb_li[0];
           document.getElementById("page1maintitle").style.fontFamily = "ElMessiri-Bold";
@@ -1451,7 +1451,7 @@ function numClick(num) {
 }
 
 function onKeyUpBarcodeHidden(){
-  clearTimeout(barcodeTimer); 
+  clearTimeout(barcodeTimer);
   document.getElementById('txtBarcodeID').value = barcodeInputHidden.value;
   barcodeTimer = setTimeout(doStuff, 1000)
 }
@@ -1539,7 +1539,7 @@ function selectProduct(id) {
         productScreenLogo.innerHTML = arb_li[12] + " "+ arb_li[13] + " " + arb_li[14];
         document.getElementById("productScreenLogo").style.fontFamily = "ElMessiri-SemiBold";
       }
-      
+
 
       volumeList = productVolumes.split("/");
       actualVolumeCount = volumeList.length;
@@ -1622,7 +1622,7 @@ function showKegDetailsFromResponse(response) {
     idbatchNoAPI.innerHTML = convertToArbNumber(detailsList[9]);
     idbatchNoAPI.style.fontFamily = "ElMessiri-SemiBold";
   }
-  
+
 
   hideAll();
   $("div#barcode-data-view-container").show();
@@ -1756,7 +1756,7 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
         document.getElementById("vol3product1Detail1").style.fontFamily = "bambino_newbold";
         vol6product1Detail1.innerHTML = productVolumes[0]/1000 + " L";
         document.getElementById("vol6product1Detail1").style.fontFamily = "bambino_newbold";
-        
+
       }
       else{
         vol2product1Detail1.innerHTML = productVolumes[0] + " ml";
@@ -1765,7 +1765,7 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
         document.getElementById("vol3product1Detail1").style.fontFamily = "bambino_newbold";
         vol6product1Detail1.innerHTML = productVolumes[0] + " ml";
         document.getElementById("vol6product1Detail1").style.fontFamily = "bambino_newbold";
-        
+
       }
 
       if (productDiscounts[0] == "0") {
@@ -1827,7 +1827,7 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
       }
     }
 
-    
+
   }
 
   if (productVolumes[1] != undefined) {
@@ -1856,7 +1856,7 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
         vol6product2Detail1.innerHTML = productVolumes[1] + " ml";
         document.getElementById("vol6product2Detail1").style.fontFamily = "bambino_newbold";
       }
-      
+
       if (productDiscounts[1] == "0") {
         vol2product2Detail3.style.display = "none";
         vol3product2Detail3.style.display = "none";
@@ -1898,7 +1898,7 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
         vol6product2Detail1.innerHTML = convertToArbNumber(productVolumes[1]) + " " + arb_li[18];
         document.getElementById("vol6product2Detail1").style.fontFamily = "ElMessiri-Bold";
       }
-      
+
       if (productDiscounts[1] == "0") {
         vol2product2Detail3.style.display = "none";
         vol3product2Detail3.style.display = "none";
@@ -1915,7 +1915,7 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
         document.getElementById("vol6product2Detail3").style.fontFamily = "ElMessiri-Bold";
       }
     }
-  
+
   }
 
   if (productVolumes[2] != undefined) {
@@ -1925,13 +1925,13 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
       document.getElementById("vol3product3Detail2").style.fontFamily = "bambino_newsemibold";
       vol6product3Detail2.innerHTML = productPrices[2] + " SAR";
       document.getElementById("vol6product3Detail2").style.fontFamily = "bambino_newsemibold";
-  
+
       if (productVolumes[2] >= 1000){
         vol3product3Detail1.innerHTML = productVolumes[2]/1000 + " L";
         document.getElementById("vol3product3Detail1").style.fontFamily = "bambino_newbold";
         vol6product3Detail1.innerHTML = productVolumes[2]/1000 + " L";
         document.getElementById("vol6product3Detail1").style.fontFamily = "bambino_newbold";
-        
+
       }
       else{
         vol3product3Detail1.innerHTML = productVolumes[2] + " ml";
@@ -1939,7 +1939,7 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
         vol6product3Detail1.innerHTML = productVolumes[2] + " ml";
         document.getElementById("vol6product3Detail1").style.fontFamily = "bambino_newbold";
       }
-  
+
       if (productDiscounts[2] == "0") {
         vol3product3Detail3.style.display = "none";
         vol6product3Detail3.style.display = "none";
@@ -1957,13 +1957,13 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
       document.getElementById("vol3product3Detail2").style.fontFamily = "ElMessiri-SemiBold";
       vol6product3Detail2.innerHTML = arb_li[9] + " " + convertToArbNumber(productPrices[2]);
       document.getElementById("vol6product3Detail2").style.fontFamily = "ElMessiri-SemiBold";
-  
+
       if (productVolumes[2] >= 1000){
         vol3product3Detail1.innerHTML = arb_li[17] + " " + convertToArbNumber(productVolumes[2]/1000);
         document.getElementById("vol3product3Detail1").style.fontFamily = "ElMessiri-Bold";
         vol6product3Detail1.innerHTML = arb_li[17] + " " + convertToArbNumber(productVolumes[2]/1000);
         document.getElementById("vol6product3Detail1").style.fontFamily = "ElMessiri-Bold";
-        
+
       }
       else{
         vol3product3Detail1.innerHTML = arb_li[18] + " " + convertToArbNumber(productVolumes[2]);
@@ -1971,7 +1971,7 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
         vol6product3Detail1.innerHTML = arb_li[18] + " " + convertToArbNumber(productVolumes[2]);
         document.getElementById("vol6product3Detail1").style.fontFamily = "ElMessiri-Bold";
       }
-  
+
       if (productDiscounts[2] == "0") {
         vol3product3Detail3.style.display = "none";
         vol6product3Detail3.style.display = "none";
@@ -1983,7 +1983,7 @@ function setVolumeData(productVolumes, productPrices, productDiscounts) {
         vol6product3Detail3.innerHTML = arb_li[16] + "<br>" + convertToArbNumber(productDiscounts[2]) + " " + arb_li[9];
         document.getElementById("vol6product3Detail3").style.fontFamily = "ElMessiri-Bold";
       }
-    }    
+    }
   }
 
   if (productVolumes[3] != undefined) {
@@ -2210,10 +2210,10 @@ function setDataInPrintNotificationUI() {
       divConfirmedVolume.innerHTML = convertToArbNumber(selectedVolume) + " " + arb_li[18];
     }
   }
-  
-  
-  
-  
+
+
+
+
 }
 
 function onClickTxtBarcode() {
@@ -2238,7 +2238,7 @@ function goBack(id) {
     } else if (id == "btnBackOutPaper") {
       ipc_state = STATE_IDLE;
       $("div#tapToStart-container").show();
-    } 
+    }
     else if (id == "btnBackSelectVolume1") {
       isProductSelected = false;
       ipc_state = STATE_PORDUCT_SELECTION;
@@ -2249,7 +2249,7 @@ function goBack(id) {
       ipc_state = STATE_PORDUCT_SELECTION;
       $("div#selectProduct-container").show();
     }
-    
+
     else if (id == "btnBackPrintNotification") {
       $("div#selectVolume-container").show();
     } else if (id == "btnBackSettings") {
@@ -2293,7 +2293,7 @@ function confirmation(id) {
   console.log(id);
   if (id == "btnDecline") {
     btnDeclineImage.src = "images/bg-selected.png";
-  } 
+  }
   else if (id == "btnConfirm") {
     btnConfirmImage.src = "images/bg-selected.png";
   }
@@ -2902,7 +2902,7 @@ if(productCount != 0) {
   setDebugOptions();
   console.log("read done");
 }
-  
+
 }
 
 function setDebugOptions() {
@@ -2979,7 +2979,7 @@ function setProductDetails() {
     //no4imgProduct1Image1.src = "images/vim.png"
     console.log(productList[0]);
     no4product1Detail1.innerHTML = productList[0].productName;
-    
+
 
     if (selectedLanguage == "english"){
       no4product1Detail2.innerHTML =
@@ -3522,7 +3522,7 @@ function showSelectedProductData() {
         idDiscount1.style.fontFamily = "ElMessiri-SemiBold";
         idDiscount1.value = convertToArbNumber(productDiscounts.split("/")[0]) + " ر.س";
       }
-      
+
     }
     if (productVolumes.split("/")[1] != undefined) {
       if(selectedLanguage == 'english'){
@@ -3545,7 +3545,7 @@ function showSelectedProductData() {
         idDiscount2.style.fontFamily = "ElMessiri-SemiBold";
         idDiscount2.value = convertToArbNumber(productDiscounts.split("/")[1]) + " ر.س";
       }
-      
+
     }
 
     if (productVolumes.split("/")[2] != undefined) {
@@ -3569,7 +3569,7 @@ function showSelectedProductData() {
         idDiscount3.style.fontFamily = "ElMessiri-SemiBold";
         idDiscount3.value = convertToArbNumber(productDiscounts.split("/")[2]) + " ر.س";
       }
-      
+
     }
 
     if (productVolumes.split("/")[3] != undefined) {
@@ -3619,7 +3619,7 @@ function showSelectedProductData() {
       divExpireDate.style.fontFamily = "ElMessiri-SemiBold";
       divExpireDate.value = convertToArbNumber(productEXD);
     }
-    
+
   }
 }
 function clearAllDebugValues() {
@@ -4293,7 +4293,7 @@ function stopFilling() {
       $("div#thankYou-container-arb").show();
     }
     redirectTimer(3);
-    
+
   }
 }
 

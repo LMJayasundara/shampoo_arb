@@ -287,7 +287,7 @@ io.sockets.on("connection", function (socket) {
         var object = {value: false, data: data};
         socket.emit("IS_WIFI_ON", object);
       }
-     
+
     })
     .catch((error) => {
       console.log(error);
@@ -365,13 +365,13 @@ io.sockets.on("connection", function (socket) {
           product.batch_code +
           "," +
           product.nozzle_id;
-  
+
       var obj = {
         fileName: product.nozzle_id,
         fileData: fileData,
       };
     return obj;
-  
+
  }
 
   socket.on("SYNC_ALL_DETAILS", function (param) {
@@ -391,7 +391,7 @@ io.sockets.on("connection", function (socket) {
         io.sockets.emit("SYNC_ALL_DETAILS", false);
       }
     });
-    
+
   });
 
   socket.on("SYNC_KEG_DETAILS", function (barcodeID) {
@@ -423,7 +423,7 @@ io.sockets.on("connection", function (socket) {
   socket.on("FROM_WEB_TO_BARCODE", function (data) {
 	  io.sockets.emit("TO_BARCODE", data);
   });
-  
+
    socket.on("FROM_BARCODE", function (data) {
     //  console.log("BARCODE DATAAAAAAAAAAAAAAAAAAAA")
      console.log(data);
@@ -545,7 +545,7 @@ io.sockets.on("connection", function (socket) {
       context.fillText(engTxt.title7, 210, 210);
 
       context.fillText(date, 400, 30);
-      context.fillText("4 months from refill", 400, 60);
+      // context.fillText("4 months from refill", 400, 60);
       // context.fillText("from refill date", 400, 90);
       context.fillText(time, 400, 90);
       context.fillText(productName, 400, 120);
@@ -553,48 +553,58 @@ io.sockets.on("connection", function (socket) {
       context.fillText(productPrice + " SAR", 400, 180);
       context.fillText(batchCode, 400, 210);
 
-      context.font = "bold 9pt 'PT Sans'";
-      context.fillText("USERS ARE ADVICED TO MAINTAIN HYGIENE OF THIS", 400, 250);
-      context.fillText("REFILLABLE CONTAINER, TO ENSURE OPTIMUM SHELF", 400, 265);
-      context.fillText("LIFE OF THE PRODUCT.", 320, 280);
+      context.font = "bold 12pt 'PT Sans'";
+      context.fillText("4 months from refill", 400, 60);
 
-      context.fillText("WASHING INSTRUCTIONS: WASH THE BOTTLE", 380, 300);
-      context.fillText("AND LID UNDER CLEAN RUNNING WATER AT ", 380, 315);
-      context.fillText("LEAST 3 TIMES AND DRY THOROUGHLY ENSURING ", 400, 330);
-      context.fillText("NO RESIDUE OF WATER IS LEFT IN THE BOTTLE. ", 400, 345);
+      context.font = "bold 9pt 'PT Sans'";
+      context.textAlign = "center";
+      context.fillText("USERS ARE ADVICED TO MAINTAIN HYGIENE OF THIS", 245, 250);
+      context.fillText("REFILLABLE CONTAINER, TO ENSURE OPTIMUM SHELF", 245, 265);
+      context.fillText("LIFE OF THE PRODUCT.", 245, 280);
+
+      context.fillText("WASHING INSTRUCTIONS: WASH THE BOTTLE", 245, 300);
+      context.fillText("AND LID UNDER CLEAN RUNNING WATER AT ", 245, 315);
+      context.fillText("LEAST 3 TIMES AND DRY THOROUGHLY ENSURING ", 245, 330);
+      context.fillText("NO RESIDUE OF WATER IS LEFT IN THE BOTTLE. ", 245, 345);
 
     }
     if(slang == "arabic"){
-      context.font = "bold 16pt 'PT Sans'";
+      context.font = "bold 14pt 'PT Sans'";
       context.textAlign = "left";
       context.fillStyle = "black";
 
-      context.fillText(arbTxt.title1, 240, 30);
-      context.fillText(arbTxt.title2, 240, 60);
-      context.fillText(arbTxt.title3, 240, 100);
-      context.fillText(arbTxt.title4, 240, 130);
-      context.fillText(arbTxt.title5, 240, 160);
-      context.fillText(arbTxt.title6, 240, 190);
-      context.fillText(arbTxt.title7, 240, 220);
+      context.fillText(arbTxt.title1, 230, 30);
+      // context.fillText(arbTxt.title2, 240, 60);
+      context.fillText(arbTxt.title3, 225, 100);
+      context.fillText(arbTxt.title4, 225, 135);
+      context.fillText(arbTxt.title5, 225, 165);
+      context.fillText(arbTxt.title6, 225, 195);
+      context.fillText(arbTxt.title7, 225, 225);
 
       let arb_date = new Intl.DateTimeFormat('ar-EG', {day: 'numeric', month: 'numeric',year : 'numeric'}).format((new Date(date)).getTime());
       context.fillText(arb_date, 80, 30);
-      context.fillText(arbTxt.sub1, 80, 60);
-      context.fillText(arbTxt.sub2, 80, 80);
-      context.fillText(convertToArbNumber(time), 80, 100);
-      context.fillText(arbTxt.productName, 80, 130);
-      context.fillText(convertToArbNumber(productQuantity/1000) + arbTxt.li, 80, 160);
-      context.fillText(convertToArbNumber(productPrice) + arbTxt.sar, 80, 190);
-      context.fillText(convertToArbNumber(batchCode), 80, 220);
+      // context.fillText(arbTxt.sub1, 80, 60);
+      // context.fillText(arbTxt.sub2, 80, 80);
+      context.fillText(convertToArbNumber(time), 80, 105);
+      context.fillText(arbTxt.productName, 80, 135);
+      context.fillText(convertToArbNumber(productQuantity/1000) + arbTxt.li, 80, 165);
+      context.fillText(convertToArbNumber(productPrice) + arbTxt.sar, 80, 195);
+      context.fillText(convertToArbNumber(batchCode), 80, 225);
 
       context.font = "bold 13pt 'PT Sans'";
-      context.fillText(arbTxt.ins1, 100, 260);
-      context.fillText(arbTxt.ins2, 120, 275);
-      context.fillText(arbTxt.ins3, 130, 290);
+      context.fillText(arbTxt.title2, 230, 60);
+      context.fillText(arbTxt.sub1, 80, 60);
+      context.fillText(arbTxt.sub2, 80, 80);
 
-      context.fillText(arbTxt.ins4, 70, 320);
-      context.fillText(arbTxt.ins5, 80, 335);
-      context.fillText(arbTxt.ins6, 75, 350);
+      context.textAlign = "center";
+      context.fillText(arbTxt.ins1, 245, 260);
+      context.fillText(arbTxt.ins2, 245, 275);
+      context.fillText(arbTxt.ins3, 245, 290);
+
+      context.font = "bold 11pt 'PT Sans'";
+      context.fillText(arbTxt.ins4, 245, 320);
+      context.fillText(arbTxt.ins5, 245, 335);
+      context.fillText(arbTxt.ins6, 245, 350);
     }
 
     const buffer = canvas.toBuffer("image/png");
@@ -763,7 +773,7 @@ function readAll() {
       };
       productDataList.push(obj);
     });
-    
+
   } catch (err) {
     console.log("File error");
   }
