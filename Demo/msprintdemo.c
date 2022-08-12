@@ -181,8 +181,8 @@ int main(int argc,char** argv)
 				// PrintFeedDot(5);
 				// SetBold(0);
 				SetAlignment(1);
-				SetLeftmargin(50);
-				Print1Dbar(3,60,0,0,10,argv[7]);
+				SetLeftmargin(48);
+				Print1Dbar(2,50,0,0,10,argv[7]);
 				// SetAlignment(0);
 				// SetLeftmargin(68);
 				// PrintDiskbmpfile("/home/pi/Documents/shampoo/Demo/out.bmp");

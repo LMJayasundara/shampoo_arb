@@ -2355,7 +2355,7 @@ function confirmation(id) {
       //   belowCode = "H___H___E___0___1___7___5";
       // }
 
-      barcode = "VIMAB";
+      barcode = "COR_1500";
       plastic = "40";
       belowCode = "H___H___E___0___1___7___5";
 

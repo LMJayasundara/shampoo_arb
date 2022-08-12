@@ -468,7 +468,14 @@ io.sockets.on("connection", function (socket) {
 
   socket.on("PRINT_TICKET", function (data) {
 
-    var date = data["date"].split(" ")[0];
+    // var date = data["date"].split(" ")[0];
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    var date = dd + '-' + mm + '-' + yyyy;
+
     var time = data["date"].split(" ")[1];
     var productName = data["productName"];
     var productPrice = data["price"];
@@ -485,31 +492,32 @@ io.sockets.on("connection", function (socket) {
     const canvasTxt = require('canvas-txt').default;
 
     const width = 450;
-    const height = 380;
+    const height = 390;
 
     // Add post object with the content to render
     const engTxt = {
-      title1: "Refill Date: ",
-    	title2: "Best Before: ",
-      title3: "Time: ",
-      title4: "Variant: ",
-      title5: "Volume: ",
-      title6: "Price: ",
-      title7: "Batch No: ",
+      title1: "Refill Date",
+    	title2: "Best Before",
+      title3: "Time",
+      title4: "Variant",
+      title5: "Volume",
+      title6: "Price",
+      title7: "Batch No",
     }
 
     const arbTxt = {
-      title1: "تاريخ التعبئة:",
-    	title2: "يفضل استخدامه خلال:",
-      title3: "وقت: ",
-      title4: "المنتج: ",
-      title5: "مقدار: ",
-      title6: "السعر: ",
-      title7: "رقم الحزمة: ",
+      title1: "تاريخ التعبئة",
+    	title2: "يفضل استخدامه خلال",
+      title3: "الوقت",
+      title4: "النوع",
+      title5: "الكمية",
+      title6: "السعر",
+      title7: "رقم الحزمة",
+
       sub1: "٤ أشهر من",
       sub2: "تاريخ التعبئة",
       sar: "ر.س",
-      li: "إل",
+      li: "ل",
       productName: "زيت الذرة",
       ins1: "يُنصح المستخدمون بالحفاظ على نظافة",
       ins2: "هذه العبوّة القابلة لإعادة التعبئة",
@@ -519,6 +527,13 @@ io.sockets.on("connection", function (socket) {
       ins6: "مع ضمان عدم ترك أي بقايا من الماء في العبوّة.",
 
     }
+
+    const fotter_eng = "Produced by Afia International Co. P.O.Box 30439, Jeddah 21477, KSA";
+    const fotter_arb1 = "إنتاج شركة عافية العالمية ص.ب. ٣٠٤٣٩، جدة ٢١٤٧٧،";
+    const fotter_arb2 = "المملكة العربية السعودية";
+    const fotter_arb3 = "يُنصح المستخدمون بالحفاظ على نظافة هذه العبوّة القابلة لإعادة";
+    const fotter_arb4 = "التعبئة لضمان الصلاحية الأمثل للمنتج.";
+    const des_arb = "٤ أشهر من تاريخ التعبئة";
 
     const canvas = createCanvas(width, height);
     const context = canvas.getContext("2d");
@@ -532,40 +547,59 @@ io.sockets.on("connection", function (socket) {
     // 170 is the y (the top of the line of text)
 
     if(slang == "english"){
-      context.font = "bold 14pt 'PT Sans'";
+      context.font = "bold 12pt 'PT Sans'";
       context.textAlign = "right";
       context.fillStyle = "black";
 
-      context.fillText(engTxt.title1, 210, 30);
-      context.fillText(engTxt.title2, 210, 60);
-      context.fillText(engTxt.title3, 210, 90);
-      context.fillText(engTxt.title4, 210, 120);
-      context.fillText(engTxt.title5, 210, 150);
-      context.fillText(engTxt.title6, 210, 180);
-      context.fillText(engTxt.title7, 210, 210);
+      context.fillText(engTxt.title1, 410, 10);
+      context.fillText(engTxt.title2, 410, 55);
+      context.fillText(engTxt.title3, 410, 100);
+      context.fillText(engTxt.title4, 410, 145);
+      context.fillText(engTxt.title5, 410, 190);
+      context.fillText(engTxt.title6, 410, 235);
+      context.fillText(engTxt.title7, 410, 280);
 
-      context.fillText(date, 400, 30);
-      // context.fillText("4 months from refill", 400, 60);
-      // context.fillText("from refill date", 400, 90);
-      context.fillText(time, 400, 90);
-      context.fillText(productName, 400, 120);
-      context.fillText(productQuantity/1000 + " L", 400, 150);
-      context.fillText(productPrice + " SAR", 400, 180);
-      context.fillText(batchCode, 400, 210);
+      context.fillText(arbTxt.title1, 410, 25);
+      context.fillText(arbTxt.title2, 410, 70);
+      context.fillText(arbTxt.title3, 410, 115);
+      context.fillText(arbTxt.title4, 410, 160);
+      context.fillText(arbTxt.title5, 410, 205);
+      context.fillText(arbTxt.title6, 410, 250);
+      context.fillText(arbTxt.title7, 410, 295);
 
-      context.font = "bold 12pt 'PT Sans'";
-      context.fillText("4 months from refill", 400, 60);
+      context.textAlign = "left";
+      context.fillText(date, 80, 10);
+      context.fillText("4 months from refill", 80, 55);
+      context.fillText(time, 80, 100);
+      context.fillText(productName, 80, 145);
+      context.fillText(productQuantity/1000 + " L", 80, 190);
+      context.fillText(productPrice + " SAR", 80, 235);
+      context.fillText(batchCode, 80, 280);
 
-      context.font = "bold 9pt 'PT Sans'";
+      context.fillText(convertToArbNumber(time), 80, 115);
+      context.fillText(arbTxt.productName, 80, 160);
+      context.fillText(convertToArbNumber(productQuantity/1000) + arbTxt.li, 80, 205);
+      context.fillText(convertToArbNumber(productPrice) + arbTxt.sar, 80, 250);
+
+      context.font = "bold 10pt 'PT Sans'";
+      context.fillText(des_arb, 80, 70);
+
+      context.font = "bold 7pt 'PT Sans'";
       context.textAlign = "center";
-      context.fillText("USERS ARE ADVICED TO MAINTAIN HYGIENE OF THIS", 245, 250);
-      context.fillText("REFILLABLE CONTAINER, TO ENSURE OPTIMUM SHELF", 245, 265);
-      context.fillText("LIFE OF THE PRODUCT.", 245, 280);
+      context.fillText("USERS ARE ADVICED TO MAINTAIN HYGIENE OF THIS REFILLABLE", 245, 310);
+      context.fillText("CONTAINER, TO ENSURE OPTIMUM SHELF LIFE OF THE PRODUCT.", 245, 320);
+      context.fillText(fotter_eng, 245, 360);
 
-      context.fillText("WASHING INSTRUCTIONS: WASH THE BOTTLE", 245, 300);
-      context.fillText("AND LID UNDER CLEAN RUNNING WATER AT ", 245, 315);
-      context.fillText("LEAST 3 TIMES AND DRY THOROUGHLY ENSURING ", 245, 330);
-      context.fillText("NO RESIDUE OF WATER IS LEFT IN THE BOTTLE. ", 245, 345);
+      context.font = "9pt 'PT Sans'";
+      context.fillText(fotter_arb1, 245, 370);
+      context.fillText(fotter_arb2, 245, 380);
+      context.fillText(fotter_arb3, 245, 330);
+      context.fillText(fotter_arb4, 245, 340);
+
+      // context.fillText("WASHING INSTRUCTIONS: WASH THE BOTTLE", 245, 300);
+      // context.fillText("AND LID UNDER CLEAN RUNNING WATER AT ", 245, 315);
+      // context.fillText("LEAST 3 TIMES AND DRY THOROUGHLY ENSURING ", 245, 330);
+      // context.fillText("NO RESIDUE OF WATER IS LEFT IN THE BOTTLE. ", 245, 345);
 
     }
     if(slang == "arabic"){
