@@ -1225,7 +1225,7 @@ $(document).ready(function () {
           // hideAll();
           console.log(eng_li);
 
-          document.getElementById("divFillingAmount").textContent = parseInt("100", 10).toString() + " ml";
+          // document.getElementById("divFillingAmount").textContent = parseInt("100", 10).toString() + " ml";
 
           document.getElementById("page1maintitle").textContent = eng_li[0];
           document.getElementById("page1maintitle").style.fontFamily = "bambino_newblack";
@@ -1283,7 +1283,7 @@ $(document).ready(function () {
           console.log(arb_li);
           // Page 1
 
-          document.getElementById("divFillingAmount").textContent =  convertToArbNumber(parseInt("100", 10)).toString()+ " مل";
+          // document.getElementById("divFillingAmount").textContent =  convertToArbNumber(parseInt("100", 10)).toString()+ " مل";
 
           document.getElementById("page1maintitle").textContent = arb_li[0];
           document.getElementById("page1maintitle").style.fontFamily = "ElMessiri-Bold";
