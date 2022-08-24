@@ -546,7 +546,7 @@ io.sockets.on("connection", function (socket) {
     // 600 is the x value (the center of the image)
     // 170 is the y (the top of the line of text)
 
-    if(slang == "english"){
+    // if(slang == "english"){
       context.font = "bold 12pt 'PT Sans'";
       context.textAlign = "right";
       context.fillStyle = "black";
@@ -601,45 +601,45 @@ io.sockets.on("connection", function (socket) {
       // context.fillText("LEAST 3 TIMES AND DRY THOROUGHLY ENSURING ", 245, 330);
       // context.fillText("NO RESIDUE OF WATER IS LEFT IN THE BOTTLE. ", 245, 345);
 
-    }
-    if(slang == "arabic"){
-      context.font = "bold 14pt 'PT Sans'";
-      context.textAlign = "left";
-      context.fillStyle = "black";
+    // }
+    // if(slang == "arabic"){
+    //   context.font = "bold 14pt 'PT Sans'";
+    //   context.textAlign = "left";
+    //   context.fillStyle = "black";
 
-      context.fillText(arbTxt.title1, 230, 30);
-      // context.fillText(arbTxt.title2, 240, 60);
-      context.fillText(arbTxt.title3, 225, 100);
-      context.fillText(arbTxt.title4, 225, 135);
-      context.fillText(arbTxt.title5, 225, 165);
-      context.fillText(arbTxt.title6, 225, 195);
-      context.fillText(arbTxt.title7, 225, 225);
+    //   context.fillText(arbTxt.title1, 230, 30);
+    //   // context.fillText(arbTxt.title2, 240, 60);
+    //   context.fillText(arbTxt.title3, 225, 100);
+    //   context.fillText(arbTxt.title4, 225, 135);
+    //   context.fillText(arbTxt.title5, 225, 165);
+    //   context.fillText(arbTxt.title6, 225, 195);
+    //   context.fillText(arbTxt.title7, 225, 225);
 
-      let arb_date = new Intl.DateTimeFormat('ar-EG', {day: 'numeric', month: 'numeric',year : 'numeric'}).format((new Date(date)).getTime());
-      context.fillText(arb_date, 80, 30);
-      // context.fillText(arbTxt.sub1, 80, 60);
-      // context.fillText(arbTxt.sub2, 80, 80);
-      context.fillText(convertToArbNumber(time), 80, 105);
-      context.fillText(arbTxt.productName, 80, 135);
-      context.fillText(convertToArbNumber(productQuantity/1000) + arbTxt.li, 80, 165);
-      context.fillText(convertToArbNumber(productPrice) + arbTxt.sar, 80, 195);
-      context.fillText(convertToArbNumber(batchCode), 80, 225);
+    //   let arb_date = new Intl.DateTimeFormat('ar-EG', {day: 'numeric', month: 'numeric',year : 'numeric'}).format(today);
+    //   context.fillText(arb_date, 80, 30);
+    //   // context.fillText(arbTxt.sub1, 80, 60);
+    //   // context.fillText(arbTxt.sub2, 80, 80);
+    //   context.fillText(convertToArbNumber(time), 80, 105);
+    //   context.fillText(arbTxt.productName, 80, 135);
+    //   context.fillText(convertToArbNumber(productQuantity/1000) + arbTxt.li, 80, 165);
+    //   context.fillText(convertToArbNumber(productPrice) + arbTxt.sar, 80, 195);
+    //   context.fillText(convertToArbNumber(batchCode), 80, 225);
 
-      context.font = "bold 13pt 'PT Sans'";
-      context.fillText(arbTxt.title2, 230, 60);
-      context.fillText(arbTxt.sub1, 80, 60);
-      context.fillText(arbTxt.sub2, 80, 80);
+    //   context.font = "bold 13pt 'PT Sans'";
+    //   context.fillText(arbTxt.title2, 230, 60);
+    //   context.fillText(arbTxt.sub1, 80, 60);
+    //   context.fillText(arbTxt.sub2, 80, 80);
 
-      context.textAlign = "center";
-      context.fillText(arbTxt.ins1, 245, 260);
-      context.fillText(arbTxt.ins2, 245, 275);
-      context.fillText(arbTxt.ins3, 245, 290);
+    //   context.textAlign = "center";
+    //   context.fillText(arbTxt.ins1, 245, 260);
+    //   context.fillText(arbTxt.ins2, 245, 275);
+    //   context.fillText(arbTxt.ins3, 245, 290);
 
-      context.font = "bold 11pt 'PT Sans'";
-      context.fillText(arbTxt.ins4, 245, 320);
-      context.fillText(arbTxt.ins5, 245, 335);
-      context.fillText(arbTxt.ins6, 245, 350);
-    }
+    //   context.font = "bold 11pt 'PT Sans'";
+    //   context.fillText(arbTxt.ins4, 245, 320);
+    //   context.fillText(arbTxt.ins5, 245, 335);
+    //   context.fillText(arbTxt.ins6, 245, 350);
+    // }
 
     const buffer = canvas.toBuffer("image/png");
     fs.writeFileSync("/home/pi/Documents/shampoo/Demo/image.png", buffer);
