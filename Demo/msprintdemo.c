@@ -182,7 +182,7 @@ int main(int argc,char** argv)
 				// SetBold(0);
 				SetAlignment(1);
 				SetLeftmargin(48);
-				Print1Dbar(2,50,0,0,10,argv[7]);
+				Print1Dbar(1,50,0,0,10,argv[7]);
 				// SetAlignment(0);
 				// SetLeftmargin(68);
 				// PrintDiskbmpfile("/home/pi/Documents/shampoo/Demo/out.bmp");

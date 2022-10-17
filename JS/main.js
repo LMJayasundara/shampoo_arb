@@ -1240,8 +1240,11 @@ $(document).ready(function () {
           document.getElementById("page6maintitle").textContent = eng_li[5];
           document.getElementById("page6maintitle").style.fontFamily = "bambino_newblack";
 
-          document.getElementById("no4product1Detail1").textContent = eng_li[7];
+          document.getElementById("no4product1Detail1").textContent = eng_li[70];
+          document.getElementById("no4product2Detail1").textContent = eng_li[71];
           document.getElementById("no4product1Detail1").style.fontFamily = "bambino_newbold";
+          document.getElementById("no4product2Detail1").style.fontFamily = "bambino_newbold";
+
 
           document.getElementById("bckbtnlangid").textContent = eng_li[10];
           document.getElementById("bckbtnlangid").style.fontFamily = "bambino_newbold";
@@ -1298,8 +1301,10 @@ $(document).ready(function () {
           document.getElementById("page6maintitle").textContent = arb_li[5];
           document.getElementById("page6maintitle").style.fontFamily = "ElMessiri-Bold";
 
-          document.getElementById("no4product1Detail1").textContent = arb_li[7];
+          document.getElementById("no4product1Detail1").textContent = arb_li[70];
+          document.getElementById("no4product2Detail1").textContent = arb_li[71];
           document.getElementById("no4product1Detail1").style.fontFamily = "ElMessiri-SemiBold";
+          document.getElementById("no4product2Detail1").style.fontFamily = "ElMessiri-SemiBold";
 
           document.getElementById("bckbtnlangid").textContent = arb_li[10];
           document.getElementById("bckbtnlangid").style.fontFamily = "ElMessiri-Bold";
@@ -2355,7 +2360,15 @@ function confirmation(id) {
       //   belowCode = "H___H___E___0___1___7___5";
       // }
 
-      barcode = "COR_1500";
+      // console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx: ", productId);
+
+      if (selectedProductName == "AFIA Corn Oil – New Bottle"){
+        barcode = "6281011708756";
+      }
+      else {
+        barcode = "6281011709272";
+      }
+
       plastic = "40";
       belowCode = "H___H___E___0___1___7___5";
 
@@ -4456,14 +4469,26 @@ function cipNozzleSet(nozzle, productid, name) {
       idCipName1.innerHTML = name;
       break;
     case "2":
-      enabledCIPNozzles.push(idNozzel2);
-      idNozzel2.onclick = function () {
-        onClickNozzel(2);
+      // enabledCIPNozzles.push(idNozzel2);
+      // idNozzel2.onclick = function () {
+      //   onClickNozzel(2);
+      // };
+      // idNozzel2.style.backgroundImage =
+      //   "url('images/bg-cip-button-non-select.png')";
+      // idCipImage2.src = "images/product_images/bottle" + productid + ".png";
+      // idCipName2.innerHTML = name;
+      // break;
+
+      //////////////////////////////////////////////////////////////////////////
+
+      enabledCIPNozzles.push(idNozzel1);
+      idNozzel1.onclick = function () {
+        onClickNozzel(1);
       };
-      idNozzel2.style.backgroundImage =
+      idNozzel1.style.backgroundImage =
         "url('images/bg-cip-button-non-select.png')";
-      idCipImage2.src = "images/product_images/bottle" + productid + ".png";
-      idCipName2.innerHTML = name;
+      idCipImage1.src = "images/product_images/bottle" + productid + ".png";
+      idCipName1.innerHTML = name;
       break;
     case "3":
       enabledCIPNozzles.push(idNozzel3);

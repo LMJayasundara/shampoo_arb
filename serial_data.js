@@ -228,12 +228,12 @@ io.sockets.on("connection", function (socket) {
   });
 
   // ///////////////// send eng /////////////////
-  let data_eng = fs.readFileSync('eng.json');
+  let data_eng = fs.readFileSync('./eng.json');
   let lang_eng = JSON.parse(data_eng);
   socket.emit("LANG_ENG", lang_eng);
 
   ///////////////// send ban /////////////////
-  let data_arb = fs.readFileSync('arb.json');
+  let data_arb = fs.readFileSync('./arb.json');
   // let lang_ban = JSON.parse(data_ban);
   socket.emit("LANG_ARB", data_arb);
 
