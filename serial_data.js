@@ -477,7 +477,8 @@ io.sockets.on("connection", function (socket) {
     var date = dd + '-' + mm + '-' + yyyy;
 
     var time = data["date"].split(" ")[1];
-    var productName = data["productName"];
+    // var productName = data["productName"];
+    var productName = "AFIA Corn Oil";
     var productPrice = data["price"];
     var productQuantity = data["quantity"];
     var barcode = data["barcode"];
@@ -709,6 +710,7 @@ io.sockets.on("connection", function (socket) {
   });
 
   socket.on("SERIAL_DATA", function (data) {
+    console.log("xxxxxxxxxxxxxxxxxxxxxxxx:", serialDataSend);
     serialDataSend = data;
     socket.emit("SERIAL_DATA", serialDataReceived);
   });

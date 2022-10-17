@@ -1502,7 +1502,18 @@ function selectProduct(id) {
       productVolumes = productDetail["productVolumes"];
       productPrices = productDetail["productPrices"];
       productDiscounts = productDetail["productDiscounts"];
-      selected_nozzel_number = productDetail["nozzleNumber"];
+      // selected_nozzel_number = productDetail["nozzleNumber"];
+
+      if (fileId == 0){
+        selected_nozzel_number = 1;
+      }
+      else if (fileId == 1) {
+        selected_nozzel_number = 1;
+      }
+      else {
+        selected_nozzel_number = productDetail["nozzleNumber"];
+      }
+
 
       console.log("NOZZELLLL " + selected_nozzel_number);
 
@@ -4469,26 +4480,14 @@ function cipNozzleSet(nozzle, productid, name) {
       idCipName1.innerHTML = name;
       break;
     case "2":
-      // enabledCIPNozzles.push(idNozzel2);
-      // idNozzel2.onclick = function () {
-      //   onClickNozzel(2);
-      // };
-      // idNozzel2.style.backgroundImage =
-      //   "url('images/bg-cip-button-non-select.png')";
-      // idCipImage2.src = "images/product_images/bottle" + productid + ".png";
-      // idCipName2.innerHTML = name;
-      // break;
-
-      //////////////////////////////////////////////////////////////////////////
-
-      enabledCIPNozzles.push(idNozzel1);
-      idNozzel1.onclick = function () {
-        onClickNozzel(1);
+      enabledCIPNozzles.push(idNozzel2);
+      idNozzel2.onclick = function () {
+        onClickNozzel(2);
       };
-      idNozzel1.style.backgroundImage =
+      idNozzel2.style.backgroundImage =
         "url('images/bg-cip-button-non-select.png')";
-      idCipImage1.src = "images/product_images/bottle" + productid + ".png";
-      idCipName1.innerHTML = name;
+      idCipImage2.src = "images/product_images/bottle" + productid + ".png";
+      idCipName2.innerHTML = name;
       break;
     case "3":
       enabledCIPNozzles.push(idNozzel3);
